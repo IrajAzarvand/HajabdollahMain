@@ -1,394 +1,449 @@
 {{--<!-- Start Slider Home -->--}}
 
-    <style>
-        /* reset */
-        /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */html {
-            font-family: sans-serif;
-            -ms-text-size-adjust: 100%;
-            -webkit-text-size-adjust: 100%
-        }
+<style>
+    /* reset */
+    /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%
+    }
 
-        /*body { margin: 0 }*/
+    /*body { margin: 0 }*/
 
-        article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary { display: block }
+    article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+        display: block
+    }
 
-        audio, canvas, progress, video { display: inline-block }
+    audio, canvas, progress, video {
+        display: inline-block
+    }
 
-        audio:not([controls]) {
-            display: none;
-            height: 0
-        }
+    audio:not([controls]) {
+        display: none;
+        height: 0
+    }
 
-        progress { vertical-align: baseline }
-        template, [hidden] {
-            display:none
-        }
+    progress {
+        vertical-align: baseline
+    }
 
-        a { background-color: transparent }
+    template, [hidden] {
+        display: none
+    }
 
-        a:active, a:hover { outline-width: 0 }
+    a {
+        background-color: transparent
+    }
 
-        abbr[title] {
-            border-bottom: none;
-            text-decoration: underline;
-            text-decoration: underline dotted
-        }
+    a:active, a:hover {
+        outline-width: 0
+    }
 
-        b, strong { font-weight: inherit }
+    abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        text-decoration: underline dotted
+    }
 
-        b, strong { font-weight: bolder }
+    b, strong {
+        font-weight: inherit
+    }
 
-        dfn { font-style: italic }
+    b, strong {
+        font-weight: bolder
+    }
 
-        mark {
-            background-color: #ff0;
-            color: #000
-        }
+    dfn {
+        font-style: italic
+    }
 
-        small { font-size: 80% }
+    mark {
+        background-color: #ff0;
+        color: #000
+    }
 
-        sub, sup {
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-            vertical-align: baseline
-        }
+    small {
+        font-size: 80%
+    }
 
-        sub { bottom: -0.25em }
+    sub, sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline
+    }
 
-        sup { top: -0.5em }
+    sub {
+        bottom: -0.25em
+    }
 
-        img { border-style: none }
+    sup {
+        top: -0.5em
+    }
 
-        svg:not(:root) { overflow: hidden }
+    img {
+        border-style: none
+    }
 
-        code, kbd, pre, samp {
-            font-family: monospace, monospace;
-            font-size: 1em
-        }
+    svg:not(:root) {
+        overflow: hidden
+    }
 
-        figure { margin: 1em 40px }
+    code, kbd, pre, samp {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
 
-        hr {
-            -webkit-box-sizing: content-box;
-            -moz-box-sizing: content-box;
-            box-sizing: content-box;
-            height: 0;
-            overflow: visible
-        }
+    figure {
+        margin: 1em 40px
+    }
 
-        button, input, select, textarea {
-            font: inherit;
-            margin: 0
-        }
+    hr {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible
+    }
 
-        optgroup { font-weight: bold }
+    button, input, select, textarea {
+        font: inherit;
+        margin: 0
+    }
 
-        button, input, select { overflow: visible }
+    optgroup {
+        font-weight: bold
+    }
 
-        button, select { text-transform: none }
-        button, [type="button"], [type="reset"], [type="submit"] {
-            cursor:pointer
-        }
-        [disabled] {
-            cursor:default
-        }
-        button, html [type="button"], [type="reset"], [type="submit"] {
-            -webkit-appearance:button
-        }
-        button::-moz-focus-inner, input::-moz-focus-inner {
-            border:0;
-            padding:0
-        }
-        button:-moz-focusring, input:-moz-focusring {
-            outline:1px dotted ButtonText
-        }
+    button, input, select {
+        overflow: visible
+    }
 
-        fieldset {
-            border: 1px solid #c0c0c0;
-            margin: 0 2px;
-            padding: 0.35em 0.625em 0.75em
-        }
+    button, select {
+        text-transform: none
+    }
 
-        legend {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            color: inherit;
-            display: table;
-            max-width: 100%;
-            padding: 0;
-            white-space: normal
-        }
+    button, [type="button"], [type="reset"], [type="submit"] {
+        cursor: pointer
+    }
 
-        textarea { overflow: auto }
-        [type="checkbox"], [type="radio"] {
-            -webkit-box-sizing:border-box;
-            -moz-box-sizing:border-box;
-            box-sizing:border-box;
-            padding:0
-        }
-        [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
-            height:auto
-        }
-        [type="search"] {
-            -webkit-appearance:textfield
-        }
-        [type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
-            -webkit-appearance:none
-        }
+    [disabled] {
+        cursor: default
+    }
 
-        /* main css */
+    button, html [type="button"], [type="reset"], [type="submit"] {
+        -webkit-appearance: button
+    }
 
-        .slideshow {
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
+    button::-moz-focus-inner, input::-moz-focus-inner {
+        border: 0;
+        padding: 0
+    }
 
-        .slideshow-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: no-repeat 50% 50%;
-            background-size: cover;
-            -webkit-animation-name: kenburns;
-            animation-name: kenburns;
-            -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-duration: 16s;
-            animation-duration: 16s;
+    button:-moz-focusring, input:-moz-focusring {
+        outline: 1px dotted ButtonText
+    }
+
+    fieldset {
+        border: 1px solid #c0c0c0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em
+    }
+
+    legend {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        color: inherit;
+        display: table;
+        max-width: 100%;
+        padding: 0;
+        white-space: normal
+    }
+
+    textarea {
+        overflow: auto
+    }
+
+    [type="checkbox"], [type="radio"] {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0
+    }
+
+    [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    [type="search"] {
+        -webkit-appearance: textfield
+    }
+
+    [type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    /* main css */
+
+    .slideshow {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slideshow-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: no-repeat 50% 50%;
+        background-size: cover;
+        -webkit-animation-name: kenburns;
+        animation-name: kenburns;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-duration: 16s;
+        animation-duration: 16s;
+        opacity: 1;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .slideshow-image:nth-child(1) {
+        -webkit-animation-name: kenburns-1;
+        animation-name: kenburns-1;
+        z-index: 3;
+    }
+
+    .slideshow-image:nth-child(2) {
+        -webkit-animation-name: kenburns-2;
+        animation-name: kenburns-2;
+        z-index: 2;
+    }
+
+    .slideshow-image:nth-child(3) {
+        -webkit-animation-name: kenburns-3;
+        animation-name: kenburns-3;
+        z-index: 1;
+    }
+
+    .slideshow-image:nth-child(4) {
+        -webkit-animation-name: kenburns-4;
+        animation-name: kenburns-4;
+        z-index: 0;
+    }
+
+    @-webkit-keyframes kenburns-1 {
+        0% {
             opacity: 1;
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
+        1.5625% {
+            opacity: 1;
+        }
+        23.4375% {
+            opacity: 1;
+        }
+        26.5625% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+        98.4375% {
+            opacity: 0;
+            -webkit-transform: scale(1.21176);
+            transform: scale(1.21176);
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
-        .slideshow-image:nth-child(1) {
-            -webkit-animation-name: kenburns-1;
-            animation-name: kenburns-1;
-            z-index: 3;
+    @keyframes kenburns-1 {
+        0% {
+            opacity: 1;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
         }
+        1.5625% {
+            opacity: 1;
+        }
+        23.4375% {
+            opacity: 1;
+        }
+        26.5625% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+        98.4375% {
+            opacity: 0;
+            -webkit-transform: scale(1.21176);
+            transform: scale(1.21176);
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
-        .slideshow-image:nth-child(2) {
-            -webkit-animation-name: kenburns-2;
-            animation-name: kenburns-2;
-            z-index: 2;
+    @-webkit-keyframes kenburns-2 {
+        23.4375% {
+            opacity: 1;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
         }
+        26.5625% {
+            opacity: 1;
+        }
+        48.4375% {
+            opacity: 1;
+        }
+        51.5625% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    }
 
-        .slideshow-image:nth-child(3) {
-            -webkit-animation-name: kenburns-3;
-            animation-name: kenburns-3;
-            z-index: 1;
+    @keyframes kenburns-2 {
+        23.4375% {
+            opacity: 1;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
         }
+        26.5625% {
+            opacity: 1;
+        }
+        48.4375% {
+            opacity: 1;
+        }
+        51.5625% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    }
 
-        .slideshow-image:nth-child(4) {
-            -webkit-animation-name: kenburns-4;
-            animation-name: kenburns-4;
-            z-index: 0;
-        }
-        @-webkit-keyframes
-        kenburns-1 {  0% {
+    @-webkit-keyframes kenburns-3 {
+        48.4375% {
             opacity: 1;
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
-            1.5625% {
-                opacity: 1;
-            }
-            23.4375% {
-                opacity: 1;
-            }
-            26.5625% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
-            98.4375% {
-                opacity: 0;
-                -webkit-transform: scale(1.21176);
-                transform: scale(1.21176);
-            }
-            100% {
-                opacity: 1;
-            }
+        51.5625% {
+            opacity: 1;
         }
-        @keyframes
-        kenburns-1 {  0% {
+        73.4375% {
+            opacity: 1;
+        }
+        76.5625% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    }
+
+    @keyframes kenburns-3 {
+        48.4375% {
             opacity: 1;
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
-            1.5625% {
-                opacity: 1;
-            }
-            23.4375% {
-                opacity: 1;
-            }
-            26.5625% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
-            98.4375% {
-                opacity: 0;
-                -webkit-transform: scale(1.21176);
-                transform: scale(1.21176);
-            }
-            100% {
-                opacity: 1;
-            }
+        51.5625% {
+            opacity: 1;
         }
-        @-webkit-keyframes
-        kenburns-2 {  23.4375% {
+        73.4375% {
+            opacity: 1;
+        }
+        76.5625% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    }
+
+    @-webkit-keyframes kenburns-4 {
+        73.4375% {
             opacity: 1;
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
-            26.5625% {
-                opacity: 1;
-            }
-            48.4375% {
-                opacity: 1;
-            }
-            51.5625% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
+        76.5625% {
+            opacity: 1;
         }
-        @keyframes
-        kenburns-2 {  23.4375% {
+        98.4375% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes kenburns-4 {
+        73.4375% {
             opacity: 1;
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
-            26.5625% {
-                opacity: 1;
-            }
-            48.4375% {
-                opacity: 1;
-            }
-            51.5625% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
-        }
-        @-webkit-keyframes
-        kenburns-3 {  48.4375% {
+        76.5625% {
             opacity: 1;
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
         }
-            51.5625% {
-                opacity: 1;
-            }
-            73.4375% {
-                opacity: 1;
-            }
-            76.5625% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
-        }
-        @keyframes
-        kenburns-3 {  48.4375% {
+        98.4375% {
             opacity: 1;
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
         }
-            51.5625% {
-                opacity: 1;
-            }
-            73.4375% {
-                opacity: 1;
-            }
-            76.5625% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+            transform: scale(1);
         }
-        @-webkit-keyframes
-        kenburns-4 {  73.4375% {
-            opacity: 1;
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-        }
-            76.5625% {
-                opacity: 1;
-            }
-            98.4375% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-        @keyframes
-        kenburns-4 {  73.4375% {
-            opacity: 1;
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-        }
-            76.5625% {
-                opacity: 1;
-            }
-            98.4375% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-    </style>
+    }
+</style>
 
 <section class="bg_secondry">
     <canvas id="particles-js"></canvas>
-<div class="slideshow">
-    <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=492')"></div>
-    <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=487')"></div>
-    <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=483')"></div>
-    <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=478')"></div>
-</div>
-<a class="scroll-down" title="Scroll Down" href="#" data-scroll-nav="1"><i class="fa fa-circle" aria-hidden="true"></i></a>
+    <a class="scroll-down" title="Scroll Down" href="#" data-scroll-nav="1"><i class="fa fa-circle" aria-hidden="true"></i></a>
+    <div class="slideshow">
+        <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=492')"></div>
+        <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=487')"></div>
+        <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=483')"></div>
+        <div class="slideshow-image" style="background-image: url('https://unsplash.it/1600/1400?image=478')"></div>
+    </div>
 </section>
 {{--<!--// End Slider Home-->--}}

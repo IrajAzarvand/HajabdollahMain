@@ -741,6 +741,7 @@ li.marv-share {
     bottom: 60px;
     margin-left: -17px;
     line-height: 50px;
+    z-index: 50;
 }
 .scroll-down i {
     font-size: 8px;
