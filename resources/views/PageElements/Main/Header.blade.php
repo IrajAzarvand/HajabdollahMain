@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="demo-logo">
-                            <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" alt="logo" class="img-responsive"/> <i class="fa fa-circle"></i></a>
+                            <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" alt="logo" class="img-responsive"/></a>
                         </div>
                     </div>
                     <div class="col-xs-6">
@@ -30,7 +30,7 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <div class="logo">
-                                    <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" alt="logo" class="img-responsive"/> <i class="fa fa-circle"></i></a>
+                                    <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" alt="logo" class="img-responsive"/></a>
                                 </div>
                             </div>
                             <ul class="menu-sidebar pull-right">
