@@ -37,7 +37,7 @@
                                 <li class="marv-share">
                                     <div class="slideouticons">
                                         <input type="checkbox" id="togglebox">
-                                        <label for="togglebox" class="mainlabel"><i class="fa fa-share-alt"></i></label>
+                                        <label for="togglebox" class="mainlabel"><i class="fa fa-language"></i></label>
                                         <div class="iconswrapper">
                                             <ul>
                                                 <li><a class="social-fb" href="#"><i class="fa fa-facebook" title="Facebook"></i></a></li>
