@@ -5,75 +5,75 @@ window.console = window.console || (function() {
 })();
 jQuery(document).ready(function($) {
     $("#style-switcher .main").click(function() {
-        $("#colors").attr("href", "css/colors/main.css");
+        $("#colors").attr("href", "css/rtl/colors/main.css");
         return false;
     });
     $("#style-switcher .blue").click(function() {
-        $("#colors").attr("href", "css/colors/blue.css");
+        $("#colors").attr("href", "css/rtl/colors/blue.css");
         return false;
     });
     $("#style-switcher .green").click(function() {
-        $("#colors").attr("href", "css/colors/green.css");
+        $("#colors").attr("href", "css/rtl/colors/green.css");
         return false;
     });
     $("#style-switcher .orange").click(function() {
-        $("#colors").attr("href", "css/colors/orange.css");
+        $("#colors").attr("href", "css/rtl/colors/orange.css");
         return false;
     });
     $("#style-switcher .navy").click(function() {
-        $("#colors").attr("href", "css/colors/navy.css");
+        $("#colors").attr("href", "css/rtl/colors/navy.css");
         return false;
     });
     $("#style-switcher .yellow").click(function() {
-        $("#colors").attr("href", "css/colors/yellow.css");
+        $("#colors").attr("href", "css/rtl/colors/yellow.css");
         return false;
     });
     $("#style-switcher .peach").click(function() {
-        $("#colors").attr("href", "css/colors/peach.css");
+        $("#colors").attr("href", "css/rtl/colors/peach.css");
         return false;
     });
     $("#style-switcher .beige").click(function() {
-        $("#colors").attr("href", "css/colors/beige.css");
+        $("#colors").attr("href", "css/rtl/colors/beige.css");
         return false;
     });
     $("#style-switcher .purple").click(function() {
-        $("#colors").attr("href", "css/colors/purple.css");
+        $("#colors").attr("href", "css/rtl/colors/purple.css");
         return false;
     });
     $("#style-switcher .red").click(function() {
-        $("#colors").attr("href", "css/colors/red.css");
+        $("#colors").attr("href", "css/rtl/colors/red.css");
         return false;
     });
     $("#style-switcher .pink").click(function() {
-        $("#colors").attr("href", "css/colors/pink.css");
+        $("#colors").attr("href", "css/rtl/colors/pink.css");
         return false;
     });
     $("#style-switcher .celadon").click(function() {
-        $("#colors").attr("href", "css/colors/celadon.css");
+        $("#colors").attr("href", "css/rtl/colors/celadon.css");
         return false;
     });
     $("#style-switcher .brown").click(function() {
-        $("#colors").attr("href", "css/colors/brown.css");
+        $("#colors").attr("href", "css/rtl/colors/brown.css");
         return false;
     });
     $("#style-switcher .cherry").click(function() {
-        $("#colors").attr("href", "css/colors/cherry.css");
+        $("#colors").attr("href", "css/rtl/colors/cherry.css");
         return false;
     });
     $("#style-switcher .gray").click(function() {
-        $("#colors").attr("href", "css/colors/gray.css");
+        $("#colors").attr("href", "css/rtl/colors/gray.css");
         return false;
     });
     $("#style-switcher .darkcol").click(function() {
-        $("#colors").attr("href", "css/colors/dark.css");
+        $("#colors").attr("href", "css/rtl/colors/dark.css");
         return false;
     });
     $("#style-switcher .cyan").click(function() {
-        $("#colors").attr("href", "css/colors/cyan.css");
+        $("#colors").attr("href", "css/rtl/colors/cyan.css");
         return false;
     });
     $("#style-switcher .olive").click(function() {
-        $("#colors").attr("href", "css/colors/olive.css");
+        $("#colors").attr("href", "css/rtl/colors/olive.css");
         return false;
     });
     $("#style-switcher h2 a").click(function(e) {
@@ -133,7 +133,7 @@ jQuery(document).ready(function($) {
         $("header").removeClass("alternative");
         $("header").removeClass("full-width");
         $(".colors li a").removeClass("active");
-        $("#colors").attr("href", "css/colors/main.css");
+        $("#colors").attr("href", "css/rtl/colors/main.css");
         $(window).resize();
     });
 });

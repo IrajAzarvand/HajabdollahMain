@@ -42,36 +42,6 @@
 <script src="{{asset('js/rtl/particles.min.js')}}"></script>
 <script src="{{asset('js/rtl/setting.js')}}"></script>
 <script src="{{asset('js/rtl/custom.js')}}"></script>
-<!-- Style Switcher
-   ================================================== -->
-<script src="{{asset('js/rtl/switcher.js')}}"></script>
-
-<div id="style-switcher" class="dir-rtl">
-    <h2>الوان الموقع <a href="#"><i class="fa fa-gear fa-spin"></i></a></h2>
-
-    <div>
-        <ul class="colors" id="color1">
-            <li><a href="#" class="main" title="Main"></a></li>
-            <li><a href="#" class="green" title="Green"></a></li>
-            <li><a href="#" class="blue" title="Blue"></a></li>
-            <li><a href="#" class="orange" title="Orange"></a></li>
-            <li><a href="#" class="navy" title="Navy"></a></li>
-            <li><a href="#" class="yellow" title="Yellow"></a></li>
-            <li><a href="#" class="peach" title="Peach"></a></li>
-            <li><a href="#" class="beige" title="Beige"></a></li>
-            <li><a href="#" class="purple" title="Purple"></a></li>
-            <li><a href="#" class="celadon" title="Celadon"></a></li>
-            <li><a href="#" class="red" title="Red"></a></li>
-            <li><a href="#" class="brown" title="Brown"></a></li>
-            <li><a href="#" class="cherry" title="Cherry"></a></li>
-            <li><a href="#" class="cyan" title="Cyan"></a></li>
-            <li><a href="#" class="gray" title="Gray"></a></li>
-            <li><a href="#" class="olive" title="Olive"></a></li>
-        </ul>
-    </div>
-
-</div>
-<!-- Style Switcher / End -->
 </body>
 </html>
 
