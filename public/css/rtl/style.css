@@ -31,20 +31,20 @@
 
 @font-face {
     font-family: 'MontserratLight';
-    src: url("../fonts/MontserratLight.eot");
-    src: url("../fonts/MontserratLight.eot") format("embedded-opentype"), url("../fonts/MontserratLight.woff2") format("woff2"), url("../fonts/MontserratLight.woff") format("woff"), url("../fonts/MontserratLight.ttf") format("truetype"), url("../fonts/MontserratLight.svg#MontserratLight") format("svg");
+    src: url("../../fonts/MontserratLight.eot");
+    src: url("../../fonts/MontserratLight.eot") format("embedded-opentype"), url("../../fonts/MontserratLight.woff2") format("woff2"), url("../../fonts/MontserratLight.woff") format("woff"), url("../../fonts/MontserratLight.ttf") format("truetype"), url("../../fonts/MontserratLight.svg#MontserratLight") format("svg");
 }
 
 @font-face {
     font-family: 'MontserratExtraLight';
-    src: url("../fonts/MontserratExtraLight.eot");
-    src: url("../fonts/MontserratExtraLight.eot") format("embedded-opentype"), url("../fonts/MontserratExtraLight.woff2") format("woff2"), url("../fonts/MontserratExtraLight.woff") format("woff"), url("../fonts/MontserratExtraLight.ttf") format("truetype"), url("../fonts/MontserratExtraLight.svg#MontserratExtraLight") format("svg");
+    src: url("../../fonts/MontserratExtraLight.eot");
+    src: url("../../fonts/MontserratExtraLight.eot") format("embedded-opentype"), url("../../fonts/MontserratExtraLight.woff2") format("woff2"), url("../../fonts/MontserratExtraLight.woff") format("woff"), url("../../fonts/MontserratExtraLight.ttf") format("truetype"), url("../../fonts/MontserratExtraLight.svg#MontserratExtraLight") format("svg");
 }
 
 @font-face {
     font-family: 'MontserratSemiBold';
-    src: url("../fonts/MontserratSemiBold.eot");
-    src: url("../fonts/MontserratSemiBold.eot") format("embedded-opentype"), url("../fonts/MontserratSemiBold.woff2") format("woff2"), url("../fonts/MontserratSemiBold.woff") format("woff"), url("../fonts/MontserratSemiBold.ttf") format("truetype"), url("../fonts/MontserratSemiBold.svg#MontserratSemiBold") format("svg");
+    src: url("../../fonts/MontserratSemiBold.eot");
+    src: url("../../fonts/MontserratSemiBold.eot") format("embedded-opentype"), url("../../fonts/MontserratSemiBold.woff2") format("woff2"), url("../../fonts/MontserratSemiBold.woff") format("woff"), url("../../fonts/MontserratSemiBold.ttf") format("truetype"), url("../../fonts/MontserratSemiBold.svg#MontserratSemiBold") format("svg");
 }
 @font-face {
     font-family: 'Droid Arabic Kufi';
@@ -197,7 +197,7 @@ body {
     position: relative;
 }
 .dir-rtl{
-  direction: rtl;  
+  direction: rtl;
 }
 a:focus {
     outline: 0;
@@ -218,7 +218,7 @@ li {
 }
 
 p {
-    
+
     font-size: 14px;
     line-height: 26px;
     font-weight: 400;
@@ -229,12 +229,12 @@ h2 {
     color: #222222;
 }
 
-h3 { 
+h3 {
     font-size: 30px;
 }
 
 h4 {
-    font-size: 22px;   
+    font-size: 22px;
     font-weight: 400;
     color: #222222;
     margin: 0;
@@ -242,7 +242,7 @@ h4 {
 
 h5 {
     font-size: 16px;
-    
+
     font-weight: 400;
     color: #222222;
 }
@@ -293,7 +293,7 @@ button:focus{
 }
 
 .section-heading h2 span {
-    
+
 }
 
 .section-heading h2::before {
@@ -483,7 +483,7 @@ Back to Top
 
 .nav-menu ul li a {
     color: #ffffff;
-    
+
     text-transform: uppercase;
     -webkit-transition: all .2s ease 0s;
     -moz-transition: all .2s ease 0s;
@@ -722,7 +722,7 @@ li.marv-share {
     opacity: .6;
 }
 .bg_secondry {
-    background: url(../images/bg.jpg) no-repeat fixed;
+    background: url(../../images/bg.jpg) no-repeat fixed;
     color: #ffffff;
     position: relative;
     background-size: cover;
@@ -961,7 +961,7 @@ li.marv-share {
 .user-interface .title {
     font-size: 65px;
     padding-bottom: 5px;
-    
+
     line-height: 90px;
     font-weight: 700;
 }
@@ -1009,7 +1009,7 @@ li.marv-share {
     margin-top: -150px;
 }
 .part-top{
-    background-image: url(../images/contact.jpg);
+    background-image: url(../../images/contact.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -1347,7 +1347,7 @@ textarea.form-control {
 -------------------------------------*/
 
 .single-prallex {
-    background: url("../images/bg2.jpg") no-repeat fixed;
+    background: url("../../images/bg2.jpg") no-repeat fixed;
     color: #ffffff;
     position: relative;
     background-size: cover;
@@ -1384,7 +1384,7 @@ textarea.form-control {
 
 .section-heading.left-heading h2 {
     color: #ffffff;
-    
+
     font-weight: 400;
     margin-bottom: 56px;
     line-height: 47px;
@@ -1397,7 +1397,7 @@ textarea.form-control {
 }
 
 .section-heading.left-heading h2 span {
-    
+
     color: #ffffff;
 }
 
@@ -1518,7 +1518,7 @@ textarea.form-control {
 }
 .single-team{
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     text-align: center;
     margin: 20px;
     margin-bottom: 25px;
@@ -1609,7 +1609,7 @@ textarea.form-control {
 ** Start Newsletter Area
 -------------------------------------*/
 .prallex-newsletter{
-    background: url(../images/faces.jpg);
+    background: url(../../images/faces.jpg);
     padding: 100px 0;
 }
 .prallex-newsletter:before {
@@ -2617,7 +2617,7 @@ End Pricing Area
 Start Counter Area
 *************************************/
 .counter-section{
-    background: url(../images/banner1.jpg);
+    background: url(../../images/banner1.jpg);
     overflow: hidden;
     position: relative;
     padding: 80px 0;
