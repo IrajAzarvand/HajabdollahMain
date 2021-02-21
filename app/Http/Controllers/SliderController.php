@@ -15,9 +15,10 @@ class SliderController extends Controller
      */
     public function index()
     {
-        foreach (Locales() as $item) {
+        foreach (Locales() as $key=>$item) {
 
-            $lang[]=$item['name'];
+            $lang[$key]['name']=$item['name'];
+            $lang[$key]['locale']=$item['locale'];
         }
 
         $Sliders = Slider::with('contents')->get()->sortKeysDesc();
@@ -103,8 +104,7 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Slider  $slider
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MainMenuTableSeeder::class);
         $this->call(SubMenuTableSeeder::class);
         $this->call(LocaleContentTableSeeder::class);
+        $this->call(MainNavsTableSeeder::class);
 
     }
 }

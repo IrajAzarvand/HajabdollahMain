@@ -53,17 +53,17 @@
                     <div class="card">
                         <div class="card-header d-flex p-0">
                             <ul class="nav nav-pills ml-auto p-2">
-                                @foreach (Locales() as $item)
-                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                @foreach ($lang as $l)
+                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#{{$l['locale']}}" data-toggle="tab">{{$l['name']}}</a> </li>
                                 @endforeach
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-content">
-                                @foreach (Locales() as $item)
-                                <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
+                                @foreach ($lang as $l)
+                                <div class="tab-pane @if ($loop->first) active @endif" id="{{$l['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%"></textarea>
+                                        <textarea id="editor1" name="{{$l['locale']}}" style="width: 100%"></textarea>
                                     </div>
                                 </div>
                                 @endforeach
@@ -98,7 +98,7 @@
                     <th>ردیف</th>
                     <th>تصویر</th>
                     @foreach($lang as $l)
-                        <th>متن {{$l}}</th>
+                        <th>متن {{$l['name']}}</th>
                     @endforeach
                     <th>عملیات</th>
                 </tr>

@@ -40,9 +40,12 @@
                                         <label for="togglebox" class="mainlabel"><i class="fa fa-language"></i></label>
                                         <div class="iconswrapper">
                                             <ul>
+
                                                 <li><a class="social-fb" href="#"><i class="fa fa-facebook" title="Facebook"></i></a></li>
                                                 <li><a class="social-tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                                 <li><a class="social-gp" href="#"><i class="fa fa-google-plus" title="Google Plus"></i></a></li>
+                                                <li><a class="social-pi" href="#"><i class="fa fa-pinterest-p" title="Pinterest"></i></a></li>
+                                                <li><a class="social-pi" href="#"><i class="fa fa-pinterest-p" title="Pinterest"></i></a></li>
                                                 <li><a class="social-pi" href="#"><i class="fa fa-pinterest-p" title="Pinterest"></i></a></li>
                                             </ul>
                                         </div>
