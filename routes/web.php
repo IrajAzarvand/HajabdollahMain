@@ -3,9 +3,10 @@
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', [MainNavController::class,'HomePage']);
-Route::get('/locale/{lang}', [MainNavController::class, 'SetLocale'])->name('locale');
+Route::get('/locale/{lang}', [MainNavController::class,'locale']);
 
 
 

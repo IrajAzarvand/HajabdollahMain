@@ -7,6 +7,7 @@ use App\Models\CertificatesAndHonors;
 use App\Models\CI;
 use App\Models\Gallery;
 use App\Models\LocaleContent;
+use App\Models\MainNav;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\ProductCatalog;
@@ -19,10 +20,10 @@ class MainNavController extends Controller
 {
 
     //set whole website locale
-    public function SetLocale(string $lang)
+    public function locale(string $lang)
     {
         Session::put('locale', $lang);
-//        AllContentOfLocale();
+//    AllContentOfLocale();
         return back();
     }
 
@@ -169,7 +170,10 @@ class MainNavController extends Controller
             $lang[$key]['title']= $l['locale'];
         }
 
-        return view('welcome', compact('lang'));
+        $Menus = MainNav::pluck('content_'.app()->getLocale());
+
+
+        return view('welcome', compact('lang','Menus'));
     }
 
 

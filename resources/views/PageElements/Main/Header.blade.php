@@ -53,15 +53,9 @@
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#" data-scroll-nav="0">الرئيسية</a></li>
-                                    <li><a href="#" data-scroll-nav="1">من نحن</a></li>
-                                    <li><a href="#" data-scroll-nav="2">الخدمات</a></li>
-                                    <li><a href="#" data-scroll-nav="3">الأعمال</a></li>
-                                    <li><a href="#" data-scroll-nav="4">العملاء</a></li>
-                                    <li><a href="#" data-scroll-nav="5">فريق العمل</a></li>
-                                    <li><a href="#" data-scroll-nav="6">المدونة</a></li>
-                                    <li><a href="#" data-scroll-nav="7">الأسعار</a></li>
-                                    <li><a href="#" data-scroll-nav="8">اتصل بنا</a></li>
+                                    @foreach($Menus as $key=>$menu)
+                                        <li><a href="#" data-scroll-nav="{{$key}}">{{$menu}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
