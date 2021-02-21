@@ -97,10 +97,9 @@
                 <tr>
                     <th>ردیف</th>
                     <th>تصویر</th>
-                    <th>متن فارسی</th>
-                    <th>متن انگلیسی</th>
-                    <th>متن روسی</th>
-                    <th>متن عربی</th>
+                    @foreach($lang as $l)
+                        <th>متن {{$l}}</th>
+                    @endforeach
                     <th>عملیات</th>
                 </tr>
                 <?php
