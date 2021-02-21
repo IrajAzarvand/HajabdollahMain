@@ -13,9 +13,18 @@ use App\Models\ProductCatalog;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class MainNavController extends Controller
 {
+
+    //set whole website locale
+    public function SetLocale(string $lang)
+    {
+        Session::put('locale', $lang);
+//        AllContentOfLocale();
+        return back();
+    }
 
     //get title for buttons from locale content table
     public function BtnTitle($element_title)
@@ -68,97 +77,99 @@ class MainNavController extends Controller
      */
     public function HomePage()
     {
-        $SharedContents = $this->SharedContents();
-        $BtnMore = $this->BtnTitle('btn_more');
-
-
-        $IndexContents = collect(AllContentOfLocale())
-            ->whereIn('page', array('welcome')) // 'welcome'=>contents for home page only
-            ->all();
+//        $SharedContents = $this->SharedContents();
+//        $BtnMore = $this->BtnTitle('btn_more');
+//
+//
+//        $IndexContents = collect(AllContentOfLocale())
+//            ->whereIn('page', array('welcome')) // 'welcome'=>contents for home page only
+//            ->all();
 
         //*************************** SLIDER ********************************************************************* */
-        $SliderItems = collect($IndexContents)
-            ->whereIn('section', array('slider'))
-            ->all();
-
-        $Slider = [];
-        foreach ($SliderItems as $item) {
-
-            $item['image'] = asset('storage/Main/Sliders/' . Slider::where('id', $item['element_id'])->value('image'));
-            $Slider[] = $item;
-        }
+//        $SliderItems = collect($IndexContents)
+//            ->whereIn('section', array('slider'))
+//            ->all();
+//
+//        $Slider = [];
+//        foreach ($SliderItems as $item) {
+//
+//            $item['image'] = asset('storage/Main/Sliders/' . Slider::where('id', $item['element_id'])->value('image'));
+//            $Slider[] = $item;
+//        }
 
 
         //************************** NEW PRODUCTS ***************************************************************** */
-        $NewPrSectionTitle = $this->PageSectionsTitle('welcome', 'NewProducts', 0, 'section_title');
+//        $NewPrSectionTitle = $this->PageSectionsTitle('welcome', 'NewProducts', 0, 'section_title');
+//
+//
+//        //get last 3 item of products from db to show in index page
+//        $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
+//
+//        //get product name
+//        $NewPrName = [];
+//        foreach ($NewPr as $key => $pr) {
+//            foreach (Locales() as $item) {
+//                $NewPrName[$key][$item['locale']] = LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_id' => $pr->id, 'locale' => $item['locale'], 'element_title' => 'p_name_' . $item['locale']])->pluck('element_content')[0];
+//            }
+//        }
 
 
-        //get last 3 item of products from db to show in index page
-        $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
-
-        //get product name
-        $NewPrName = [];
-        foreach ($NewPr as $key => $pr) {
-            foreach (Locales() as $item) {
-                $NewPrName[$key][$item['locale']] = LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_id' => $pr->id, 'locale' => $item['locale'], 'element_title' => 'p_name_' . $item['locale']])->pluck('element_content')[0];
-            }
-        }
-
-
-        $NewProducts = [];
-        $P_Images = [];
-        //collect first image of each product and put it in array
-        foreach ($NewPr as $key => $item) {
-            $P_Images = unserialize($item->images);
-            $NewProducts[$key]['id'] = $item->id;
-            $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
-            $NewProducts[$key]['title_fa'] = $NewPrName[$key]['fa'];
-            $NewProducts[$key]['title_en'] = $NewPrName[$key]['en'];
-            $NewProducts[$key]['title_ru'] = $NewPrName[$key]['ru'];
-            $NewProducts[$key]['title_ar'] = $NewPrName[$key]['ar'];
-        }
+//        $NewProducts = [];
+//        $P_Images = [];
+//        //collect first image of each product and put it in array
+//        foreach ($NewPr as $key => $item) {
+//            $P_Images = unserialize($item->images);
+//            $NewProducts[$key]['id'] = $item->id;
+//            $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
+//            $NewProducts[$key]['title_fa'] = $NewPrName[$key]['fa'];
+//            $NewProducts[$key]['title_en'] = $NewPrName[$key]['en'];
+//            $NewProducts[$key]['title_ru'] = $NewPrName[$key]['ru'];
+//            $NewProducts[$key]['title_ar'] = $NewPrName[$key]['ar'];
+//        }
 
         //**************************  CATALOGUES ************************************************ */
-        $CatalogSectionTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
-
-        //select first image of catalog for each product
-        $CatalogItems = [];
-        $Catalogues = ProductCatalog::all();
-
-        foreach ($Catalogues as $key => $C) {
-            $P_Id = $C->product_id;
-            $CatalogItems[$key]['id'] = $C->id;
-            $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
-        }
+//        $CatalogSectionTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
+//
+//        //select first image of catalog for each product
+//        $CatalogItems = [];
+//        $Catalogues = ProductCatalog::all();
+//
+//        foreach ($Catalogues as $key => $C) {
+//            $P_Id = $C->product_id;
+//            $CatalogItems[$key]['id'] = $C->id;
+//            $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
+//        }
 
         //**************************  PHOTO GALLERY ************************************************ */
-        $GallerySectionTitle = $this->PageSectionsTitle('', 'Gallery', 0, 'section_title');
-
-        $Gallery = [];
-        foreach (Gallery::with('contents')->get() as $key => $g) {
-            $Gallery[$key]['id'] = $g->id;
-            $Gallery[$key]['image'] = asset('storage/Main/Gallery/' . $g->id . '/' . unserialize($g->images)[0]);
-            foreach (Locales() as $item) {
-                $Gallery[$key]['title_' . $item['locale']] = LocaleContent::where(['page' => 'gallery', 'section' => 'gallery', 'element_id' => $g->id, 'locale' => $item['locale'], 'element_title' => 'g_title_' . $item['locale']])->pluck('element_content')[0];
-            }
-        }
+//        $GallerySectionTitle = $this->PageSectionsTitle('', 'Gallery', 0, 'section_title');
+//
+//        $Gallery = [];
+//        foreach (Gallery::with('contents')->get() as $key => $g) {
+//            $Gallery[$key]['id'] = $g->id;
+//            $Gallery[$key]['image'] = asset('storage/Main/Gallery/' . $g->id . '/' . unserialize($g->images)[0]);
+//            foreach (Locales() as $item) {
+//                $Gallery[$key]['title_' . $item['locale']] = LocaleContent::where(['page' => 'gallery', 'section' => 'gallery', 'element_id' => $g->id, 'locale' => $item['locale'], 'element_title' => 'g_title_' . $item['locale']])->pluck('element_content')[0];
+//            }
+//        }
 
         //**************************  CERTIFICATE AND HONORS ************************************************ */
-        $CH_Images = [];
-        foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch) {
-            $CH_Images[] = asset('storage/Main/CH/' . $ch);
-        }
+//        $CH_Images = [];
+//        foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch) {
+//            $CH_Images[] = asset('storage/Main/CH/' . $ch);
+//        }
 
 
         //**************************  LATEST NEWS *********************************************************** */
-        $LatestNews = collect($IndexContents)->where('section', 'latestnews');
-        $LatestNewsTitle = $LatestNews->where('element_title', 'news_title')->pluck('element_content');
+//        $LatestNews = collect($IndexContents)->where('section', 'latestnews');
+//        $LatestNewsTitle = $LatestNews->where('element_title', 'news_title')->pluck('element_content');
+//
 
+        //**************************  MAIN MENUS *********************************************************** */
+        foreach (Locales() as $key=>$l) {
+            $lang[$key]['title']= $l['locale'];
+        }
 
-        //**************************       ***************************************************************** */
-
-
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle', 'CatalogSectionTitle', 'BtnMore', 'LatestNewsTitle', 'CH_Images', 'CatalogItems', 'GallerySectionTitle', 'Gallery'));
+        return view('welcome', compact('lang'));
     }
 
 

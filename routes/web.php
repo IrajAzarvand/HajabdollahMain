@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainNavController::class,'HomePage']);
+Route::get('/locale/{lang}', [MainNavController::class, 'SetLocale'])->name('locale');
 
 
 
