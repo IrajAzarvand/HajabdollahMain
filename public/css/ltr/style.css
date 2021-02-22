@@ -46,27 +46,7 @@
     src: url("../../fonts/MontserratSemiBold.eot");
     src: url("../../fonts/MontserratSemiBold.eot") format("embedded-opentype"), url("../../fonts/MontserratSemiBold.woff2") format("woff2"), url("../../fonts/MontserratSemiBold.woff") format("woff"), url("../../fonts/MontserratSemiBold.ttf") format("truetype"), url("../../fonts/MontserratSemiBold.svg#MontserratSemiBold") format("svg");
 }
-@font-face {
-    font-family: 'Droid Arabic Kufi';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.eot);
-    src: url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'),
-        url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.ttf) format('truetype');
-}
-@font-face {
-    font-family: 'Droid Arabic Kufi';
-    font-style: normal;
-    font-weight: 700;
-    src: url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot);
-    src: url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'),
-        url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.ttf) format('truetype');
-}
-.droid-arabic-kufi{font-family: 'Droid Arabic Kufi', serif;}
+
 
 /*  transitions
 ------------------*/
@@ -189,16 +169,14 @@
 ----------------------------*/
 
 body {
-    font-family: 'Droid Arabic Kufi', serif;
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     line-height: 25px;
     font-weight: 400;
     color: #706b6b;
     position: relative;
 }
-.dir-rtl{
-  direction: rtl;
-}
+
 a:focus {
     outline: 0;
     text-decoration: none;
@@ -218,23 +196,26 @@ li {
 }
 
 p {
-
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     line-height: 26px;
     font-weight: 400;
 }
 
 h2 {
-    font-size: 38px;
+    font-size: 50px;
+    font-family: "MontserratExtraLight";
     color: #222222;
 }
 
 h3 {
+    font-family: "MontserratExtraLight";
     font-size: 30px;
 }
 
 h4 {
     font-size: 22px;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     color: #222222;
     margin: 0;
@@ -242,6 +223,7 @@ h4 {
 
 h5 {
     font-size: 16px;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     color: #222222;
 }
@@ -292,7 +274,7 @@ button:focus{
 }
 
 .section-heading h2 span {
-
+    font-family: "Montserrat", sans-serif;
 }
 
 .section-heading h2::before {
@@ -477,11 +459,12 @@ Back to Top
 }
 
 .nav-menu ul li {
-    padding: 10px;
+    padding: 15px;
 }
 
 .nav-menu ul li a {
     color: #ffffff;
+    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     -webkit-transition: all .2s ease 0s;
     -moz-transition: all .2s ease 0s;
@@ -533,10 +516,11 @@ Back to Top
     list-style: none;
     color: #fff;
 }
+
 li.marv-share {
-    margin-right: 15px;
-    margin-left: 0;
-    padding-right: 15px;
+    margin-left: 15px;
+    margin-right: 0;
+    padding-left: 15px;
 }
 
 .slideouticons {
@@ -739,7 +723,6 @@ li.marv-share {
     bottom: 60px;
     margin-left: -17px;
     line-height: 50px;
-    z-index: 5;
 }
 .scroll-down i {
     font-size: 8px;
@@ -809,18 +792,20 @@ li.marv-share {
     color: #fff;
 }
 .banner-center-content h4 {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 300;
     text-transform: uppercase;
+    letter-spacing: 4px;
     -webkit-animation-delay: .2s;
     animation-delay: .2s;
     color: #fff;
 }
 .banner-center-content h1 {
-    margin: 20px 0;
-    font-size: 40px;
+    margin: 10px 0;
+    font-size: 65px;
     font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 1px;
     word-spacing: 2px;
     -webkit-animation-delay: .6s;
     animation-delay: .6s;
@@ -853,8 +838,8 @@ li.marv-share {
     line-height: 28px;
 }
 .list-award li img {
-    float: right;
-    margin-left: 10px;
+    float: left;
+    margin-right: 10px;
 }
 
 .list-award li span {
@@ -871,11 +856,12 @@ li.marv-share {
 }
 
 .typo-pg {
+    padding-left: 20px;
     margin-top: 50px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    padding: 6px 20px 6px 0;
+    padding: 6px 0 6px 15px;
 }
 
 
@@ -960,7 +946,7 @@ li.marv-share {
 .user-interface .title {
     font-size: 65px;
     padding-bottom: 5px;
-
+    font-family: "Montserrat", sans-serif;
     line-height: 90px;
     font-weight: 700;
 }
@@ -1024,7 +1010,7 @@ li.marv-share {
 }
 
 .contact .contact-form h4 {
-    font-size: 30px;
+    font-size: 34px;
     font-weight: 300;
     margin-bottom: 30px;
 }
@@ -1048,7 +1034,7 @@ li.marv-share {
 }
 .contact .box-info h4 {
     color: #fff;
-    font-size: 30px;
+    font-size: 38px;
     font-weight: 300;
     margin-bottom: 30px;
 }
@@ -1068,7 +1054,7 @@ li.marv-share {
     color: #fff;
     font-size: 30px;
     vertical-align: middle;
-    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 15px;
 }
 
@@ -1383,7 +1369,7 @@ textarea.form-control {
 
 .section-heading.left-heading h2 {
     color: #ffffff;
-
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     margin-bottom: 56px;
     line-height: 47px;
@@ -1396,7 +1382,7 @@ textarea.form-control {
 }
 
 .section-heading.left-heading h2 span {
-
+    font-family: "MontserratExtraLight";
     color: #ffffff;
 }
 
@@ -1454,8 +1440,8 @@ textarea.form-control {
 }
 
 .single-reviews .content .reviewer-name {
-    margin-right: 80px;
-    text-align: right;
+    margin-left: 80px;
+    text-align: left;
 }
 
 .single-reviews .content .reviewer-name h5 {
@@ -1485,11 +1471,11 @@ textarea.form-control {
     position: absolute;
     z-index: 9;
     bottom: -15px;
-    right: 05%;
+    left: 05%;
     height: 0;
     width: 0;
     border-top: 15px solid rgba(255, 255, 255, 1.0);
-    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
 }
 
 .mr-star i {
@@ -1641,7 +1627,7 @@ textarea.form-control {
     background: #ffffff;
     border: 0;
     border-radius: 0;
-    padding-right: 25px;
+    padding-left: 25px;
     border-radius: 30px;
 }
 #show_subscriber_msg{
@@ -1658,13 +1644,14 @@ textarea.form-control {
     height: 100%;
     width: 150px;
     top: 0;
-    left: 0;
+    right: 0;
     color: #ffffff;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     border: 0;
-    border-radius: 30px 0 0 30px;
+    border-radius: 0 30px 30px 0;
 }
 .submit-subscribe-btn:hover {
     background-color: #000;
@@ -2184,11 +2171,11 @@ Start portfolio Area
 
 .marv-portfolio .mr-overbg .marv-portfolio-content {
     position: absolute;
-    right: 10%;
+    left: 15px;
     bottom: 50px;
     opacity: 0;
     width: 90%;
-    text-align: right;
+    text-align: left;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -2205,8 +2192,8 @@ Start portfolio Area
 }
 
 .marv-portfolio .mr-overbg::after {
-    border-right: 1px solid #fff;
     border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
     -o-transform: scale(1, 0);
     -webkit-transform: scale(1, 0);
     -moz-transform: scale(1, 0);
@@ -2217,10 +2204,10 @@ Start portfolio Area
 .marv-portfolio .mr-overbg::after {
     bottom: 20px;
     content: "";
-    right: 20px;
+    left: 20px;
     opacity: 0;
     position: absolute;
-    left: 20px;
+    right: 20px;
     top: 20px;
     -o-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
     -webkit-transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
@@ -2278,7 +2265,7 @@ Start portfolio Area
     background: transparent;
     font-size: 16px;
     color: #fff;
-    margin-left: 15px;
+    margin-right: 15px;
     transition: all 0.35s ease 0s;
 }
 
@@ -2345,7 +2332,7 @@ Start Blog Area
 }
 .mr-entry-image .tag {
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: -1px;
     padding: 5px 10px;
     color: #fff;
@@ -2353,7 +2340,7 @@ Start Blog Area
 }
 
 .mr-entry-image .tag i {
-    margin-left: 7px;
+    margin-right: 7px;
 }
 
 .mr-entry-image .date {
@@ -2364,11 +2351,11 @@ Start Blog Area
     height: 60px;
     width: 60px;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     line-height: normal;
     text-transform: uppercase;
-    padding-top: 7px;
+    padding-top: 10px;
     z-index: 9;
 }
 
@@ -2400,7 +2387,7 @@ Start Blog Area
 }
 
 .mr-entry-meta li {
-    float: right;
+    float: left;
     margin-right: 20px;
 }
 
@@ -2409,7 +2396,7 @@ Start Blog Area
     font-size: 14px;
 }
 .mr-entry-meta li:last-child {
-    margin-left: 0;
+    margin-right: 0;
 }
 
 
@@ -2682,7 +2669,7 @@ End Counter Area
     color: #fff;
     font-size: 14px;
     line-height: 46px;
-    padding: 0 20px 0 0;
+    padding: 0 0 0 20px;
     margin-top: 0;
     font-weight: 600;
 }

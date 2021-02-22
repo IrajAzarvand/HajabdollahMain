@@ -1,11 +1,12 @@
 
 <!-- Start About Area -->
-<section class="section-padding dir-rtl" id="marv-about" data-scroll-index="1">
+<section class="section-padding @if(app()->getLocale()=='fa') dir-rtl @endif" id="marv-about" data-scroll-index="1">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading" >
-                    <h2>من <span>نحن</span></h2>
+{{--                    <h2>من <span>نحن</span></h2>--}}
+                    <h2>Who <span>WE</span> Are.</h2>
                 </div>
             </div>
         </div>

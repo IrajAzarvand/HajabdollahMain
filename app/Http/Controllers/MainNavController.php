@@ -78,6 +78,17 @@ class MainNavController extends Controller
      */
     public function HomePage()
     {
+        //*************************** LOCALES ********************************************************************* */
+        foreach (Locales() as $key=>$l) {
+            $lang[$key]['title']= $l['locale'];
+        }
+
+        //*************************** MENUS ********************************************************************* */
+        $Menus = MainNav::pluck('content_'.app()->getLocale());
+
+
+
+
 //        $SharedContents = $this->SharedContents();
 //        $BtnMore = $this->BtnTitle('btn_more');
 //
@@ -166,11 +177,8 @@ class MainNavController extends Controller
 //
 
         //**************************  MAIN MENUS *********************************************************** */
-        foreach (Locales() as $key=>$l) {
-            $lang[$key]['title']= $l['locale'];
-        }
 
-        $Menus = MainNav::pluck('content_'.app()->getLocale());
+
 
 
         return view('welcome', compact('lang','Menus'));
