@@ -1,5 +1,5 @@
 
-<!--Start Team Section -->
+<!--Start Certificates Section -->
 <section class="team-area section-padding" data-scroll-index="5">
     <div class="container">
         <div class="row">
@@ -91,4 +91,4 @@
         </div>
     </div>
 </section>
-<!--// End Team Section -->
+<!--// End Certificates Section -->

@@ -1,5 +1,5 @@
 
-<!-- Start Blog Section -->
+<!-- Start Events Section -->
 <section class="section-padding dir-rtl" data-scroll-index="6">
     <div class="container">
         <div class="row">
@@ -85,4 +85,4 @@
         </div>
     </div>
 </section>
-<!-- // End Blog Section -->
+<!-- // End Events Section -->

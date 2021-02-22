@@ -24,6 +24,14 @@ class MainNavsTableSeeder extends Seeder
                 'url' => null,
             ],
             [
+                'content_fa' => 'درباره ما',
+                'content_en' => 'About Us',
+                'content_fr' => 'à propos de nous',
+                'content_ru' => 'Про нас',
+                'route_name' => 'HomePage',
+                'url' => null,
+            ],
+            [
                 'content_fa' => 'محصولات',
                 'content_en' => 'Products',
                 'content_ru' => 'Продукция',
@@ -56,11 +64,11 @@ class MainNavsTableSeeder extends Seeder
                 'url' => null,
             ],
             [
-                'content_fa' => 'درباره ما',
-                'content_en' => 'About Us',
-                'content_fr' => 'à propos de nous',
-                'content_ru' => 'Про нас',
-                'route_name' => 'HomePage',
+                'content_fa' => 'رویدادها',
+                'content_en' => 'Events',
+                'content_fr' => 'Événements',
+                'content_ru' => 'События',
+                'route_name' => null,
                 'url' => null,
             ],
             [
@@ -69,14 +77,6 @@ class MainNavsTableSeeder extends Seeder
                 'content_ru' => 'Контакты',
                 'content_fr' => 'Nous contacter',
                 'route_name' => 'ContactUsForm',
-                'url' => null,
-            ],
-            [
-                'content_fa' => 'رویدادها',
-                'content_en' => 'Events',
-                'content_fr' => 'Événements',
-                'content_ru' => 'События',
-                'route_name' => null,
                 'url' => null,
             ],
         ];

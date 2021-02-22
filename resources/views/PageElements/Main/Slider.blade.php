@@ -251,7 +251,7 @@
     }
 </style>
 
-<section class="bg_secondry">
+<section class="bg_secondry" data-scroll-index="0">
     <canvas id="particles-js"></canvas>
     <a class="scroll-down" title="Scroll Down" href="#" data-scroll-nav="1"><i class="fa fa-circle" aria-hidden="true"></i></a>
     <div class="slideshow">

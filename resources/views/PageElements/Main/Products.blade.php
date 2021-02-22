@@ -1,5 +1,5 @@
 
-<!-- Start Services Area -->
+<!-- Start Products Area -->
 <section id="marv-services" class="dir-rtl services-area section-padding " data-scroll-index="2">
     <div class="container">
         <div class="row">
@@ -101,4 +101,4 @@
         </div>
     </div>
 </section>
-<!--// End Services  Area -->
+<!--// End Products  Area -->

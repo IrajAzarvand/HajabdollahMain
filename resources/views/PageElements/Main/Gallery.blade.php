@@ -1,5 +1,5 @@
 
-<!--Start Portfolio Area-->
+<!--Start Gallery Area-->
 <section id="marv-portfolio" class="dir-rtl mr-masonry-block popup-gallery section-padding " data-scroll-index="3">
     <div class="container">
         <div class="row">
@@ -144,4 +144,4 @@
     </div>
 </section>
 
-<!--//End Portfolio Area-->
+<!--//End Gallery Area-->

@@ -11,14 +11,14 @@
 </div>
 
 @include('PageElements.Main.AboutUs')
-@include('PageElements.Main.Services')
-@include('PageElements.Main.Portfolio')
-@include('PageElements.Main.Reviews')
-@include('PageElements.Main.Team')
+@include('PageElements.Main.Products')
+@include('PageElements.Main.Gallery')
+@include('PageElements.Main.SalesOffices')
+@include('PageElements.Main.Certificates')
 @include('PageElements.Main.Newsletter')
-@include('PageElements.Main.Blog')
-@include('PageElements.Main.Counter')
-@include('PageElements.Main.Pricing')
+@include('PageElements.Main.Events')
+{{--@include('PageElements.Main.Counter')--}}
+{{--@include('PageElements.Main.Pricing')--}}
 @include('PageElements.Main.ContactUs')
 @include('PageElements.Main.Footer')
 

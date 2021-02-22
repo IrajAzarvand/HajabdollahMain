@@ -1,5 +1,5 @@
 
-<!-- Start Reviews Section -->
+<!-- Start SalesOffices Section -->
 <section class="reviews-area single-prallex prallex-reviews" data-scroll-index="4">
     <div class="after-overlay">
         <div class="container">
@@ -100,4 +100,4 @@
         </div>
     </div>
 </section>
-<!--// End Reviews Section -->
+<!--// End SalesOffices Section -->

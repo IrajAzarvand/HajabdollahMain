@@ -41,7 +41,7 @@
                                         <div class="iconswrapper">
                                             <ul>
                                                 @foreach($lang as $l)
-                                                    <li><a class="social-fb" href="/locale/{{$l['title']}}">{{$l['title']}}</a></li>
+                                                    <li><a class="" href="/locale/{{$l['title']}}">{{$l['title']}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </div>
