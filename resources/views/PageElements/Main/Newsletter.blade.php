@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading  prallex-heading">
-                        <h2>اشترك معنا <span>للحصول على</span> النشرة الاخبارية</h2>
+                        <h2><span>{{$SectionTitle['newsletter']}}</span></h2>
                     </div>
                 </div>
             </div>

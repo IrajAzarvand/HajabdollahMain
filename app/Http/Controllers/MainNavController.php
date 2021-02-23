@@ -86,7 +86,11 @@ class MainNavController extends Controller
         //*************************** MENUS ********************************************************************* */
         $Menus = MainNav::pluck('content_'.app()->getLocale());
 
+        //*************************** MENUS ********************************************************************* */
+        $SectionTitle=LocaleContent::where('section','PageTitles')->where('locale',app()->getLocale())->pluck('element_content','element_title');
 
+        //*************************** About Us ********************************************************************* */
+        $AboutUsContent=LocaleContent::where('page','AboutUs')->where('section','AboutUs')->where('locale',app()->getLocale())->pluck('element_content');
 
 
 //        $SharedContents = $this->SharedContents();
@@ -176,12 +180,15 @@ class MainNavController extends Controller
 //        $LatestNewsTitle = $LatestNews->where('element_title', 'news_title')->pluck('element_content');
 //
 
-        //**************************  MAIN MENUS *********************************************************** */
 
 
-
-
-        return view('welcome', compact('lang','Menus'));
+        return view('welcome',
+            compact(
+                'lang',
+                'Menus',
+                'SectionTitle',
+                'AboutUsContent',
+            ));
     }
 
 

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading prallex-heading">
-                        <h2>كن <span>معنا</span> على اتصال</h2>
+                        <h2><span>{{$SectionTitle['contactus']}}</span></h2>
                     </div>
                 </div>
 

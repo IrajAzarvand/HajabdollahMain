@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -50,7 +51,7 @@ Route::resource('Gallery', GalleryController::class);
 
 Route::resource('SO', SalesOfficeController::class);
 
-Route::resource('CI', CIController::class); //Company Introduction
+Route::resource('AboutUs', AboutUsController::class);
 
 Route::resource('CUMessages', MessageController::class);
 

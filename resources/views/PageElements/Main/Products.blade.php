@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading" >
-                    <h2>ماذا <span>نفعل</span> </h2>
+                    <h2><span>{{$SectionTitle['products']}}</span></h2>
                 </div>
             </div>
         </div>

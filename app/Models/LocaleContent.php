@@ -60,8 +60,8 @@ class LocaleContent extends Model
         return $this->belongsTo(SalesOffice::class);
     }
 
-    public function CI()
+    public function AboutUs()
     {
-        return $this->belongsTo(CI::class);
+        return $this->belongsTo(AboutUs::class);
     }
 }

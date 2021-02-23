@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading" >
-                    <h2>نماذج <span>من</span> اعمالنا</h2>
+                    <h2><span>{{$SectionTitle['gallery']}}</span></h2>
                 </div>
             </div>
         </div>

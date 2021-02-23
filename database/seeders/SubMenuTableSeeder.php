@@ -52,8 +52,8 @@ class SubMenuTableSeeder extends Seeder
             ],
             'درباره ما' => [
                 [
-                    'SubMenu' => 'معرفی شرکت',
-                    'Url' => 'CI.index',
+                    'SubMenu' => 'درباره ما',
+                    'Url' => 'AboutUs.index',
                     'Icon' => 'fa fa-file-text-o',
                 ],
                 [
