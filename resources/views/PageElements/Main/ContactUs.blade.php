@@ -50,12 +50,12 @@
 
                 <div class="col-lg-5 mb-30">
                     <div class="box-info">
-                        <h4>معلومات الاتصال</h4>
-                        <p class="mt30">وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء .</p>
+                        <h4>{{$CUInfoTitle}}</h4>
+                        <p class="mt30">{{$CUInfoDescription}}</p>
                         <div class="item mt-20">
                             <i class="ti-location-pin"></i>
                             <h5>
-                                <span>العنوان: </span>
+                                <span>{{$CUInfoAddressTitle}}</span>
                                 منطقة روكسي بمصر الجديدة, <br> القاهره, مصر
                             </h5>
                         </div>
@@ -63,8 +63,8 @@
                         <div class="item mt-20">
                             <i class="ti-email"></i>
                             <h5>
-                                <span>البريد الالكتروني: </span>
-                                <a href="#">Info@exper.com</a> <br><a href="#">support@exper.com</a>
+                                <span>{{$CUInfoEmailTitle}}</span>
+                                <a href="#">info@hajabdollah.com</a>
                             </h5>
                         </div>
 
@@ -75,19 +75,9 @@
                                 (001) 8686 234 432<br> Office - (001) 2345 678 900
                             </h5>
                         </div>
-                        <div class="item mt-20">
-                            <i class="ti-skype"></i>
-                            <h5>
-                                <span>سكايب: </span>
-                                user.skype
-                            </h5>
-                        </div>
 
                         <div class="social-icon mt-20">
-                            <a href="0#" class="facebook"><span><i class="ti-facebook"></i></span></a>
-                            <a href="0#" class="twitter"><span><i class="ti-twitter"></i></span></a>
-                            <a href="0#" class="dribbble"><span><i class="ti-dribbble"></i></span></a>
-                            <a href="0#" class="linkedin"><span><i class="ti-linkedin"></i></span></a>
+                            <a href="https://www.instagram.com/hajabdollah.pashmak/" class="linkedin" target="_blank"><span><i class="ti-instagram"></i></span></a>
                         </div>
 
                     </div>

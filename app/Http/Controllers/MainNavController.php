@@ -79,6 +79,10 @@ class MainNavController extends Controller
         $CUFormSubject = $this->LocaleContents('ContactUs','Form',5,'SubjectField');
         $CUFormMessage = $this->LocaleContents('ContactUs','Form',6,'MessageField');
         $CUFormBtnSend = $this->BtnTitle('btn_send');
+        $CUInfoTitle = $this->LocaleContents('ContactUs','Info',7,'Title');
+        $CUInfoDescription = $this->LocaleContents('ContactUs','Info',8,'Description');
+        $CUInfoAddressTitle = $this->LocaleContents('ContactUs','Info',9,'AddressTitle');
+        $CUInfoEmailTitle = $this->LocaleContents('ContactUs','Info',10,'EmailTitle');
 
 
 
@@ -170,6 +174,10 @@ class MainNavController extends Controller
                 'CUFormSubject',
                 'CUFormMessage',
                 'CUFormBtnSend',
+                'CUInfoTitle',
+                'CUInfoDescription',
+                'CUInfoAddressTitle',
+                'CUInfoEmailTitle',
 
 
 

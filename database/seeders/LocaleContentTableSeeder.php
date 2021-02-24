@@ -705,6 +705,140 @@ class LocaleContentTableSeeder extends Seeder
 
             //================================================================================
 
+            //CONTACT US INFO
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 7,
+                'locale' => 'fa',
+                'element_title' => 'Title',
+                'element_content' => 'اطلاعات تماس',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 7,
+                'locale' => 'en',
+                'element_title' => 'Title',
+                'element_content' => 'Contact Information',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 7,
+                'locale' => 'ru',
+                'element_title' => 'Title',
+                'element_content' => 'Контакты',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 7,
+                'locale' => 'tr',
+                'element_title' => 'Title',
+                'element_content' => 'İletişim bilgileri',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 8,
+                'locale' => 'fa',
+                'element_title' => 'Description',
+                'element_content' => 'راه های ارتباط با شرکت',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 8,
+                'locale' => 'en',
+                'element_title' => 'Description',
+                'element_content' => 'Ways to communicate with the company',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 8,
+                'locale' => 'ru',
+                'element_title' => 'Description',
+                'element_content' => 'Способы общения с компанией',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 8,
+                'locale' => 'tr',
+                'element_title' => 'Description',
+                'element_content' => 'Şirketle iletişim kurma yolları',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 9,
+                'locale' => 'fa',
+                'element_title' => 'AddressTitle',
+                'element_content' => 'آدرس',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 9,
+                'locale' => 'en',
+                'element_title' => 'AddressTitle',
+                'element_content' => 'Address',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 9,
+                'locale' => 'ru',
+                'element_title' => 'AddressTitle',
+                'element_content' => 'Адрес',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 9,
+                'locale' => 'tr',
+                'element_title' => 'AddressTitle',
+                'element_content' => 'Adres',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 10,
+                'locale' => 'fa',
+                'element_title' => 'EmailTitle',
+                'element_content' => 'پست الکترونیکی',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 10,
+                'locale' => 'en',
+                'element_title' => 'EmailTitle',
+                'element_content' => 'E-Mail',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 10,
+                'locale' => 'ru',
+                'element_title' => 'EmailTitle',
+                'element_content' => 'Электронное письмо',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 10,
+                'locale' => 'tr',
+                'element_title' => 'EmailTitle',
+                'element_content' => 'E-posta',
+            ],
+
+
 
 
 
