@@ -34,9 +34,9 @@ return [
             'name' => 'روسی',
         ],
         [
-            'locale' => 'fr',
+            'locale' => 'tr',
             'rtl' => false,
-            'name' => 'فرانسه',
+            'name' => 'ترکی',
         ],
 
     ],

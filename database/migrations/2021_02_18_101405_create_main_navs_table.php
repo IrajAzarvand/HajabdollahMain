@@ -18,7 +18,7 @@ class CreateMainNavsTable extends Migration
             $table->string('content_fa')->default('');
             $table->string('content_en')->default('');
             $table->string('content_ru')->default('');
-            $table->string('content_fr')->default('');
+            $table->string('content_tr')->default('');
             $table->string('url')->nullable();
             $table->string('route_name')->nullable();
             $table->timestamps();

@@ -90,7 +90,8 @@ class MainNavController extends Controller
         $SectionTitle=LocaleContent::where('section','PageTitles')->where('locale',app()->getLocale())->pluck('element_content','element_title');
 
         //*************************** About Us ********************************************************************* */
-        $AboutUsContent=LocaleContent::where('page','AboutUs')->where('section','AboutUs')->where('locale',app()->getLocale())->pluck('element_content');
+        $AboutUsContent=LocaleContent::where('page','AboutUs')->where('section','AboutUs')->where('locale',app()->getLocale())->pluck('element_content')[0];
+
 
 
 //        $SharedContents = $this->SharedContents();

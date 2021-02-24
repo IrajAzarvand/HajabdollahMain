@@ -44,10 +44,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'aboutus',
-                'element_content' => 'à propos de nous',
+                'element_content' => 'Hakkımızda',
             ],
             ////PRODUCTS
             [
@@ -77,10 +77,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'products',
-                'element_content' => 'Des produits',
+                'element_content' => 'Ürün',
             ],
             ////GALLERY
             [
@@ -110,10 +110,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'gallery',
-                'element_content' => 'Galerie',
+                'element_content' => 'Galeri',
             ],
             ////SALES OFFICES
             [
@@ -143,10 +143,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'salesoffices',
-                'element_content' => 'Bureaux de ventes',
+                'element_content' => 'satış ofisleri',
             ],
             ////CERTIFICATES
             [
@@ -176,11 +176,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'certificates',
-                'element_content' => 'Certificats
-',
+                'element_content' => 'sertifikalar',
             ],
             ////EVENTS
             [
@@ -210,10 +209,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'events',
-                'element_content' => 'Événements',
+                'element_content' => 'Etkinlikler',
             ],
             ////CONTACT US
             [
@@ -243,10 +242,10 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'contactus',
-                'element_content' => 'Nous contacter',
+                'element_content' => 'Bize Ulaşın',
             ],
             ////NEWSLETTER
             [
@@ -276,12 +275,11 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => '',
                 'section' => 'PageTitles',
-                'locale' => 'fr',
+                'locale' => 'tr',
                 'element_id' => '0',
                 'element_title' => 'newsletter',
-                'element_content' => 'S\'inscrire à la Newsletter',
+                'element_content' => 'Haberlere kayıt ol',
             ],
-
 
 
             //BUTTON TITLE => MORE
@@ -319,600 +317,6 @@ class LocaleContentTableSeeder extends Seeder
             ],
             //!--BUTTON TITLE => MORE
 
-            //BUTTON TITLE => BACK
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'بازگشت',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'Back',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'возвращается',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'العودة',
-            ],
-            //!--BUTTON TITLE => BACK
-
-            //BUTTON TITLE => VIEW PRODUCT CATALOG
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'مشاهده کاتالوگ محصول',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'View product catalog',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'Посмотреть каталог продукции',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'عرض كتالوج المنتج',
-            ],
-            //!--BUTTON TITLE => VIEW PRODUCT CATALOG
-
-            //BUTTON TITLE => SEND MESSAGE
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_send_message',
-                'element_content' => 'ارسال پیام',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_send_message',
-                'element_content' => 'send Message',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_send_message',
-                'element_content' => 'Отправить сообщение',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_send_message',
-                'element_content' => 'إرسال رسالة',
-            ],
-            //!--BUTTON TITLE => SEND MESSAGE
-
-            //SECTION TITLE => PRODUCTS
-            [
-                'page' => 'welcome',
-                'section' => 'NewProducts',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'جدیدترین محصولات',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'NewProducts',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'New Products',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'NewProducts',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'новые продукты',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'NewProducts',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'منتجات جديدة',
-            ],
-
-
-            [
-                'page' => 'Products',
-                'section' => '',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'محصولات',
-            ],
-
-            [
-                'page' => 'Products',
-                'section' => '',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Products',
-            ],
-
-            [
-                'page' => 'Products',
-                'section' => '',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Товары',
-            ],
-
-            [
-                'page' => 'Products',
-                'section' => '',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'منتجات',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'ProductIntroduction',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'معرفی محصول',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'ProductIntroduction',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Product Introduction',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'ProductIntroduction',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Внедрение продукции',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'ProductIntroduction',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'مقدمة المنتج',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'NutritionalValue',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'ارزش غذایی',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'NutritionalValue',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Nutritional Value',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'NutritionalValue',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Пищевая ценность',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'NutritionalValue',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'القيمة الغذائية',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'RelatedProducts',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'محصولات مرتبط',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'RelatedProducts',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Related Products',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'RelatedProducts',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Сопутствующие товары',
-            ],
-            [
-                'page' => 'Products',
-                'section' => 'RelatedProducts',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'منتجات ذات صله',
-            ],
-            //!--SECTION TITLE => PRODUCTS
-
-
-            //--SECTION TITLE => CATALOGS
-            [
-                'page' => '',
-                'section' => 'Catalogs',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'کاتالوگ محصولات',
-            ],
-            [
-                'page' => '',
-                'section' => 'Catalogs',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Product Catalogs',
-            ],
-            [
-                'page' => '',
-                'section' => 'Catalogs',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'каталог товаров',
-            ],
-            [
-                'page' => '',
-                'section' => 'Catalogs',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'كتالوج المنتجات',
-            ],
-            //!--SECTION TITLE => CATALOGS
-
-            //--SECTION TITLE => GALLERY
-            [
-                'page' => '',
-                'section' => 'Gallery',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'گالری تصاویر',
-            ],
-            [
-                'page' => '',
-                'section' => 'Gallery',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Photo Gallery',
-            ],
-
-            [
-                'page' => '',
-                'section' => 'Gallery',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Фотогалерея',
-            ],
-
-            [
-                'page' => '',
-                'section' => 'Gallery',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'معرض الصور',
-            ],
-            //!--SECTION TITLE => GALLERY
-
-            //--SECTION FOOTER
-
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'آدرس',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Address',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Адрес',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'نشانی',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'fa',
-                'element_id' => '1',
-                'element_title' => 'address',
-                'element_content' => 'کیلومتر ۳۵ جاده تبریز-آذرشهر، شهرک صنعتی شهید سلیمی، خیابان ۲۰متری دهم، شرکت بستنی اطمینان',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'ar',
-                'element_id' => '1',
-                'element_title' => 'address',
-                'element_content' => '35 كم من طريق تبريز-ازارشهر ، مدينة الشهيد سليمي الصناعية ، 20 متر من شارع 10 ، شركة أتمينان للمثلجات',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'en',
-                'element_id' => '1',
-                'element_title' => 'address',
-                'element_content' => '35 km of Tabriz-Azarshahr road, Shahid Salimi industrial town, 20th meter 10th street, Etminan ice cream company',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'ru',
-                'element_id' => '1',
-                'element_title' => 'address',
-                'element_content' => '35 км дороги Тебриз-Азаршахр, промышленный город Шахид Салими, 20-й метр 10-й улицы, компания по производству мороженого Атминан',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'fa',
-                'element_id' => '1',
-                'element_title' => 'copyright',
-                'element_content' => 'تمام حقوق برای شرکت اطمینان محفوظ است',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'en',
-                'element_id' => '1',
-                'element_title' => 'copyright',
-                'element_content' => 'All Rights Reserved For Etminan Company',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'ru',
-                'element_id' => '1',
-                'element_title' => 'copyright',
-                'element_content' => 'Все права защищены за страховой компанией',
-            ],
-            [
-                'page' => '',
-                'section' => 'footer',
-                'locale' => 'ar',
-                'element_id' => '1',
-                'element_title' => 'copyright',
-                'element_content' => 'جميع الحقوق محفوظة لشركة الاطمینان',
-            ],
-            //!--!SECTION TITLE => FOOTER
-
-
-
-
-
-
-
-
-            //--SECTION TITLE => CH (Certificate and honors)
-
-            [
-                'page' => 'CH',
-                'section' => '',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'گواهینامه و افتخارات',
-            ],
-            [
-                'page' => 'CH',
-                'section' => '',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Certificates and honors',
-            ],
-            [
-                'page' => 'CH',
-                'section' => '',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Сертификаты и награды',
-            ],
-            [
-                'page' => 'CH',
-                'section' => '',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'الشهادات والأوسمة',
-            ],
-            //--!SECTION TITLE => CH (Certificate and honors)
-
-            //--SECTION TITLE => GALLERY
-            [
-                'page' => 'Gallery',
-                'section' => '',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'گالری تصاویر',
-            ],
-            [
-                'page' => 'Gallery',
-                'section' => '',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Photo Gallery',
-            ],
-            [
-                'page' => 'Gallery',
-                'section' => '',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Фотогалерея',
-            ],
-            [
-                'page' => 'Gallery',
-                'section' => '',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'معرض الصور',
-            ],
-            //--!SECTION TITLE => GALLERY
-
-
-            //--SECTION TITLE => SALES OFFICES
-            [
-                'page' => 'SalesOffices',
-                'section' => '',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'دفاتر فروش',
-            ],
-            [
-                'page' => 'SalesOffices',
-                'section' => '',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Sales Offices',
-            ],
-            [
-                'page' => 'SalesOffices',
-                'section' => '',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Офисы продаж',
-            ],
-            [
-                'page' => 'SalesOffices',
-                'section' => '',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'مكاتب المبيعات',
-            ],
-            //--!SECTION TITLE => SALES OFFICES
-
-
-            //--SECTION TITLE => Company Introduction
-            [
-                'page' => 'CI',
-                'section' => '',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'معرفی شرکت',
-            ],
-            [
-                'page' => 'CI',
-                'section' => '',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Company Introduction',
-            ],
-            [
-                'page' => 'CI',
-                'section' => '',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Компания Введение',
-            ],
-            [
-                'page' => 'CI',
-                'section' => '',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'تعريف عن الشركة',
-            ],
 
 
             //--SECTION TITLE => Contact Us
@@ -1176,6 +580,41 @@ class LocaleContentTableSeeder extends Seeder
             //--!SECTION TITLE => Contact Us
 
 
+
+
+            //ABOUT US INITIAL CONTENT
+            [
+                'page' => 'AboutUs',
+                'section' => 'AboutUs',
+                'element_id' => 1,
+                'locale' => 'fa',
+                'element_title' => 'AboutUsDescription_fa',
+                'element_content' => 'شرکت بستنی اطمینان آذرگل که تولید کننده انواع بستنی با نام تجاری ( آدلین ) و نیز محصول پشمک با نام تجاری ( حاج عبداله ) می باشد ، کار خویش را از سال ۱۳۳۰ با تولید پشمک و بستنی بصورت سنتی آغاز نموده و در سال ۱۳۷۹ در محل فعلی شرکت واقع در شهرک صنعتی شهید سلیمی اقدام به تولید صنعتی و انبوه نموده است . صنعت پشمک به گونه ای که امروزه ما آن را می شناسیم ، مراحل تکامل خود را در شهر تبریز سپری نموده است. با وجود این سر آغاز آن را باید در شهر یزد جست ، چرا که پشمک از قاره اروپا و خاورمیانه به ایران راه یافته است . جالب است بدانیم فروش پشمک از حالت فله ای به بسته بندی مدرن و اتیکت زنی برای اولین بار توسط این شرکت جا افتاده است.',
+            ],
+            [
+                'page' => 'AboutUs',
+                'section' => 'AboutUs',
+                'element_id' => 1,
+                'locale' => 'en',
+                'element_title' => 'AboutUsDescription_en',
+                'element_content' => 'Azargol Etminan Ice Cream Company, which is a manufacturer of ice cream with the brand name (Adlin) and also the product of cotton candy with the brand name (Haj Abdollah), started its work in 1330 with the production of cotton candy and ice cream in the traditional way and in 1379 in The current company located in Shahid Salimi Industrial Town has started mass industrial production. The cotton industry, as we know it today, has passed its development stages in the city of Tabriz. Nevertheless, its beginning should be sought in the city of Yazd, because cotton candy has reached Iran from continental Europe and the Middle East. It is interesting to know that the sale of cotton from bulk to modern packaging and labeling has been introduced by this company for the first time.',
+            ],
+            [
+                'page' => 'AboutUs',
+                'section' => 'AboutUs',
+                'element_id' => 1,
+                'locale' => 'ru',
+                'element_title' => 'AboutUsDescription_ru',
+                'element_content' => 'Компания Azargol Etminan Ice Cream Company, которая является производителем мороженого под торговой маркой (Adlin), а также продукта сахарной ваты под торговой маркой (Haj Abdollah), начала свою работу в 1330 году с производства сахарной ваты и мороженого. традиционным способом и в 1379 году. Нынешняя компания, расположенная в промышленном городе Шахид Салими, приступила к массовому промышленному производству. Хлопковая промышленность в том виде, в каком мы ее знаем сегодня, прошла этап своего развития в городе Тебриз. Тем не менее, его начало следует искать в городе Йезд, поскольку сахарная вата попала в Иран из континентальной Европы и Ближнего Востока. Интересно знать, что эта компания впервые ввела продажу хлопка от насыпных до современной упаковки и маркировки.',
+            ],
+            [
+                'page' => 'AboutUs',
+                'section' => 'AboutUs',
+                'element_id' => 1,
+                'locale' => 'tr',
+                'element_title' => 'AboutUsDescription_tr',
+                'element_content' => '(Adlin) markalı dondurma üreticisi ve aynı zamanda (Haj Abdollah) markasıyla pamuk şekerleme ürünü olan Azargol Etminan Dondurma, 1330 yılında pamuk şeker ve dondurma üretimi ile çalışmalarına başlamıştır. geleneksel şekilde ve 1379 yılında Shahid Salimi Sanayi Kasabasında bulunan mevcut şirket seri endüstriyel üretime başlamıştır. Pamuk endüstrisi bugün bildiğimiz şekliyle gelişme aşamalarını Tebriz şehrinde geçirmiştir. Bununla birlikte, başlangıcı Yazd şehrinde aranmalıdır, çünkü pamuk şeker İran\'a kıta Avrupa\'sından ve Orta Doğu\'dan ulaşmıştır. Dökme pamuktan modern ambalaj ve etiketlemeye satışının ilk kez bu şirket tarafından başlatıldığını bilmek ilginçtir.',
+            ],
         ];
 
         foreach ($Content as $item) {

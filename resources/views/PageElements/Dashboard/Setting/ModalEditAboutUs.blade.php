@@ -58,7 +58,7 @@
                                 @foreach (Locales() as $item)
                                     <div class="tab-pane @if ($loop->first) active @endif" id="AboutUs_Desc_{{$item['locale']}}box">
                                         <div class="mb-3">
-                                            <textarea id="AboutUs_Desc_{{$item['locale']}}edit" name="AboutUs_Desc_{{$item['locale']}}" style="width: 100%"></textarea>
+                                            <textarea rows="10" id="AboutUs_Desc_{{$item['locale']}}edit" name="AboutUs_Desc_{{$item['locale']}}" style="width: 100%"></textarea>
                                         </div>
                                     </div>
                                 @endforeach

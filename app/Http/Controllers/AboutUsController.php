@@ -50,18 +50,6 @@ class AboutUsController extends Controller
         $AboutUs->save();
         $element_id = $AboutUs->id;
         $Contents = [];
-//        if ($request->AboutUsTitle_fa) {
-//            foreach (Locales() as $item) {
-//                $Contents[] = new LocaleContent([
-//                    'page' => 'AboutUs',
-//                    'section' => 'AboutUs',
-//                    'element_id' => $element_id,
-//                    'locale' => $item['locale'],
-//                    'element_title' => 'AboutUsTitle_' . $item['locale'],
-//                    'element_content' => $request->input('AboutUsTitle_' . $item['locale']),
-//                ]);
-//            }
-//        }
 
         if ($request->AboutUsDescription_fa) {
             foreach (Locales() as $item) {
