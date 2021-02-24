@@ -70,6 +70,19 @@ class MainNavController extends Controller
         $BtnSubscribe = $this->BtnTitle('btn_subscribe');
         $MailPlaceholder = $this->LocaleContents('NewsLetter', '', 1, 'MailPlaceholder');
 
+        //*************************** Contact Us ********************************************************************* */
+        $CUFormTitle = $this->LocaleContents('ContactUs','',0,'FormTitle');
+        $CUFormDescription = $this->LocaleContents('ContactUs','',1,'FormDescription');
+        $CUFormName = $this->LocaleContents('ContactUs','Form',2,'NameField');
+        $CUFormPhone = $this->LocaleContents('ContactUs','Form',3,'PhoneField');
+        $CUFormEmail = $this->LocaleContents('ContactUs','Form',4,'EmailField');
+        $CUFormSubject = $this->LocaleContents('ContactUs','Form',5,'SubjectField');
+        $CUFormMessage = $this->LocaleContents('ContactUs','Form',6,'MessageField');
+        $CUFormBtnSend = $this->BtnTitle('btn_send');
+
+
+
+
 
 //        $SharedContents = $this->SharedContents();
 
@@ -149,6 +162,17 @@ class MainNavController extends Controller
                 'NLDescription',
                 'BtnSubscribe',
                 'MailPlaceholder',
+                'CUFormTitle',
+                'CUFormDescription',
+                'CUFormName',
+                'CUFormPhone',
+                'CUFormEmail',
+                'CUFormSubject',
+                'CUFormMessage',
+                'CUFormBtnSend',
+
+
+
 
             ));
     }

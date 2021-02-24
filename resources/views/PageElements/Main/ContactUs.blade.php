@@ -18,29 +18,29 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="contact-form">
-                        <h4>ارسل لنا رسالة</h4>
-                        <p class="mt30">وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه! </p>
+                        <h4>{{$CUFormTitle}}</h4>
+                        <p class="mt30">{{$CUFormDescription}}</p>
                         <div id="show_contact_msg"></div>
                         <form id='contact-form' class="mt25" method="post" action="contact.php">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input id="contact_name" type="text" name="name" placeholder="الأسم كامل" class="form-control" required="required">
+                                    <input id="contact_name" type="text" name="name" placeholder="{{$CUFormName}}" class="form-control" required="required">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input id="contact_phone" type="text" name="phone" placeholder="الهاتف" class="form-control" required="required">
+                                    <input id="contact_phone" type="text" name="phone" placeholder="{{$CUFormPhone}}" class="form-control" required="required">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input id="contact_email" type="email" name="email" class="form-control" placeholder="البريد الالكتروني" required="required">
+                                    <input id="contact_email" type="email" name="email" class="form-control" placeholder="{{$CUFormEmail}}" required="required">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input id="contact_subject" type="text" name="subject" placeholder="الموضوع" class="form-control" required="required">
+                                    <input id="contact_subject" type="text" name="subject" placeholder="{{$CUFormSubject}}" class="form-control" required="required">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea id="contact_text" rows="6" name="message" class="form-control" placeholder="اكتب رسالتك.." required="required"></textarea>
+                                    <textarea id="contact_text" rows="6" name="message" class="form-control" placeholder="{{$CUFormMessage}}" required="required"></textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <div>
-                                        <button type="submit" value="Send Now" class="button">ارسل الآن</button>
+                                        <button type="submit" value="Send Now" class="button">{{$CUFormBtnSend}}</button>
                                     </div>
                                 </div>
                             </div>

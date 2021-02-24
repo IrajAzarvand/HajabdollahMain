@@ -282,7 +282,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
 
             //!--SECTION TITLE END
-
+//================================================================================
             //BUTTON TITLE => SUBSCRIBE
             [
                 'page' => '',
@@ -318,270 +318,44 @@ class LocaleContentTableSeeder extends Seeder
             ],
             //!--BUTTON TITLE => MORE
 
+//================================================================================
 
-
-            //--SECTION TITLE => Contact Us
+            //BUTTON TITLE => SEND
             [
-                'page' => 'CU',
-                'section' => 'PageTitle',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'تماس با ما',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageTitle',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Contact Us',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageTitle',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'свяжитесь с нами',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageTitle',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'اتصل بنا',
-            ],
-            [
-                'page' => 'CU',
+                'page' => '',
                 'section' => 'PageElements',
                 'locale' => 'fa',
                 'element_id' => '1',
-                'element_title' => 'Company Name',
-                'element_content' => 'شرکت بستنی اطمینان آذرگل',
+                'element_title' => 'btn_send',
+                'element_content' => 'ارسال',
             ],
             [
-                'page' => 'CU',
+                'page' => '',
                 'section' => 'PageElements',
                 'locale' => 'en',
                 'element_id' => '1',
-                'element_title' => 'Company Name',
-                'element_content' => 'Azargol Etminan Ice Cream Company',
+                'element_title' => 'btn_send',
+                'element_content' => 'Send',
             ],
             [
-                'page' => 'CU',
+                'page' => '',
                 'section' => 'PageElements',
                 'locale' => 'ru',
                 'element_id' => '1',
-                'element_title' => 'Company Name',
-                'element_content' => 'Компания по производству мороженого Азаргол Атминан',
+                'element_title' => 'btn_send',
+                'element_content' => 'Отправить',
             ],
             [
-                'page' => 'CU',
+                'page' => '',
                 'section' => 'PageElements',
-                'locale' => 'ar',
+                'locale' => 'tr',
                 'element_id' => '1',
-                'element_title' => 'Company Name',
-                'element_content' => 'شركة آيس كريم أزارجول أتمينان',
+                'element_title' => 'btn_send',
+                'element_content' => 'gönder',
             ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '2',
-                'element_title' => 'phone number',
-                'element_content' => 'تلفن',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '2',
-                'element_title' => 'phone number',
-                'element_content' => 'Phone Number',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '2',
-                'element_title' => 'phone number',
-                'element_content' => 'Телефонный номер',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '2',
-                'element_title' => 'phone number',
-                'element_content' => 'رقم الهاتف',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '3',
-                'element_title' => 'mail title',
-                'element_content' => 'ایمیل',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '3',
-                'element_title' => 'mail title',
-                'element_content' => 'Email',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '3',
-                'element_title' => 'mail title',
-                'element_content' => 'Эл. адрес',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '3',
-                'element_title' => 'mail title',
-                'element_content' => 'البريد الإلكتروني',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '4',
-                'element_title' => 'form name title',
-                'element_content' => 'نام',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '4',
-                'element_title' => 'form name title',
-                'element_content' => 'Name',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '4',
-                'element_title' => 'form name title',
-                'element_content' => 'имя',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '4',
-                'element_title' => 'form name title',
-                'element_content' => 'اسم',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '5',
-                'element_title' => 'form email title',
-                'element_content' => 'ایمیل',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '5',
-                'element_title' => 'form email title',
-                'element_content' => 'Email',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '5',
-                'element_title' => 'form email title',
-                'element_content' => 'Эл. адрес',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '5',
-                'element_title' => 'form email title',
-                'element_content' => 'البريد الإلكتروني',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '6',
-                'element_title' => 'form subject title',
-                'element_content' => 'موضوع',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '6',
-                'element_title' => 'form subject title',
-                'element_content' => 'Subject',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '6',
-                'element_title' => 'form subject title',
-                'element_content' => 'Тема',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '6',
-                'element_title' => 'form subject title',
-                'element_content' => 'موضوع',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '7',
-                'element_title' => 'form message title',
-                'element_content' => 'پیام',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '7',
-                'element_title' => 'form message title',
-                'element_content' => 'Message',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '7',
-                'element_title' => 'form message title',
-                'element_content' => 'Сообщение',
-            ],
-            [
-                'page' => 'CU',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '7',
-                'element_title' => 'form message title',
-                'element_content' => 'رسالة',
-            ],
+            //!--BUTTON TITLE => SEND
 
-            //--!SECTION TITLE => Contact Us
-
-
-
+            //================================================================================
 
             //ABOUT US INITIAL CONTENT
             [
@@ -617,6 +391,8 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => '(Adlin) markalı dondurma üreticisi ve aynı zamanda (Haj Abdollah) markasıyla pamuk şekerleme ürünü olan Azargol Etminan Dondurma, 1330 yılında pamuk şeker ve dondurma üretimi ile çalışmalarına başlamıştır. geleneksel şekilde ve 1379 yılında Shahid Salimi Sanayi Kasabasında bulunan mevcut şirket seri endüstriyel üretime başlamıştır. Pamuk endüstrisi bugün bildiğimiz şekliyle gelişme aşamalarını Tebriz şehrinde geçirmiştir. Bununla birlikte, başlangıcı Yazd şehrinde aranmalıdır, çünkü pamuk şeker İran\'a kıta Avrupa\'sından ve Orta Doğu\'dan ulaşmıştır. Dökme pamuktan modern ambalaj ve etiketlemeye satışının ilk kez bu şirket tarafından başlatıldığını bilmek ilginçtir.',
             ],
 
+            //================================================================================
+
             //NEWSLETTER DESCRIPTION
             [
                 'page' => 'NewsLetter',
@@ -650,6 +426,9 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'Description',
                 'element_content' => 'En son haberler ve duyurular için binlerce abonemize katılın',
             ],
+
+            //================================================================================
+
             //NEWSLETTER MAIL PLACEHOLDER
             [
                 'page' => 'NewsLetter',
@@ -683,6 +462,249 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'MailPlaceholder',
                 'element_content' => 'E-posta adresi',
             ],
+
+            //================================================================================
+
+            //CONTACT US FORM TITLE
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'fa',
+                'element_title' => 'FormTitle',
+                'element_content' => 'با ما در ارتباط باشید',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'en',
+                'element_title' => 'FormTitle',
+                'element_content' => 'Stay in touch with us',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'ru',
+                'element_title' => 'FormTitle',
+                'element_content' => 'Будь на связи',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'tr',
+                'element_title' => 'FormTitle',
+                'element_content' => 'Bizimle iletişimde kalın',
+            ],
+
+            //================================================================================
+
+            //CONTACT US FORM DESCRIPTION
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'fa',
+                'element_title' => 'FormDescription',
+                'element_content' => 'منتظر ارائه پیشنهادات و نظریات شما در پیشبرد اهداف شرکت هستیم',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'en',
+                'element_title' => 'FormDescription',
+                'element_content' => 'We are waiting for your suggestions and ideas in advancing the company\'s goals',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'ru',
+                'element_title' => 'FormDescription',
+                'element_content' => 'Ждем ваших предложений и идей в продвижении целей компании.',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'tr',
+                'element_title' => 'FormDescription',
+                'element_content' => 'Şirket hedeflerini ilerletmek için öneri ve fikirlerinizi bekliyoruz.',
+            ],
+
+            //================================================================================
+
+            //CONTACT US FORM ELEMENTS
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 2,
+                'locale' => 'fa',
+                'element_title' => 'NameField',
+                'element_content' => 'نام و نام خانوادگی',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 2,
+                'locale' => 'en',
+                'element_title' => 'NameField',
+                'element_content' => 'Name And Surname',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 2,
+                'locale' => 'ru',
+                'element_title' => 'NameField',
+                'element_content' => 'имя и фамилия',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 2,
+                'locale' => 'tr',
+                'element_title' => 'NameField',
+                'element_content' => 'Ad ve soyad',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 3,
+                'locale' => 'fa',
+                'element_title' => 'PhoneField',
+                'element_content' => 'شماره تلفن',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 3,
+                'locale' => 'en',
+                'element_title' => 'PhoneField',
+                'element_content' => 'Phone Number',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 3,
+                'locale' => 'ru',
+                'element_title' => 'PhoneField',
+                'element_content' => 'телефон',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 3,
+                'locale' => 'tr',
+                'element_title' => 'PhoneField',
+                'element_content' => 'telefon',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 4,
+                'locale' => 'fa',
+                'element_title' => 'EmailField',
+                'element_content' => 'آدرس ایمیل',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 4,
+                'locale' => 'en',
+                'element_title' => 'EmailField',
+                'element_content' => 'Email Address',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 4,
+                'locale' => 'ru',
+                'element_title' => 'EmailField',
+                'element_content' => 'Электронное письмо',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 4,
+                'locale' => 'tr',
+                'element_title' => 'EmailField',
+                'element_content' => 'E-posta adresi',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 5,
+                'locale' => 'fa',
+                'element_title' => 'SubjectField',
+                'element_content' => 'موضوع',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 5,
+                'locale' => 'en',
+                'element_title' => 'SubjectField',
+                'element_content' => 'Subject',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 5,
+                'locale' => 'ru',
+                'element_title' => 'SubjectField',
+                'element_content' => 'предмет',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 5,
+                'locale' => 'tr',
+                'element_title' => 'SubjectField',
+                'element_content' => 'konu',
+            ],
+
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 6,
+                'locale' => 'fa',
+                'element_title' => 'MessageField',
+                'element_content' => 'متن پیام',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 6,
+                'locale' => 'en',
+                'element_title' => 'MessageField',
+                'element_content' => 'Message',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 6,
+                'locale' => 'ru',
+                'element_title' => 'MessageField',
+                'element_content' => 'Текст сообщения',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Form',
+                'element_id' => 6,
+                'locale' => 'tr',
+                'element_title' => 'MessageField',
+                'element_content' => 'Mesaj metni',
+            ],
+
+            //================================================================================
+
 
 
 
