@@ -281,39 +281,40 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'Haberlere kayıt ol',
             ],
 
+            //!--SECTION TITLE END
 
-            //BUTTON TITLE => MORE
+            //BUTTON TITLE => SUBSCRIBE
             [
                 'page' => '',
                 'section' => 'PageElements',
                 'locale' => 'fa',
                 'element_id' => '0',
-                'element_title' => 'btn_more',
-                'element_content' => 'بیشتر',
+                'element_title' => 'btn_subscribe',
+                'element_content' => 'عضویت',
             ],
             [
                 'page' => '',
                 'section' => 'PageElements',
                 'locale' => 'en',
                 'element_id' => '0',
-                'element_title' => 'btn_more',
-                'element_content' => 'More',
+                'element_title' => 'btn_subscribe',
+                'element_content' => 'Subscribe',
             ],
             [
                 'page' => '',
                 'section' => 'PageElements',
                 'locale' => 'ru',
                 'element_id' => '0',
-                'element_title' => 'btn_more',
-                'element_content' => 'Больше',
+                'element_title' => 'btn_subscribe',
+                'element_content' => 'подписываться',
             ],
             [
                 'page' => '',
                 'section' => 'PageElements',
-                'locale' => 'ar',
+                'locale' => 'tr',
                 'element_id' => '0',
-                'element_title' => 'btn_more',
-                'element_content' => 'أكثر',
+                'element_title' => 'btn_subscribe',
+                'element_content' => 'abone ol',
             ],
             //!--BUTTON TITLE => MORE
 
@@ -615,6 +616,76 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'AboutUsDescription_tr',
                 'element_content' => '(Adlin) markalı dondurma üreticisi ve aynı zamanda (Haj Abdollah) markasıyla pamuk şekerleme ürünü olan Azargol Etminan Dondurma, 1330 yılında pamuk şeker ve dondurma üretimi ile çalışmalarına başlamıştır. geleneksel şekilde ve 1379 yılında Shahid Salimi Sanayi Kasabasında bulunan mevcut şirket seri endüstriyel üretime başlamıştır. Pamuk endüstrisi bugün bildiğimiz şekliyle gelişme aşamalarını Tebriz şehrinde geçirmiştir. Bununla birlikte, başlangıcı Yazd şehrinde aranmalıdır, çünkü pamuk şeker İran\'a kıta Avrupa\'sından ve Orta Doğu\'dan ulaşmıştır. Dökme pamuktan modern ambalaj ve etiketlemeye satışının ilk kez bu şirket tarafından başlatıldığını bilmek ilginçtir.',
             ],
+
+            //NEWSLETTER DESCRIPTION
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'fa',
+                'element_title' => 'Description',
+                'element_content' => 'برای اطلاع از آخرین اخبار و اطلاعیه ها به جمع هزاران مشترک ما بپیوندید',
+            ],
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'en',
+                'element_title' => 'Description',
+                'element_content' => 'Join our thousands of subscribers for the latest news and announcements',
+            ],
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'ru',
+                'element_title' => 'Description',
+                'element_content' => 'Присоединяйтесь к нашим тысячам подписчиков для получения последних новостей и объявлений',
+            ],
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 0,
+                'locale' => 'tr',
+                'element_title' => 'Description',
+                'element_content' => 'En son haberler ve duyurular için binlerce abonemize katılın',
+            ],
+            //NEWSLETTER MAIL PLACEHOLDER
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'fa',
+                'element_title' => 'MailPlaceholder',
+                'element_content' => 'آدرس ایمیل',
+            ],
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'en',
+                'element_title' => 'MailPlaceholder',
+                'element_content' => 'Email Address',
+            ],
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'ru',
+                'element_title' => 'MailPlaceholder',
+                'element_content' => 'Адрес электронной почты',
+            ],
+            [
+                'page' => 'NewsLetter',
+                'section' => '',
+                'element_id' => 1,
+                'locale' => 'tr',
+                'element_title' => 'MailPlaceholder',
+                'element_content' => 'E-posta adresi',
+            ],
+
+
+
         ];
 
         foreach ($Content as $item) {

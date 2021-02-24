@@ -23,7 +23,6 @@ class MainNavController extends Controller
     public function locale(string $lang)
     {
         Session::put('locale', $lang);
-//    AllContentOfLocale();
         return back();
     }
 
@@ -35,7 +34,7 @@ class MainNavController extends Controller
     }
 
     //get title for page elements from locale content table
-    public function PageSectionsTitle($P, $S, $EID, $ETITLE)
+    public function LocaleContents($P, $S, $EID, $ETITLE)
     {
         return LocaleContent::where('locale', app()->getLocale())
             ->where('page', $P)
@@ -46,74 +45,33 @@ class MainNavController extends Controller
 
     }
 
-    public function SharedContents()
-    {
-        $SharedContents = collect(AllContentOfLocale())
-            ->whereIn('page', array('')) //''=>contents for all pages(menus, footer, ...)
-            ->all();
-
-
-        $Footer = collect($SharedContents)->where('section', 'footer');
-        foreach ($Footer as $key => $value) {
-            if ($value['element_title'] == 'address') {
-                $Address = $value['element_content'];
-            } elseif ($value['element_title'] == 'copyright') {
-                $CopyRight = $value['element_content'];
-            } elseif ($value['element_title'] == 'section_title') {
-                $SectionTitle = $value['element_content'];
-            }
-        }
-
-        return [
-            'SectionTitle' => $SectionTitle,
-            'Address' => $Address,
-            'CopyRight' => $CopyRight,
-        ];
-    }
 
     /**
-     * Display a listing of the resource.
-     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function HomePage()
     {
         //*************************** LOCALES ********************************************************************* */
-        foreach (Locales() as $key=>$l) {
-            $lang[$key]['title']= $l['locale'];
+        foreach (Locales() as $key => $l) {
+            $lang[$key]['title'] = $l['locale'];
         }
 
         //*************************** MENUS ********************************************************************* */
-        $Menus = MainNav::pluck('content_'.app()->getLocale());
+        $Menus = MainNav::pluck('content_' . app()->getLocale());
 
-        //*************************** MENUS ********************************************************************* */
-        $SectionTitle=LocaleContent::where('section','PageTitles')->where('locale',app()->getLocale())->pluck('element_content','element_title');
+        //*************************** SECTION TITLES ********************************************************************* */
+        $SectionTitle = LocaleContent::where('section', 'PageTitles')->where('locale', app()->getLocale())->pluck('element_content', 'element_title');
 
-        //*************************** About Us ********************************************************************* */
-        $AboutUsContent=LocaleContent::where('page','AboutUs')->where('section','AboutUs')->where('locale',app()->getLocale())->pluck('element_content')[0];
+        //*************************** About Us Content ********************************************************************* */
+        $AboutUsContent = $this->LocaleContents('AboutUs', 'AboutUs', 1, 'AboutUsDescription_' . app()->getLocale());
 
+        //*************************** NewsLetter ********************************************************************* */
+        $NLDescription = $this->LocaleContents('NewsLetter','',0,'Description');
+        $BtnSubscribe = $this->BtnTitle('btn_subscribe');
+        $MailPlaceholder = $this->LocaleContents('NewsLetter', '', 1, 'MailPlaceholder');
 
 
 //        $SharedContents = $this->SharedContents();
-//        $BtnMore = $this->BtnTitle('btn_more');
-//
-//
-//        $IndexContents = collect(AllContentOfLocale())
-//            ->whereIn('page', array('welcome')) // 'welcome'=>contents for home page only
-//            ->all();
-
-        //*************************** SLIDER ********************************************************************* */
-//        $SliderItems = collect($IndexContents)
-//            ->whereIn('section', array('slider'))
-//            ->all();
-//
-//        $Slider = [];
-//        foreach ($SliderItems as $item) {
-//
-//            $item['image'] = asset('storage/Main/Sliders/' . Slider::where('id', $item['element_id'])->value('image'));
-//            $Slider[] = $item;
-//        }
-
 
         //************************** NEW PRODUCTS ***************************************************************** */
 //        $NewPrSectionTitle = $this->PageSectionsTitle('welcome', 'NewProducts', 0, 'section_title');
@@ -182,13 +140,16 @@ class MainNavController extends Controller
 //
 
 
-
         return view('welcome',
             compact(
                 'lang',
                 'Menus',
                 'SectionTitle',
                 'AboutUsContent',
+                'NLDescription',
+                'BtnSubscribe',
+                'MailPlaceholder',
+
             ));
     }
 
@@ -502,10 +463,10 @@ class MainNavController extends Controller
         $subject = $request->input('subject');
         $message = $request->input('message');
         Message::insert([
-            'name'=> $name,
-            'email'=>$email,
-            'subject'=>$subject,
-            'message'=>$message,
+            'name' => $name,
+            'email' => $email,
+            'subject' => $subject,
+            'message' => $message,
         ]);
         $request->session()->flash('status', 'Message Stored!');
         return back();
