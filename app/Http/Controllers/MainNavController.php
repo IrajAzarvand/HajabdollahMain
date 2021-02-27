@@ -84,7 +84,8 @@ class MainNavController extends Controller
         $CUInfoAddressTitle = $this->LocaleContents('ContactUs','Info',9,'AddressTitle');
         $CUInfoEmailTitle = $this->LocaleContents('ContactUs','Info',10,'EmailTitle');
         $CUInfoPhoneTitle = $this->LocaleContents('ContactUs','Info',11,'PhoneTitle');
-        $CUContent = LocaleContent::where('page','CU')->where('section', 'CU')->where('locale', app()->getLocale())->pluck('element_content');
+        $CUAddressContent = LocaleContent::where('page','CU')->where('section', 'Address')->where('locale', app()->getLocale())->pluck('element_content')[0];
+        $CUPhoneContent = LocaleContent::where('page','CU')->where('section', 'CU')->where('locale', app()->getLocale())->pluck('element_content');
 
 
 
@@ -181,7 +182,8 @@ class MainNavController extends Controller
                 'CUInfoAddressTitle',
                 'CUInfoEmailTitle',
                 'CUInfoPhoneTitle',
-                'CUContent',
+                'CUAddressContent',
+                'CUPhoneContent',
 
 
 

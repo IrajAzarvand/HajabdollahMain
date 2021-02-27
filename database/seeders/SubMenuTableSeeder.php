@@ -57,6 +57,11 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-file-text-o',
                 ],
                 [
+                    'SubMenu' => 'آدرس',
+                    'Url' => 'Address.index',
+                    'Icon' => 'fa fa-map-marker',
+                ],
+                [
                     'SubMenu' => 'تماس با ما',
                     'Url' => 'CU.index',
                     'Icon' => 'fa fa-file-text-o',

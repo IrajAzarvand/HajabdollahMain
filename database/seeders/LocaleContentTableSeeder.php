@@ -967,6 +967,39 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'CUDescription_tr',
                 'element_content' => 'Dahili satışlar 041-56987456 041-85412587',
             ],
+            //Address Table seeder
+            [
+                'page' => 'CU',
+                'section' => 'Address',
+                'element_id' => 1,
+                'locale' => 'fa',
+                'element_title' => 'AddressDescription_fa',
+                'element_content' => 'کیلومتر ۳۵ جاده تبریز-آذرشهر، شهرک صنعتی شهید سلیمی، خیابان ۲۰متری دهم، شرکت بستنی اطمینان',
+            ],
+            [
+                'page' => 'CU',
+                'section' => 'Address',
+                'element_id' => 1,
+                'locale' => 'en',
+                'element_title' => 'AddressDescription_fa',
+                'element_content' => '35 km of Tabriz-Azarshahr road, Shahid Salimi industrial town, 20th meter of 10th street, Etminan ice cream company',
+            ],
+            [
+                'page' => 'CU',
+                'section' => 'Address',
+                'element_id' => 1,
+                'locale' => 'ru',
+                'element_title' => 'AddressDescription_fa',
+                'element_content' => '35 км дороги Тебриз-Азаршахр, промышленный город Шахид Салими, 20 метров 10-й улицы, Etminan Ice Cream Company',
+            ],
+            [
+                'page' => 'CU',
+                'section' => 'Address',
+                'element_id' => 1,
+                'locale' => 'tr',
+                'element_title' => 'AddressDescription_fa',
+                'element_content' => '35 km Tebriz-Azarshahr yolu, Shahid Salimi sanayi kasabası, 10. cadde 20 metre, Etminan Dondurma Şirketi',
+            ],
 
 
 

@@ -61,7 +61,7 @@
                             <i class="ti-location-pin"></i>
                             <h5>
                                 <span>{{$CUInfoAddressTitle}}</span>
-                                منطقة روكسي بمصر الجديدة, <br> القاهره, مصر
+                                {{$CUAddressContent}}
                             </h5>
                         </div>
 
@@ -80,7 +80,7 @@
                             <i class="ti-headphone-alt"></i>
                             <h5>
                                 <span>{{$CUInfoPhoneTitle}}</span>
-                                @foreach($CUContent as $CU)
+                                @foreach($CUPhoneContent as $CU)
                                     {{$CU}}
                                     <br>
                                 @endforeach
