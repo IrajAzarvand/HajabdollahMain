@@ -64,4 +64,10 @@ class LocaleContent extends Model
     {
         return $this->belongsTo(CU::class);
     }
+
+    public function Address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
 }

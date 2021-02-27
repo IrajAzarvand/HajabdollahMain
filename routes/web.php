@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CUController;
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\SliderController;
@@ -57,5 +58,7 @@ Route::resource('AboutUs', AboutUsController::class);
 Route::resource('CUMessages', MessageController::class);
 
 Route::resource('CU', CUController::class);
+
+Route::resource('Address', AddressController::class);
 
 //====================================== Dashboard Routes End
