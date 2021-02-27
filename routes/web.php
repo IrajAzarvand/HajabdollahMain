@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CUController;
 use App\Http\Controllers\MainNavController;
+use App\Http\Controllers\SalesOfficeController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;

@@ -45,7 +45,7 @@
                                             <tr>
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$OfficeList['title']}}</td>
-                                                <td><button type="button" class="btn btn-primary"><a onclick="EditOffice({{$OfficeList['id']}})"><i class="fa fa-eye"></i></a></button> &nbsp; &nbsp; <button type="button" style="display: none" class="btn btn-danger"><a onclick="deleteOffice({{$OfficeList['id']}})"><i class="fa fa-trash-o"></i></a></button> </td>
+                                                <td><button type="button" class="btn btn-primary"><a onclick="EditOffice({{$OfficeList['id']}})"><i class="fa fa-eye"></i></a></button></td>
                                             </tr>
                                         @endforeach
                                     </table>
