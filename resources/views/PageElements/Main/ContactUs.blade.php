@@ -1,4 +1,3 @@
-
 <!-- Start Contact Section -->
 <section id="contact" class="contact dir-rtl" data-scroll-index="7">
     <div class="part-top">
@@ -24,23 +23,29 @@
                         <form id='contact-form' class="mt25" method="post" action="contact.php">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input id="contact_name" type="text" name="name" placeholder="{{$CUFormName}}" class="form-control" required="required">
+                                    <input id="contact_name" type="text" name="name" placeholder="{{$CUFormName}}"
+                                           class="form-control" required="required">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input id="contact_phone" type="text" name="phone" placeholder="{{$CUFormPhone}}" class="form-control" required="required">
+                                    <input id="contact_phone" type="text" name="phone" placeholder="{{$CUFormPhone}}"
+                                           class="form-control" required="required">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input id="contact_email" type="email" name="email" class="form-control" placeholder="{{$CUFormEmail}}" required="required">
+                                    <input id="contact_email" type="email" name="email" class="form-control"
+                                           placeholder="{{$CUFormEmail}}" required="required">
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input id="contact_subject" type="text" name="subject" placeholder="{{$CUFormSubject}}" class="form-control" required="required">
+                                    <input id="contact_subject" type="text" name="subject"
+                                           placeholder="{{$CUFormSubject}}" class="form-control" required="required">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea id="contact_text" rows="6" name="message" class="form-control" placeholder="{{$CUFormMessage}}" required="required"></textarea>
+                                    <textarea id="contact_text" rows="6" name="message" class="form-control"
+                                              placeholder="{{$CUFormMessage}}" required="required"></textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <div>
-                                        <button type="submit" value="Send Now" class="button">{{$CUFormBtnSend}}</button>
+                                        <button type="submit" value="Send Now"
+                                                class="button">{{$CUFormBtnSend}}</button>
                                     </div>
                                 </div>
                             </div>
@@ -65,19 +70,31 @@
                             <h5>
                                 <span>{{$CUInfoEmailTitle}}</span>
                                 <a href="#">info@hajabdollah.com</a>
+                                <br>
+                                <a href="#">sale@hajabdollah.com</a>
+
                             </h5>
                         </div>
 
                         <div class="item mt-20">
                             <i class="ti-headphone-alt"></i>
                             <h5>
-                                <span>الهاتف </span>
-                                (001) 8686 234 432<br> Office - (001) 2345 678 900
+                                <span>{{$CUInfoPhoneTitle}}</span>
+                                @foreach($CUContent as $CU)
+                                    {{$CU}}
+                                    <br>
+                                @endforeach
+
+
                             </h5>
                         </div>
 
                         <div class="social-icon mt-20">
-                            <a href="https://www.instagram.com/hajabdollah.pashmak/" class="linkedin" target="_blank"><span><i class="ti-instagram"></i></span></a>
+                            <a href="https://www.youtube.com/channel/UCiF7PtLSdUJfSbZdwSArWRA" data-tooltip="youtube"> <i class="fa fa-youtube"></i> </a>
+                            <a href="https://www.facebook.com/Hajabdollah.pashmak/" data-tooltip="facebook"> <i class="fa fa-facebook"></i> </a>
+                            <a href="https://t.me/Hajabdollah_pashmak_co" data-tooltip="telegram"> <i class="fa fa-paper-plane"></i> </a>
+                            <a href="https://www.aparat.com/hajabdollah.pashmak" data-tooltip="aparat"> <i class="fa fa-file-movie-o"></i> </a>
+                            <a href="https://www.instagram.com/hajabdollah.pashmak/" data-tooltip="instagram"> <i class="fa fa-instagram"></i> </a>
                         </div>
 
                     </div>

@@ -8,11 +8,11 @@
                 <a href="#" class="footer-logo"><img src="images/logo.png" alt="logo" class="img-responsive"/></a>
                 <div class="footer-social">
                     <ul class="list-inline">
-                        <li><a href="#" data-tooltip="facebook"> <i class="fa fa-facebook"></i> </a> </li>
-                        <li><a href="#" data-tooltip="twitter"> <i class="fa fa-twitter"></i> </a> </li>
-                        <li><a href="#" data-tooltip="google-plus"> <i class="fa fa-google-plus"></i> </a> </li>
-                        <li><a href="#" data-tooltip="instagram"> <i class="fa fa-instagram"></i> </a> </li>
-                        <li><a href="#" data-tooltip="tripadvisor"> <i class="fa fa-tripadvisor"></i> </a> </li>
+                        <li><a href="https://www.youtube.com/channel/UCiF7PtLSdUJfSbZdwSArWRA" data-tooltip="youtube"> <i class="fa fa-youtube"></i> </a> </li>
+                        <li><a href="https://www.facebook.com/Hajabdollah.pashmak/" data-tooltip="facebook"> <i class="fa fa-facebook"></i> </a> </li>
+                        <li><a href="https://t.me/Hajabdollah_pashmak_co" data-tooltip="telegram"> <i class="fa fa-paper-plane"></i> </a> </li>
+                        <li><a href="https://www.aparat.com/hajabdollah.pashmak" data-tooltip="aparat"> <i class="fa fa-file-movie-o"></i> </a> </li>
+                        <li><a href="https://www.instagram.com/hajabdollah.pashmak/" data-tooltip="instagram"> <i class="fa fa-instagram"></i> </a> </li>
                     </ul>
                 </div>
                 <p class="footer-btm mt30">تمامی حقوق برای شرکت پشمک حاج عبدا... محفوظ است</p>

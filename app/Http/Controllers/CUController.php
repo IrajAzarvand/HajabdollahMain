@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CU;
+use App\Models\LocaleContent;
 use Illuminate\Http\Request;
 
 class CUController extends Controller
@@ -14,7 +15,16 @@ class CUController extends Controller
      */
     public function index()
     {
-        //
+        $CUs = CU::with(['contents' => function ($query) {
+            $query->where('locale', '=', 'fa');
+        }])->get();
+
+        $CUList = [];
+        foreach ($CUs as $key=>$CU) {
+            $CUList[$key]['id'] = $CU->id;
+            $CUList[$key]['title'] = $CU->contents[0]->element_content;
+        }
+        return view('PageElements.Dashboard.Setting.CU',compact('CUList'));
     }
 
     /**
@@ -35,7 +45,29 @@ class CUController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $CU = new CU;
+        $CU->save();
+        $element_id = $CU->id;
+        $Contents = [];
+
+        if ($request->CUDescription_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'CU',
+                    'section' => 'CU',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'CUDescription_' . $item['locale'],
+                    'element_content' => $request->input('CUDescription_' . $item['locale']),
+                ]);
+            }
+        }
+
+        $NewCU = CU::find($element_id);
+        $NewCU->contents()->saveMany($Contents);
+        $NewCU->update();
+
+        return redirect('/CU');
     }
 
     /**
@@ -55,9 +87,10 @@ class CUController extends Controller
      * @param  \App\Models\CU  $cU
      * @return \Illuminate\Http\Response
      */
-    public function edit(CU $cU)
+    public function edit($cU)
     {
-        //
+        $SelectedCU =CU::where('id', $cU)->with('contents')->first();
+        return $SelectedCU;
     }
 
     /**
@@ -67,19 +100,43 @@ class CUController extends Controller
      * @param  \App\Models\CU  $cU
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CU $cU)
+    public function update(Request $request)
     {
-        //
+        $SelectedCU = CU::where('id', $request->input('CU_Id'))->with('contents')->first();
+        $element_id = $SelectedCU->id;
+
+        if ($request->CU_Desc_fa) {
+            foreach (Locales() as $item) {
+                $SelectedCU->contents()->updateOrInsert(
+                    [
+                        'page' => 'CU',
+                        'section' => 'CU',
+                        'element_id' => $element_id,
+                        'locale' => $item['locale'],
+                        'element_title' => 'CUDescription_' . $item['locale'],
+                    ],
+                    [
+                        'element_content' => $request->input('CU_Desc_' . $item['locale']),
+                    ]
+                );
+            }
+        }
+
+        $SelectedCU->update();
+        return redirect('/CU');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CU  $cU
+     * @param  \App\Models\CU  $CU
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CU $cU)
+    public function destroy($CU)
     {
-        //
+        $SelectedCU = CU::find($CU);
+        $SelectedCU->contents()->delete();
+        $SelectedCU->delete();
+        return true;
     }
 }

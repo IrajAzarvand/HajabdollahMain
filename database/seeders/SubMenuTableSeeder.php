@@ -57,6 +57,12 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-file-text-o',
                 ],
                 [
+                    'SubMenu' => 'تماس با ما',
+                    'Url' => 'CU.index',
+                    'Icon' => 'fa fa-file-text-o',
+                ],
+
+                [
                     'SubMenu' => 'تاریخچه',
                     'Url' => 'History.index',
                     'Icon' => 'fa fa-clock-o',
@@ -70,11 +76,6 @@ class SubMenuTableSeeder extends Seeder
                     'SubMenu' => 'گواهینامه و افتخارات',
                     'Url' => 'CH.index',
                     'Icon' => 'fa fa-graduation-cap',
-                ],
-                [
-                    'SubMenu' => 'چارت سازمانی',
-                    'Url' => 'OC.index',
-                    'Icon' => 'fa fa-street-view',
                 ],
             ],
             'سایر' => [

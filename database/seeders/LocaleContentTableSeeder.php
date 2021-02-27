@@ -838,6 +838,39 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'E-posta',
             ],
 
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 11,
+                'locale' => 'fa',
+                'element_title' => 'PhoneTitle',
+                'element_content' => 'تلفن های تماس',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 11,
+                'locale' => 'en',
+                'element_title' => 'PhoneTitle',
+                'element_content' => 'Phone Numbers',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 11,
+                'locale' => 'ru',
+                'element_title' => 'PhoneTitle',
+                'element_content' => 'Телефонные номера',
+            ],
+            [
+                'page' => 'ContactUs',
+                'section' => 'Info',
+                'element_id' => 11,
+                'locale' => 'tr',
+                'element_title' => 'PhoneTitle',
+                'element_content' => 'Telefon numaraları',
+            ],
+
 
 
 

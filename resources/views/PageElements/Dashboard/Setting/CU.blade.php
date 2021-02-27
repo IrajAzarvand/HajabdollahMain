@@ -1,18 +1,18 @@
 @extends('PageElements.Dashboard.Layout')
-@section('PageTitle', 'تنظیمات درباره ما')
-@section('ContentHeader', 'تنظیمات درباره ما')
+@section('PageTitle', 'تنظیمات تماس با ما')
+@section('ContentHeader', 'تنظیمات تماس با ما')
 @section('content')
 
     <div class="col-md-12">
         <div class="card card-info card-outline">
             <div class="card-header">
                 <h3 class="card-title">
-                    افزودن متن جدید
+                    افزودن مشخصات جدید
                 </h3>
 
             </div>
             <!-- /.card-header -->
-            <form class="card-body" action="{{ route('AboutUs.store') }}" method="post" enctype="multipart/form-data">
+            <form class="card-body" action="{{ route('CU.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- /error box -->
                 <div class="mb3">
@@ -35,13 +35,13 @@
                     <div class="col-12">
                         <!-- Custom Tabs -->
                         <div class="card">
-                            <label>متن درباره ما</label>
+                            <label>متن تماس با ما</label>
 
                             <div class="card-header d-flex p-0">
                                 <ul class="nav nav-pills ml-auto p-2">
                                     @foreach (Locales() as $item)
                                         <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
-                                                                href="#AboutUsDescription_{{$item['locale']}}"
+                                                                href="#CUDescription_{{$item['locale']}}"
                                                                 data-toggle="tab">{{$item['name']}}</a></li>
                                     @endforeach
                                 </ul>
@@ -50,9 +50,9 @@
                                 <div class="tab-content">
                                     @foreach (Locales() as $item)
                                         <div class="tab-pane @if ($loop->first) active @endif"
-                                             id="AboutUsDescription_{{$item['locale']}}">
+                                             id="CUDescription_{{$item['locale']}}">
                                             <div class="mb-3">
-                                                <textarea id="editor1" name="AboutUsDescription_{{$item['locale']}}"
+                                                <textarea id="editor1" name="CUDescription_{{$item['locale']}}"
                                                           style="width: 100%" rows="10"></textarea>
                                             </div>
                                         </div>
@@ -75,11 +75,11 @@
 
     <!-- / =============================================================================== -->
 
-    <!-- /AboutUs List -->
+    <!-- /CU List -->
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">لیست متن های وارد شده</h3>
+                <h3 class="card-title">لیست موارد اضافه شده</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -91,7 +91,7 @@
                     </tr>
                     <?php
                     $counter = 1;
-                    foreach ($AboutUsList as $item) {
+                    foreach ($CUList as $item) {
                         echo '<tr style="alignment: center;">';
                         echo '<td>' . $counter++ . '</td>';
                         echo '<td>' . $item['title'] . '</td>';
@@ -114,12 +114,12 @@
             let token = "{{ csrf_token() }}";
             $.ajax({
                 type: 'DELETE',
-                url: '/AboutUs/' + r,
+                url: '/CU/' + r,
                 data: {
                     _token: token,
                     r
                 },
-                success: function (data) {
+                success: function () {
                     location.reload();
 
                 }
@@ -133,27 +133,27 @@
         function editRow(r) {
             $.ajax({
                 type: "GET",
-                url: '/AboutUs/' + r + '/edit',
+                url: '/CU/' + r + '/edit',
 
                 success: function (data) {
                     //display data...
-                    let AUId = (data['id']);
-                    $('#AboutUsEditModal').find('#AboutUs_Id').val(AUId);
+                    let CUId = (data['id']);
+                    $('#CUEditModal').find('#CU_Id').val(CUId);
                     data['contents'].forEach(element => {
-                        if (element['element_title'] == 'AboutUsTitle_' + element['locale']) {
-                            $('#AboutUsEditModal').find('#AboutUs_Title_' + element['locale'] + 'edit').text(element['element_content']);
-                        } else if (element['element_title'] == 'AboutUsDescription_' + element['locale']) {
-                            $('#AboutUsEditModal').find('#AboutUs_Desc_' + element['locale'] + 'edit').text(element['element_content']);
+                        if (element['element_title'] == 'CUTitle_' + element['locale']) {
+                            $('#CUEditModal').find('#CU_Title_' + element['locale'] + 'edit').text(element['element_content']);
+                        } else if (element['element_title'] == 'CUDescription_' + element['locale']) {
+                            $('#CUEditModal').find('#CU_Desc_' + element['locale'] + 'edit').text(element['element_content']);
 
                         }
                     });
-                    $("#AboutUsEditModal-form").attr("action", "/AboutUs/" + AUId);
-                    $('#AboutUsEditModal').modal('show');
+                    $("#CUEditModal-form").attr("action", "/CU/" + CUId);
+                    $('#CUEditModal').modal('show');
                 }
             });
         }
     </script>
-    @include('PageElements.Dashboard.Setting.ModalEditAboutUs')
+    @include('PageElements.Dashboard.Setting.ModalEditCU')
 
 
 @endsection

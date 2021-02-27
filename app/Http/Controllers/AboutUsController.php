@@ -106,24 +106,6 @@ class AboutUsController extends Controller
         $SelectedAboutUs = AboutUs::where('id', $request->input('AboutUs_Id'))->with('contents')->first();
         $element_id = $SelectedAboutUs->id;
 
-//        if ($request->AboutUs_Title_fa) {
-//            foreach (Locales() as $item) {
-//                $SelectedAboutUs->contents()->updateOrInsert(
-//                    [
-//                        'page' => 'AboutUs',
-//                        'section' => 'AboutUs',
-//                        'element_id' => $element_id,
-//                        'locale' => $item['locale'],
-//                        'element_title' => 'AboutUsTitle_' . $item['locale'],
-//                    ],
-//                    [
-//                        'element_content' => $request->input('AboutUs_Title_' . $item['locale']),
-//                    ]
-//                );
-//            }
-//        }
-
-
         if ($request->AboutUs_Desc_fa) {
             foreach (Locales() as $item) {
                 $SelectedAboutUs->contents()->updateOrInsert(
@@ -140,8 +122,6 @@ class AboutUsController extends Controller
                 );
             }
         }
-
-
 
         $SelectedAboutUs->update();
         return redirect('/AboutUs');

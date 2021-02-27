@@ -15,11 +15,6 @@ class LocaleContent extends Model
         'element_content',
     ];
 
-    public function locale()
-    {
-        return $this->belongsTo(Locale::class);
-    }
-
     public function slider()
     {
         return $this->belongsTo(Slider::class)->where('section', 'slider');
@@ -63,5 +58,10 @@ class LocaleContent extends Model
     public function AboutUs()
     {
         return $this->belongsTo(AboutUs::class);
+    }
+
+    public function CU()
+    {
+        return $this->belongsTo(CU::class);
     }
 }

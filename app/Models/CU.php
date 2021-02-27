@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class CU extends Model
 {
-    use HasFactory;
+
+    public function contents()
+    {
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('page', 'CU')->where('section', 'CU');
+    }
 }
