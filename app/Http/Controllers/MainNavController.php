@@ -15,6 +15,9 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
 
 class MainNavController extends Controller
 {
@@ -66,29 +69,36 @@ class MainNavController extends Controller
         $AboutUsContent = $this->LocaleContents('AboutUs', 'AboutUs', 1, 'AboutUsDescription_' . app()->getLocale());
 
         //*************************** NewsLetter ********************************************************************* */
-        $NLDescription = $this->LocaleContents('NewsLetter','',0,'Description');
+        $NLDescription = $this->LocaleContents('NewsLetter', '', 0, 'Description');
         $BtnSubscribe = $this->BtnTitle('btn_subscribe');
         $MailPlaceholder = $this->LocaleContents('NewsLetter', '', 1, 'MailPlaceholder');
 
         //*************************** Contact Us ********************************************************************* */
-        $CUFormTitle = $this->LocaleContents('ContactUs','',0,'FormTitle');
-        $CUFormDescription = $this->LocaleContents('ContactUs','',1,'FormDescription');
-        $CUFormName = $this->LocaleContents('ContactUs','Form',2,'NameField');
-        $CUFormPhone = $this->LocaleContents('ContactUs','Form',3,'PhoneField');
-        $CUFormEmail = $this->LocaleContents('ContactUs','Form',4,'EmailField');
-        $CUFormSubject = $this->LocaleContents('ContactUs','Form',5,'SubjectField');
-        $CUFormMessage = $this->LocaleContents('ContactUs','Form',6,'MessageField');
+        $CUFormTitle = $this->LocaleContents('ContactUs', '', 0, 'FormTitle');
+        $CUFormDescription = $this->LocaleContents('ContactUs', '', 1, 'FormDescription');
+        $CUFormName = $this->LocaleContents('ContactUs', 'Form', 2, 'NameField');
+        $CUFormPhone = $this->LocaleContents('ContactUs', 'Form', 3, 'PhoneField');
+        $CUFormEmail = $this->LocaleContents('ContactUs', 'Form', 4, 'EmailField');
+        $CUFormSubject = $this->LocaleContents('ContactUs', 'Form', 5, 'SubjectField');
+        $CUFormMessage = $this->LocaleContents('ContactUs', 'Form', 6, 'MessageField');
         $CUFormBtnSend = $this->BtnTitle('btn_send');
-        $CUInfoTitle = $this->LocaleContents('ContactUs','Info',7,'Title');
-        $CUInfoDescription = $this->LocaleContents('ContactUs','Info',8,'Description');
-        $CUInfoAddressTitle = $this->LocaleContents('ContactUs','Info',9,'AddressTitle');
-        $CUInfoEmailTitle = $this->LocaleContents('ContactUs','Info',10,'EmailTitle');
-        $CUInfoPhoneTitle = $this->LocaleContents('ContactUs','Info',11,'PhoneTitle');
-        $CUAddressContent = LocaleContent::where('page','CU')->where('section', 'Address')->where('locale', app()->getLocale())->pluck('element_content')[0];
-        $CUPhoneContent = LocaleContent::where('page','CU')->where('section', 'CU')->where('locale', app()->getLocale())->pluck('element_content');
+        $CUInfoTitle = $this->LocaleContents('ContactUs', 'Info', 7, 'Title');
+        $CUInfoDescription = $this->LocaleContents('ContactUs', 'Info', 8, 'Description');
+        $CUInfoAddressTitle = $this->LocaleContents('ContactUs', 'Info', 9, 'AddressTitle');
+        $CUInfoEmailTitle = $this->LocaleContents('ContactUs', 'Info', 10, 'EmailTitle');
+        $CUInfoPhoneTitle = $this->LocaleContents('ContactUs', 'Info', 11, 'PhoneTitle');
+        $CUAddressContent = LocaleContent::where('page', 'CU')->where('section', 'Address')->where('locale', app()->getLocale())->pluck('element_content')[0];
+        $CUPhoneContent = LocaleContent::where('page', 'CU')->where('section', 'CU')->where('locale', app()->getLocale())->pluck('element_content');
 
+        //************************** SALES OFFICES ***************************************************************** */
+        $SalesOffices = LocaleContent::where('page', 'sales_office')->where('section', 'sales_office')->where('locale', app()->getLocale())->pluck('element_content');
 
-
+        //**************************  CERTIFICATES ***************************************************************** */
+        $files = Storage::disk('public')->files('Main/Statue');
+        foreach ($files as $f) {
+            $filename = Str::of($f)->basename();//extract file name from path
+            $Certificates[] = asset('storage/Main/Statue/' . $filename);
+        }
 
 
 //        $SharedContents = $this->SharedContents();
@@ -184,9 +194,8 @@ class MainNavController extends Controller
                 'CUInfoPhoneTitle',
                 'CUAddressContent',
                 'CUPhoneContent',
-
-
-
+                'SalesOffices',
+                'Certificates',
 
 
             ));
