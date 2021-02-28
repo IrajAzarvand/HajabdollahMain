@@ -1,6 +1,6 @@
 
 <!--Start Gallery Area-->
-<section id="marv-portfolio" class="dir-rtl mr-masonry-block popup-gallery section-padding " data-scroll-index="3">
+<section id="marv-portfolio" class="@if(app()->getLocale()=='fa') dir-rtl @endif mr-masonry-block popup-gallery section-padding " data-scroll-index="3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

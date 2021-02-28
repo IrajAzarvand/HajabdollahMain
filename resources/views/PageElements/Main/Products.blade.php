@@ -1,6 +1,6 @@
 
 <!-- Start Products Area -->
-<section id="marv-services" class="dir-rtl services-area section-padding " data-scroll-index="2">
+<section id="marv-services" class="@if(app()->getLocale()=='fa') dir-rtl @endif services-area section-padding " data-scroll-index="2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

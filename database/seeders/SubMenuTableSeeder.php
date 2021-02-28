@@ -43,12 +43,6 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'Catalog.index',
                     'Icon' => 'fa fa-newspaper-o',
                 ],
-
-                [
-                    'SubMenu' => 'مدیریت برچسب ها',
-                    'Url' => 'Tags.index',
-                    'Icon' => 'fa fa-tags',
-                ],
             ],
             'درباره ما' => [
                 [
@@ -65,22 +59,6 @@ class SubMenuTableSeeder extends Seeder
                     'SubMenu' => 'تماس با ما',
                     'Url' => 'CU.index',
                     'Icon' => 'fa fa-file-text-o',
-                ],
-
-                [
-                    'SubMenu' => 'تاریخچه',
-                    'Url' => 'History.index',
-                    'Icon' => 'fa fa-clock-o',
-                ],
-                [
-                    'SubMenu' => 'پیام مدیر عامل',
-                    'Url' => 'CeoMessage.index',
-                    'Icon' => 'fa fa-commenting-o',
-                ],
-                [
-                    'SubMenu' => 'گواهینامه و افتخارات',
-                    'Url' => 'CH.index',
-                    'Icon' => 'fa fa-graduation-cap',
                 ],
             ],
             'سایر' => [
