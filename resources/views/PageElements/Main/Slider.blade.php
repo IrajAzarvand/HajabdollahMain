@@ -253,12 +253,12 @@
 
 <section class="bg_secondry" data-scroll-index="0">
     <canvas id="particles-js"></canvas>
-    <a class="scroll-down" title="Scroll Down" href="#" data-scroll-nav="1"><i class="fa fa-circle" aria-hidden="true"></i></a>
+    <a class="scroll-down" title="Scroll Down" href="#" data-scroll-nav="1"><i class="fa fa-circle"
+                                                                               aria-hidden="true"></i></a>
     <div class="slideshow">
-        <div class="slideshow-image" style="background-image: url({{asset('storage/Slider/s1.jpg')}})"></div>
-        <div class="slideshow-image" style="background-image: url({{asset('storage/Slider/s2.jpg')}})"></div>
-        <div class="slideshow-image" style="background-image: url({{asset('storage/Slider/s3.jpg')}})"></div>
-        <div class="slideshow-image" style="background-image: url({{asset('storage/Slider/s2.jpg')}})"></div>
+        @foreach($Sliders as $img)
+            <div class="slideshow-image" style="background-image: url({{$img}})"></div>
+        @endforeach
     </div>
 </section>
 {{--<!--// End Slider Home-->--}}

@@ -59,20 +59,6 @@ class SliderController extends Controller
 
         $Slider->image = $filename;
         $Slider->save();
-        $ImageId = $Slider->id;
-        $Contents = [];
-        foreach (Locales() as $item) {
-            $Contents[] = new LocaleContent([
-                'page' => 'welcome',
-                'section' => 'slider',
-                'element_id' => $ImageId,
-                'locale' => $item['locale'],
-                'element_content' => $request->input($item['locale']),
-            ]);
-        }
-        $NewSlider = Slider::find($ImageId);
-        $NewSlider->contents()->saveMany($Contents);
-
         return redirect('/Slider');
     }
 
@@ -124,11 +110,6 @@ class SliderController extends Controller
         $Slider = Slider::find($request->input('SliderId'));
         $Slider->image = $filename;
         $Slider->save();
-
-        foreach (Locales() as $item) {
-            LocaleContent::where(['page' => 'welcome', 'section' => 'slider', 'element_id' => $Slider->id, 'locale' => $item['locale'],])
-                ->update(['element_content' => $request->input($item['locale'])]);
-        }
         return redirect('/Slider');
     }
 
@@ -142,10 +123,8 @@ class SliderController extends Controller
     {
         $id = per_digit_conv($slider);
         $Slider = Slider::find($id);
-        $SliderContent = LocaleContent::where(['section' => 'slider', 'element_id' => $id]);
         $filename = ('storage/Main/Sliders/' . $Slider['image']);
         unlink($filename);
-        $SliderContent->delete();
         $Slider->delete();
     }
 }

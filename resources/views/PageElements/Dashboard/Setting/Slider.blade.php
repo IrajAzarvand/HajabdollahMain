@@ -2,7 +2,7 @@
 @section('PageTitle', 'تنظیمات اسلایدر')
 @section('ContentHeader', 'تنظیمات اسلایدر')
 @section('content')
-<div class="col-md-12">
+<div class="col-md-8">
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
@@ -47,36 +47,6 @@
             </div>
             <!-- /.image uploader -->
 
-            <div class="row">
-                <div class="col-12">
-                    <!-- Custom Tabs -->
-                    <div class="card">
-                        <div class="card-header d-flex p-0">
-                            <ul class="nav nav-pills ml-auto p-2">
-                                @foreach ($lang as $l)
-                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#{{$l['locale']}}" data-toggle="tab">{{$l['name']}}</a> </li>
-                                @endforeach
-                            </ul>
-                        </div><!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="tab-content">
-                                @foreach ($lang as $l)
-                                <div class="tab-pane @if ($loop->first) active @endif" id="{{$l['locale']}}">
-                                    <div class="mb-3">
-                                        <textarea id="editor1" name="{{$l['locale']}}" style="width: 100%"></textarea>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                            <!-- /.tab-content -->
-                        </div><!-- /.card-body -->
-                    </div>
-                    <!-- ./card -->
-                </div>
-                <!-- /.col -->
-            </div>
-
-
             <button type="submit" class="btn btn-primary">ذخیره</button>
         </form>
     </div>
@@ -86,7 +56,7 @@
 
 
 <!-- /Sliders List -->
-<div class="col-12">
+<div class="col-8">
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">لیست اسلایدرها</h3>
@@ -97,23 +67,16 @@
                 <tr>
                     <th>ردیف</th>
                     <th>تصویر</th>
-                    @foreach($lang as $l)
-                        <th>متن {{$l['name']}}</th>
-                    @endforeach
                     <th>عملیات</th>
                 </tr>
                 <?php
                     $counter = 1;
                     foreach ($Sliders as $item) {
-                    echo '<tr style="alignment: center;">';
+                    echo '<tr>';
                         echo '<td>' . $counter++ . '</td>';
                         echo '<td style="display: none;">' . $item['id'] . '</td>';
                         echo '<td style="width: 15%;"><img style="width: 100%;" src="storage/Main/Sliders/' . $item['image'] . '"></td>';
-
-                        foreach ($item->contents as $LocaleContent) {
-                        echo '<td>' . $LocaleContent['element_content'] . '</td>';
-                        }
-                        echo '<td>' . '<a href="/Slider/'. $item['id'] .'/edit"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
+                        echo '<td>' . '<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
                         echo '</tr>';
                     }
                     ?>

@@ -59,6 +59,21 @@ class MainNavController extends Controller
             $lang[$key]['title'] = $l['locale'];
         }
 
+        //*************************** SLIDERS ********************************************************************* */
+        $SliderImages = Slider::orderBy('id', 'desc')->take(4)->pluck('image'); //get last 4 item that recently added
+        foreach ($SliderImages as $img) {
+            $Sliders[] = asset('storage/Main/Sliders/' . $img);
+        }
+        //slider count must be exactly 4
+        //if count is lower than 4, we set slider array randomly to create a 4 item array
+       $rnd=[];
+        if (count($Sliders) < 4) {
+            $needed=4-count($Sliders);
+            for ($i=1;$i<=$needed;$i++){
+                $Sliders[]=$Sliders[array_rand($Sliders)];
+            }
+        }
+
         //*************************** MENUS ********************************************************************* */
         $Menus = MainNav::pluck('content_' . app()->getLocale());
 
@@ -196,6 +211,7 @@ class MainNavController extends Controller
                 'CUPhoneContent',
                 'SalesOffices',
                 'Certificates',
+                'Sliders',
 
 
             ));
