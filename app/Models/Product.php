@@ -10,8 +10,6 @@ class Product extends Model
     protected $fillable = [
         'cat_id',
         'images',
-
-
     ];
 
     public function contents()
