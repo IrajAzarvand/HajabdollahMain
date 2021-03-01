@@ -1,10 +1,9 @@
-{{-- @dd($Tags) --}}
 @extends('PageElements.Dashboard.Layout')
 @section('PageTitle', 'تنظیمات نوع محصولات')
 @section('ContentHeader', 'نوع اصلی محصولات')
 @section('content')
 
-<div class="col-md-12">
+<div class="col-md-8">
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
@@ -68,13 +67,13 @@
 
 
 
-<div class="col-9">
+<div class="col-8">
 
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
                 <i class="ion ion-clipboard mr-1"></i>
-                لیست انواع محصولات (فارسی - انگلیسی - روسی - عربی)
+                لیست انواع محصولات
             </h3>
 
         </div>
