@@ -15,7 +15,12 @@ class CreateProductCatalogsTable extends Migration
     {
         Schema::create('product_catalogs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id');
+            $table->longText('catalog_images');
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products')
+                ->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
