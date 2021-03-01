@@ -3,7 +3,7 @@
 @section('ContentHeader', 'دسته بندی محصولات')
 @section('content')
 
-<div class="col-md-12">
+<div class="col-md-9">
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
@@ -16,7 +16,6 @@
             @csrf
             <!-- /error box -->
             <div class="mb3">
-
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
