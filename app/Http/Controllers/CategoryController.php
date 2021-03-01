@@ -93,6 +93,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request)
     {
+        $Category = Category::find($request->input('CatId'));
+
         foreach (Locales() as $item) {
             LocaleContent::where(['page' => 'products', 'section' => 'category', 'element_title' => 'category', 'element_id' => $Category->id, 'locale' => $item['locale'],])
                 ->update(['element_content' => $request->input($item['locale'])]);
@@ -106,7 +108,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($category)
     {
         $id = per_digit_conv($category);
 
