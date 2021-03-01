@@ -12,7 +12,7 @@
 
 @include('PageElements.Main.AboutUs')
 @include('PageElements.Main.Products')
-@include('PageElements.Main.Gallery')
+@include('PageElements.Main.Export')
 @include('PageElements.Main.SalesOffices')
 @include('PageElements.Main.Certificates')
 @include('PageElements.Main.Newsletter')

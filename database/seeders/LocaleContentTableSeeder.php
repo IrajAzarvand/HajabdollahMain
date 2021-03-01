@@ -82,38 +82,38 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'products',
                 'element_content' => 'Ürün',
             ],
-            ////GALLERY
+            ////EXPORT
             [
                 'page' => '',
                 'section' => 'PageTitles',
                 'locale' => 'fa',
                 'element_id' => '0',
-                'element_title' => 'gallery',
-                'element_content' => 'گالری',
+                'element_title' => 'export',
+                'element_content' => 'صادرات',
             ],
             [
                 'page' => '',
                 'section' => 'PageTitles',
                 'locale' => 'en',
                 'element_id' => '0',
-                'element_title' => 'gallery',
-                'element_content' => 'Gallery',
+                'element_title' => 'export',
+                'element_content' => 'Export',
             ],
             [
                 'page' => '',
                 'section' => 'PageTitles',
                 'locale' => 'ru',
                 'element_id' => '0',
-                'element_title' => 'gallery',
-                'element_content' => 'галерея',
+                'element_title' => 'export',
+                'element_content' => 'Экспорт',
             ],
             [
                 'page' => '',
                 'section' => 'PageTitles',
                 'locale' => 'tr',
                 'element_id' => '0',
-                'element_title' => 'gallery',
-                'element_content' => 'Galeri',
+                'element_title' => 'export',
+                'element_content' => 'İhracat',
             ],
             ////SALES OFFICES
             [
