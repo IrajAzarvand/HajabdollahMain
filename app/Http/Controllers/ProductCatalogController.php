@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LocaleContent;
 use App\Models\ProductCatalog;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ProductCatalogController extends Controller
      */
     public function index()
     {
-        //
+        $product_ptypes = LocaleContent::where(['section' => 'ptype', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
+        $product_categories = LocaleContent::where(['section' => 'category', 'locale' => 'fa', 'element_title' => 'category'])->pluck('element_content', 'element_id');
+        return view('PageElements.Dashboard.Setting.Catalog', compact('product_ptypes', 'product_categories'));
     }
 
     /**
@@ -35,7 +38,29 @@ class ProductCatalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $SelectedProduct = ProductCatalog::where('product_id', $request->input('product'))->first();
+        if ($SelectedProduct) {
+            //exist so send to update
+            $this->update($request, $SelectedProduct);
+        } else {
+            //not exist so create it
+            $Catalog = new ProductCatalog;
+            $images = [];
+            if ($request->hasFile('catalog_images')) {
+                $count = 0;
+                foreach ($request->file('catalog_images') as $image) {
+                    $uploaded = $image;
+                    $filename = $request->input('product') . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                    $uploaded->storeAs('public\Main\Products\\' . $request->input('product') . '\catalogs\\', $filename);
+                    $images[] = $filename;
+                }
+            }
+            $Catalog->product_id = $request->input('product');
+            $Catalog->catalog_images = serialize($images);
+            $Catalog->save();
+
+        }
+        return redirect('/Catalog');
     }
 
     /**
@@ -44,9 +69,17 @@ class ProductCatalogController extends Controller
      * @param  \App\Models\ProductCatalog  $productCatalog
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductCatalog $productCatalog)
+    public function show($productCatalog)
     {
-        //
+        $SelectedProductCatalogs = ProductCatalog::where('product_id', $productCatalog)->value('catalog_images');
+        $SelectedProductCatalogs = unserialize($SelectedProductCatalogs);
+        $Catalogs=[];
+        if($SelectedProductCatalogs) {
+            foreach ($SelectedProductCatalogs as $id=>$image) {
+                $Catalogs[] = [$id, asset('storage/Main/Products/' . $productCatalog . '/catalogs/' . $image)];
+            }
+        }
+        return $Catalogs;
     }
 
     /**
@@ -69,7 +102,20 @@ class ProductCatalogController extends Controller
      */
     public function update(Request $request, ProductCatalog $productCatalog)
     {
-        //
+        $CatalogImages = unserialize($productCatalog->catalog_images);
+        if ($request->hasFile('catalog_images')) {
+            $count = 0;
+            foreach ($request->file('catalog_images') as $image) {
+                $uploaded = $image;
+                $filename = $request->input('product') . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                $uploaded->storeAs('public\Main\Products\\' . $request->input('product') . '\catalogs\\', $filename);
+                $CatalogImages[] = $filename;
+            }
+        }
+        $productCatalog->catalog_images = serialize($CatalogImages);
+
+        $productCatalog->update();
+        return redirect('/Catalog');
     }
 
     /**
