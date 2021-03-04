@@ -65,4 +65,9 @@ class LocaleContent extends Model
         return $this->belongsTo(Address::class);
     }
 
+    public function ptype()
+    {
+        return $this->belongsTo(PType::class);
+    }
+
 }

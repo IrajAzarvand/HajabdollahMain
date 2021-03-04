@@ -11,6 +11,7 @@ use App\Models\MainNav;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\ProductCatalog;
+use App\Models\PType;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -45,9 +46,7 @@ class MainNavController extends Controller
             ->where('element_id', $EID)
             ->where('element_title', $ETITLE)
             ->pluck('element_content')[0];
-
     }
-
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
@@ -117,24 +116,26 @@ class MainNavController extends Controller
         }
 
 
-//        $SharedContents = $this->SharedContents();
 
-        //************************** NEW PRODUCTS ***************************************************************** */
-//        $NewPrSectionTitle = $this->PageSectionsTitle('welcome', 'NewProducts', 0, 'section_title');
-//
-//
-//        //get last 3 item of products from db to show in index page
-//        $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
-//
-//        //get product name
+        //************************** PRODUCTS ***************************************************************** */
+
+        $PTypes=PType::all();
+        $PTypeList=[];
+
+        foreach ($PTypes as $PType){
+            $PTypeList[]['name']=$this->LocaleContents('products','ptype',$PType->id,'ptype');
+        }
+//        dd($PTypeList);
+//        $Products = Product::all();
+
+        //get product name
 //        $NewPrName = [];
 //        foreach ($NewPr as $key => $pr) {
 //            foreach (Locales() as $item) {
 //                $NewPrName[$key][$item['locale']] = LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_id' => $pr->id, 'locale' => $item['locale'], 'element_title' => 'p_name_' . $item['locale']])->pluck('element_content')[0];
 //            }
 //        }
-
-
+//
 //        $NewProducts = [];
 //        $P_Images = [];
 //        //collect first image of each product and put it in array
@@ -213,6 +214,7 @@ class MainNavController extends Controller
                 'SalesOffices',
                 'Certificates',
                 'Sliders',
+                'PTypeList',
 
 
             ));

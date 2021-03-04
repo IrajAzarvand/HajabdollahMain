@@ -9,6 +9,7 @@ class Category extends Model
 {
     protected $fillable = [
         'ptype_id',
+        'cat_image',
     ];
 
     public function products()

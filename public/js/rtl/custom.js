@@ -146,12 +146,12 @@ jQuery(document).ready(function () {
                     data: data,
                     success: function (res) {
                         if (res === '1') {
-                            $('#show_subscriber_msg').html('<div class=gen> <i class="fa fa-smile-o" aria-hidden="true"></i> شكرا لك، تم الاشتراك في القائمة البريدية بنجاح</div>');
+                            $('#show_subscriber_msg').html('<div class=gen> <i class="fa fa-smile-o" aria-hidden="true"></i> Thank you very much, We will notify you when we lunch</div>');
                             $("#subscriber_form")[0].reset();
                         }
 
                         if (res === '5') {
-                            $('#show_subscriber_msg').html('<div class=err><i class="fa fa-frown-o" aria-hidden="true"></i> من فضلك ادخل بريد الكتروني صحيح</div>');
+                            $('#show_subscriber_msg').html('<div class=err><i class="fa fa-frown-o" aria-hidden="true"></i> Please enter a valid email address</div>');
                         }
                     }
                 });
@@ -183,12 +183,12 @@ jQuery(document).ready(function () {
                     data: data,
                     success: function (res) {
                         if (res === '1') {
-                            $('#show_contact_msg').html('<div class=gen><i class="fa fa-smile-o" aria-hidden="true"></i> شكرا لك، سنرد عليك في اقرب وقت</div>');
+                            $('#show_contact_msg').html('<div class=gen><i class="fa fa-smile-o" aria-hidden="true"></i> Thank you very much, We will notify you when we lunch</div>');
                             $("#contact_form")[0].reset();
                         }
 
                         if (res === '5') {
-                            $('#show_contact_msg').html('<div class=err><i class="fa fa-frown-o" aria-hidden="true"></i> من فضلك ادخل بريد الكتروني صحيح</div>');
+                            $('#show_contact_msg').html('<div class=err><i class="fa fa-frown-o" aria-hidden="true"></i> Please enter a valid email address</div>');
                         }
                     }
                 });
@@ -220,7 +220,9 @@ jQuery(document).ready(function () {
         separator: ",",
         speed: 2000
     });
+
 });
+
 
 
 /**
@@ -354,3 +356,4 @@ $(window).on('load', function () {
     masonry();
     popupgallery();
 });
+

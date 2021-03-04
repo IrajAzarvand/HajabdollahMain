@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ptype_id');
+            $table->longText('cat_image')->nullable();
             $table->timestamps();
 
             $table->foreign('ptype_id')->references('id')->on('p_types')

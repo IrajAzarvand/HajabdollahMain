@@ -34,36 +34,35 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+//        dd($request);
         $Category = new Category;
         $Category->ptype_id = $request->input('ptype');
         $Category->save();
-        $element_id = $Category->id;
-        $Contents = [];
+        $ptypeId = $request->input('ptype');
+        $CatImages = [];
         foreach (Locales() as $item) {
-            $Contents[] = new LocaleContent([
-                'page' => 'products',
-                'section' => 'category',
-                'element_id' => $element_id,
-                'locale' => $item['locale'],
-                'element_title' => 'category',
-                'element_content' => $request->input($item['locale']),
-            ]);
+            if ($request->hasFile('CatImg_' . $item['locale'])) {
+                $uploaded = $request->file('CatImg_' . $item['locale']);
+            }
+            $filename = $item['locale'] . '.' . $uploaded->getClientOriginalExtension();  //locale.extension
+            $uploaded->storeAs('public\Main\Products\\' . $ptypeId . '\\' . $Category->id . '\\', $filename);
+            $CatImages[] = $filename;
         }
-        $NewCat = Category::find($element_id);
-        $NewCat->contents()->saveMany($Contents);
-
+        $NewCat = Category::find($Category->id);
+        $NewCat->cat_image = serialize($CatImages);
+        $NewCat->update();
         return redirect('/Category');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show($PType)
@@ -75,7 +74,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit($category)
@@ -87,8 +86,8 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -105,7 +104,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy($category)
