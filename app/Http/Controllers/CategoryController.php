@@ -50,7 +50,7 @@ class CategoryController extends Controller
                 $uploaded = $request->file('CatImg_' . $item['locale']);
             }
             $filename = $item['locale'] . '.' . $uploaded->getClientOriginalExtension();  //locale.extension
-            $uploaded->storeAs('public\Main\Products\\' . $ptypeId . '\\' . $Category->id . '\\', $filename);
+            $uploaded->storeAs('public\Main\Products\ptype' . $ptypeId . '\cat' . $Category->id . '\\cat_img\\', $filename);
             $CatImages[] = $filename;
         }
         $NewCat = Category::find($Category->id);
@@ -62,13 +62,26 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param $PType
      * @return \Illuminate\Http\Response
      */
     public function show($PType)
     {
-        $result = Category::where('ptype_id', $PType)->with('contents')->get()->pluck('contents');
-        return $result;
+
+        $SelectedCategories = Category::where('ptype_id', $PType)->get();
+        $Images = [];
+        foreach ($SelectedCategories as $Cat) {
+            $CatImgs = [];
+            $CatImgs[$Cat->id] = unserialize($Cat->cat_image);
+            foreach ($CatImgs as $key => $ImgArray) {
+                foreach ($ImgArray as $item) {
+
+                    $Images[] = [$PType,$key,asset('storage/Main/Products/ptype' . $PType . '/cat' . $key . '/cat_img/' . $item)];
+                }
+
+            }
+        }
+        return $Images;
     }
 
     /**

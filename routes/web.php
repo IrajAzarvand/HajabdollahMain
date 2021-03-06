@@ -32,21 +32,9 @@ Route::resource('Slider', SliderController::class);
 Route::get('/Product/{ProductId}/{productImage}/delete',[ProductController::class,'ProductImgRemove'])->name('ProductImageRemove');
 Route::resource('Product', ProductController::class);
 
-Route::resource('History', HistoryController::class);
-
-Route::resource('CeoMessage', CeoMessageController::class);
-
-Route::resource('CH', CertificatesAndHonorsController::class);
-
-Route::resource('OC', OrganizationalChartController::class);
-
-Route::resource('Tags', TagController::class);
-
 Route::resource('Category', CategoryController::class);
 
 Route::resource('LatestNews', LatestNewsController::class);
-
-Route::resource('Footer', FooterController::class);
 
 Route::resource('PType', PTypeController::class);
 

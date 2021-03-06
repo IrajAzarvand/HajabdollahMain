@@ -99,7 +99,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="ion ion-clipboard mr-1"></i>
-                    لیست دسته بندی ها بر اساس نوع محصول (فارسی - انگلیسی - روسی - ترکی)
+                    لیست دسته بندی ها
                 </h3>
 
             </div>
@@ -125,9 +125,32 @@
                 </div>
                 <hr>
 
-                <ul class="todo-list" id="CategoryList">
-                    {{-- category list shows here --}}
-                </ul>
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label>دسته بندی های مربوط به نوع محصول <span
+                                            style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
+                                    <button onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف تمام دسته بندی ها</button>
+
+                                    <br>
+                                    <div class="col-12" id="CategoryList">
+
+                                    </div>
+
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+                </div>
+
             </div>
             <!-- /.card-body -->
 
@@ -179,47 +202,35 @@
     <script>
         function showCategory() {
             let ptypeId = document.getElementById('ptypeId').value;
-            $.ajax({
-                type: "GET",
-                url: '/Category/' + ptypeId,
+                $.ajax({
+                    type: "GET",
+                    url: '/Category/' + ptypeId,
 
-                success: function (data) {
+                    success: function (data) {
+                        $('#CategoryList').empty();
+                        data.forEach(function (entry) {
+                            let filename = entry[2].split('/').pop();
+                            // create category list
+                            let category_section = document.getElementById("CategoryList");
+                            //
+                            // Create <a> tag
+                            let a_tag = document.createElement("a");
+                            a_tag.setAttribute("onclick", "deleteCategory('" + entry[0] + "','"+ entry[1] + "','"+ filename + "')");
 
-                    // create category list
-                    function createElementLi(obj) {
-                        let ul_obj = document.getElementById(obj);
+                            category_section.appendChild(a_tag);
 
-                        // Create li
-                        let li_obj = document.createElement("li");
-                        ul_obj.appendChild(li_obj);
-
-                        //create span inside li
-                        let last_li = ul_obj.lastElementChild;
-                        let span_obj = document.createElement("span");
-                        span_obj.setAttribute("class", "text");
-                        last_li.appendChild(span_obj);
-                    }
-
-
-                    //show content
-                    let list = '';
-                    let Cat_id = '';
-                    $('#CategoryList').empty();
-                    data.forEach(function (entry) {
-                        entry.forEach(function (childrenEntry) {
-                            list = list + ' (' + childrenEntry.element_content + ') ';
-                            Cat_id = childrenEntry.element_id;
+                            // create img tag inside li
+                            let last_a_tag = category_section.lastElementChild;
+                            let img_obj = document.createElement("img");
+                            img_obj.setAttribute("class", "col-3");
+                            img_obj.setAttribute("src", entry[2]);
+                            img_obj.setAttribute("style", "padding-bottom: 10px;");
+                            img_obj.setAttribute("alt", "Photo");
+                            last_a_tag.appendChild(img_obj);
                         });
-                        createElementLi("CategoryList");
-                        let lst_LI = document.getElementById("CategoryList").lastElementChild;
-                        let spn = lst_LI.getElementsByTagName("span");
-                        spn[0].innerHTML = '<a onclick="editRow(' + Cat_id + ')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow(' + Cat_id + ')"><i class="fa fa-trash-o"></i></a>' + list;
-                        list = '';
-                    });
 
-
-                }
-            });
+                    }
+                });
         }
     </script>
     @include('PageElements.Dashboard.Setting.ModalEditCategory')

@@ -68,11 +68,6 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-align-right',
                 ],
                 [
-                    'SubMenu' => 'فوتر',
-                    'Url' => 'Footer.index',
-                    'Icon' => 'fa fa-sort-amount-asc',
-                ],
-                [
                     'SubMenu' => 'گالری تصاویر',
                     'Url' => 'Gallery.index',
                     'Icon' => 'fa fa-picture-o',
