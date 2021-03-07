@@ -89,10 +89,6 @@
     <!-- /.card -->
 
 
-
-
-
-
     <div class="col-9">
 
         <div class="card">
@@ -133,9 +129,7 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label>دسته بندی های مربوط به نوع محصول <span
-                                            style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
-                                    <button onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف تمام دسته بندی ها</button>
-
+                                            style="color: red">(برای ویرایش تصاویر هر دسته بندی روی یکی از آنها کلیک کنید)</span></label>
                                     <br>
                                     <div class="col-12" id="CategoryList">
 
@@ -178,20 +172,20 @@
     </script>
 
     <script>
-        function editRow(r) {
+        function editCategory(catId) {
             $.ajax({
                 type: "GET",
-                url: '/Category/' + r + '/edit',
+                url: '/Category/' + catId + '/edit',
 
                 success: function (data) {
                     //display data...
-                    let CatId = (data['id']);
-                    $('#CategoryEditModal').find('#CatId').val(CatId);
-                    data['contents'].forEach(element => {
-                        $('#CategoryEditModal').find('#' + element['locale'] + 'edit').text(element['element_content']);
+                    $('#CategoryEditModal').find('#CatId').val(catId);
+                    data.forEach(element => {
+                        // console.log(element);
+                        $('#CategoryEditModal').find('#' + element['locale'] + 'edit').attr('src',data);
                     });
 
-                    $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
+                    $("#CategoryEditModal-form").attr("action", "/Category/" + catId);
                     $('#CategoryEditModal').modal('show');
                 }
             });
@@ -212,10 +206,9 @@
                             let filename = entry[2].split('/').pop();
                             // create category list
                             let category_section = document.getElementById("CategoryList");
-                            //
                             // Create <a> tag
                             let a_tag = document.createElement("a");
-                            a_tag.setAttribute("onclick", "deleteCategory('" + entry[0] + "','"+ entry[1] + "','"+ filename + "')");
+                            a_tag.setAttribute("onclick", "editCategory('" + entry[1] + "','"+ filename + "')");
 
                             category_section.appendChild(a_tag);
 

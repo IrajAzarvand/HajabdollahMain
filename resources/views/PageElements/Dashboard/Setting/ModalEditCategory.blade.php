@@ -7,7 +7,7 @@
         <div class="modal-content" id="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ویرایش برچسب</h4>
+                <h4 class="modal-title">ویرایش دسته بندی محصول</h4>
             </div>
             <div class="modal-body" id="modal-body">
                 <form id="CategoryEditModal-form" action="" method="post">
@@ -28,7 +28,7 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}box">
                                     <div class="mb-3">
-                                        <textarea id="{{$item['locale']}}edit" name="{{$item['locale']}}" style="width: 100%"></textarea>
+                                        <img src="" id="{{$item['locale']}}edit" name="{{$item['locale']}}" alt="">
                                     </div>
                                 </div>
                                 @endforeach

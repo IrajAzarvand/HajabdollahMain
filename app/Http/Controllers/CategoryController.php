@@ -39,7 +39,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         $Category = new Category;
         $Category->ptype_id = $request->input('ptype');
         $Category->save();
@@ -75,8 +74,7 @@ class CategoryController extends Controller
             $CatImgs[$Cat->id] = unserialize($Cat->cat_image);
             foreach ($CatImgs as $key => $ImgArray) {
                 foreach ($ImgArray as $item) {
-
-                    $Images[] = [$PType,$key,asset('storage/Main/Products/ptype' . $PType . '/cat' . $key . '/cat_img/' . $item)];
+                    $Images[] = [$PType, $key, asset('storage/Main/Products/ptype' . $PType . '/cat' . $key . '/cat_img/' . $item)];
                 }
 
             }
@@ -88,12 +86,18 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Category $category
+     * @param $filename
      * @return \Illuminate\Http\Response
      */
     public function edit($category)
     {
-        $EditCategory = Category::with('contents')->find($category);
-        return $EditCategory;
+        $SelectedCategory = Category::find($category);
+        $C_PtypeId=$SelectedCategory->ptype_id;
+        $C_Images=unserialize($SelectedCategory->cat_image);
+        foreach ($C_Images as $key=>$c_Image){
+            $C_Images[$key]=asset('storage/Main/Products/ptype' . $C_PtypeId . '/cat' . $category . '/cat_img/' . $c_Image);
+        }
+        return $C_Images;
     }
 
     /**
@@ -106,7 +110,6 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
         $Category = Category::find($request->input('CatId'));
-
         foreach (Locales() as $item) {
             LocaleContent::where(['page' => 'products', 'section' => 'category', 'element_title' => 'category', 'element_id' => $Category->id, 'locale' => $item['locale'],])
                 ->update(['element_content' => $request->input($item['locale'])]);
