@@ -52,13 +52,13 @@
                     <div class="col-12">
                         <!-- Custom Tabs -->
                         <div class="card">
-                            <label>تصاویر دسته بندی محصول</label>
+                            <label>نام و تصویر دسته بندی محصول</label>
 
                             <div class="card-header d-flex p-0">
                                 <ul class="nav nav-pills ml-auto p-2">
                                     @foreach (Locales() as $item)
                                         <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
-                                                                href="#file_{{$item['locale']}}"
+                                                                href="#{{$item['locale']}}"
                                                                 data-toggle="tab">{{$item['name']}}</a></li>
                                     @endforeach
                                 </ul>
@@ -66,12 +66,30 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     @foreach (Locales() as $item)
-                                        <div class="tab-pane @if ($loop->first) active @endif" id="file_{{$item['locale']}}">
+                                        <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
+
                                             <div class="mb-3">
-                                                <input type="file" name="CatImg_{{$item['locale']}}">
+                                                <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%" required></textarea>
+                                                <br>
                                             </div>
                                         </div>
                                     @endforeach
+                                        {{--file uploader--}}
+                                        <div class="col-6">
+                                            <div class="card">
+                                                <div class="form-group">
+                                                    <label for="exampleInputFile">ارسال تصویر دسته بندی</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" name="CatImg" class="custom-file-input" id="fileUploader" multiple>
+                                                            <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                 </div>
                                 <!-- /.tab-content -->
                             </div><!-- /.card-body -->

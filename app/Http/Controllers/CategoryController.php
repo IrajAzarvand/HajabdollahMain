@@ -42,19 +42,33 @@ class CategoryController extends Controller
         $Category = new Category;
         $Category->ptype_id = $request->input('ptype');
         $Category->save();
-        $ptypeId = $request->input('ptype');
-        $CatImages = [];
+
+        $element_id = $Category->id;
+
+        $Contents = [];
         foreach (Locales() as $item) {
-            if ($request->hasFile('CatImg_' . $item['locale'])) {
-                $uploaded = $request->file('CatImg_' . $item['locale']);
-            }
-            $filename = $item['locale'] . '.' . $uploaded->getClientOriginalExtension();  //locale.extension
-            $uploaded->storeAs('public\Main\Products\ptype' . $ptypeId . '\cat' . $Category->id . '\\cat_img\\', $filename);
-            $CatImages[] = $filename;
+            $Contents[] = new LocaleContent([
+                'page' => 'products',
+                'section' => 'category',
+                'element_id' => $element_id,
+                'locale' => $item['locale'],
+                'element_title' => 'category',
+                'element_content' => $request->input($item['locale']),
+            ]);
         }
-        $NewCat = Category::find($Category->id);
-        $NewCat->cat_image = serialize($CatImages);
-        $NewCat->update();
+        $NewCat = Category::find($element_id);
+        $NewCat->contents()->saveMany($Contents);
+
+        $ptypeId = $request->input('ptype');
+
+        if ($request->hasFile('CatImg')) {
+            $uploaded = $request->file('CatImg');
+            $filename = $element_id . '.' . $uploaded->getClientOriginalExtension();
+            $uploaded->storeAs('public\Main\Products\ptype' . $ptypeId . '\cat' . $Category->id . '\\cat_img\\', $filename);
+            $NewCat = Category::find($Category->id);
+            $NewCat->cat_image = $filename;
+            $NewCat->update();
+        }
         return redirect('/Category');
     }
 
@@ -92,10 +106,10 @@ class CategoryController extends Controller
     public function edit($category)
     {
         $SelectedCategory = Category::find($category);
-        $C_PtypeId=$SelectedCategory->ptype_id;
-        $C_Images=unserialize($SelectedCategory->cat_image);
-        foreach ($C_Images as $key=>$c_Image){
-            $C_Images[$key]=asset('storage/Main/Products/ptype' . $C_PtypeId . '/cat' . $category . '/cat_img/' . $c_Image);
+        $C_PtypeId = $SelectedCategory->ptype_id;
+        $C_Images = unserialize($SelectedCategory->cat_image);
+        foreach ($C_Images as $key => $c_Image) {
+            $C_Images[$key] = asset('storage/Main/Products/ptype' . $C_PtypeId . '/cat' . $category . '/cat_img/' . $c_Image);
         }
         return $C_Images;
     }
