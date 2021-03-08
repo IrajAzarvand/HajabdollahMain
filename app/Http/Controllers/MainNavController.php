@@ -122,10 +122,17 @@ class MainNavController extends Controller
         $PTypes=PType::all();
         $PTypeList=[];
 
-        foreach ($PTypes as $PType){
-            $PTypeList[]['name']=$this->LocaleContents('products','ptype',$PType->id,'ptype');
+        foreach ($PTypes as $key=>$PType){
+            $PTypeList[$key]['id']=$PType->id;
+            $PTypeList[$key]['name']=$this->LocaleContents('products','ptype',$PType->id,'ptype');
         }
-//        dd($PTypeList);
+        $Categories=Category::all();
+        foreach ($Categories as $key=>$category){
+            $Cat[$key]['ptypeId']=$category->ptype_id;
+            $Cat[$key]['name']=$this->LocaleContents('products','category',$category->id,'category');
+            $Cat[$key]['image']=asset('storage/Main/Products/ptype'.$category->ptype_id.'/cat'.$category->id.'/cat_img/'.$category->cat_image);
+        }
+
 //        $Products = Product::all();
 
         //get product name
@@ -215,6 +222,7 @@ class MainNavController extends Controller
                 'Certificates',
                 'Sliders',
                 'PTypeList',
+                'Cat',
 
 
             ));

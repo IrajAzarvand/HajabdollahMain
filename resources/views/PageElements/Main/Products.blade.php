@@ -15,19 +15,19 @@
                 <div class="isotope-filters isotope-tooltip">
                     <button data-filter="" class="active">* </button>
                     @foreach($PTypeList as $List)
-                        <button data-filter=".{{$List['name']}}">{{$List['name']}}</button>
+                        <button data-filter=".{{$List['id']}}">{{$List['name']}}</button>
                     @endforeach
                 </div>
                 <div class="mr-masonry mr-columns-3">
-
-                    <div class="mr-masonry-item webdesign">
+                    @foreach($Cat as $item)
+                    <div class="mr-masonry-item {{$item['ptypeId']}}">
                         <div class="marv-portfolio">
                             <a class="marv-portfolio-img" href="#">
-                                <img class="img-responsive" src="images/portfolio/03.jpg" alt="#">
+                                <img class="img-responsive" src="{{$item['image']}}" alt="#">
                             </a>
                             <div class="mr-overbg">
                                 <div class="marv-portfolio-content">
-                                    <h5 class="title mr-font-white"><a href="#">اسم العمل</a></h5>
+                                    <h5 class="title mr-font-white"><a href="#">{{$item['name']}}</a></h5>
                                     <hr>
                                     <ul class="marv-portfolio-icon">
                                         <li><a href="#"><i class="fa fa-leanpub"></i></a></li>
@@ -38,26 +38,29 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
 
-                    <div class="mr-masonry-item illustration">
-                        <div class="marv-portfolio">
-                            <a class="marv-portfolio-img" href="#">
-                                <img class="img-responsive" src="images/portfolio/04.jpg" alt="#">
-                            </a>
-                            <div class="mr-overbg">
-                                <div class="marv-portfolio-content">
-                                    <h5 class="title mr-font-white"><a href="#">اسم العمل</a></h5>
-                                    <hr>
-                                    <ul class="marv-portfolio-icon">
-                                        <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        <li><a class="image-link popup-img" href="images/portfolio/04.jpg"><i
-                                                    class="fa fa-arrows-alt"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+{{--                    <div class="mr-masonry-item illustration">--}}
+{{--                        <div class="marv-portfolio">--}}
+{{--                            <a class="marv-portfolio-img" href="#">--}}
+{{--                                <img class="img-responsive" src="images/portfolio/04.jpg" alt="#">--}}
+{{--                            </a>--}}
+{{--                            <div class="mr-overbg">--}}
+{{--                                <div class="marv-portfolio-content">--}}
+{{--                                    <h5 class="title mr-font-white"><a href="#">اسم العمل</a></h5>--}}
+{{--                                    <hr>--}}
+{{--                                    <ul class="marv-portfolio-icon">--}}
+{{--                                        <li><a href="#"><i class="fa fa-link"></i></a></li>--}}
+{{--                                        <li><a class="image-link popup-img" href="images/portfolio/04.jpg"><i--}}
+{{--                                                    class="fa fa-arrows-alt"></i></a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
 {{--                    <div class="mr-masonry-item photography">--}}
