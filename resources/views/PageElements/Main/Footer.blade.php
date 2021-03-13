@@ -15,8 +15,8 @@
                         <li><a href="https://www.instagram.com/hajabdollah.pashmak/" data-tooltip="instagram"> <i class="fa fa-instagram"></i> </a> </li>
                     </ul>
                 </div>
-                <p class="footer-btm mt30">تمامی حقوق برای شرکت پشمک حاج عبدا... محفوظ است</p>
-                <p class="footer-btm">طراحی و توسعه  <a href="https://vazhenegar.com">واحد آی‌تی شرکت پشمک حاج عبدا...</a></p>
+                <p class="footer-btm mt30">{{$CopyrightTitle}}</p>
+                <p class="footer-btm">{{$DevelopTitle}}</p>
             </div>
         </div>
     </div>

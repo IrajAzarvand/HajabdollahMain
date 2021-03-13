@@ -28,7 +28,7 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}box">
                                     <div class="mb-3">
-                                        <img src="" id="{{$item['locale']}}edit" name="{{$item['locale']}}" alt="">
+                                        <textarea name="{{$item['locale']}}" id="{{$item['locale']}}edit"></textarea>
                                     </div>
                                 </div>
                                 @endforeach

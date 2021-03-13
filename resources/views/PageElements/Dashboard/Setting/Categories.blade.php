@@ -69,26 +69,29 @@
                                         <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
 
                                             <div class="mb-3">
-                                                <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%" required></textarea>
+                                                <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%"
+                                                          required></textarea>
                                                 <br>
                                             </div>
                                         </div>
                                     @endforeach
-                                        {{--file uploader--}}
-                                        <div class="col-6">
-                                            <div class="card">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">ارسال تصویر دسته بندی</label>
-                                                    <div class="input-group">
-                                                        <div class="custom-file">
-                                                            <input type="file" name="CatImg" class="custom-file-input" id="fileUploader" multiple>
-                                                            <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
-                                                        </div>
-
+                                    {{--file uploader--}}
+                                    <div class="col-6">
+                                        <div class="card">
+                                            <div class="form-group">
+                                                <label for="exampleInputFile">ارسال تصویر دسته بندی</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" name="CatImg" class="custom-file-input"
+                                                               id="fileUploader" multiple>
+                                                        <label class="custom-file-label" for="exampleInputFile">انتخاب
+                                                            فایل</label>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
                                 </div>
                                 <!-- /.tab-content -->
@@ -106,14 +109,13 @@
     </div>
     <!-- /.card -->
 
-
     <div class="col-9">
 
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="ion ion-clipboard mr-1"></i>
-                    لیست دسته بندی ها
+                    لیست دسته بندی ها بر اساس نوع محصول (فارسی - انگلیسی - روسی - عربی)
                 </h3>
 
             </div>
@@ -139,30 +141,9 @@
                 </div>
                 <hr>
 
-                <div class="card">
-
-                    <div class="card-body">
-
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="form-group">
-                                    <label>دسته بندی های مربوط به نوع محصول <span
-                                            style="color: red">(برای ویرایش تصاویر هر دسته بندی روی یکی از آنها کلیک کنید)</span></label>
-                                    <br>
-                                    <div class="col-12" id="CategoryList">
-
-                                    </div>
-
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.card-body -->
-
-                </div>
-
+                <ul class="todo-list" id="CategoryList">
+                    {{-- category list shows here --}}
+                </ul>
             </div>
             <!-- /.card-body -->
 
@@ -190,20 +171,20 @@
     </script>
 
     <script>
-        function editCategory(catId) {
+        function editRow(r) {
             $.ajax({
                 type: "GET",
-                url: '/Category/' + catId + '/edit',
+                url: '/Category/' + r + '/edit',
 
                 success: function (data) {
                     //display data...
-                    $('#CategoryEditModal').find('#CatId').val(catId);
-                    data.forEach(element => {
-                        // console.log(element);
-                        $('#CategoryEditModal').find('#' + element['locale'] + 'edit').attr('src',data);
+                    let CatId = (data['id']);
+                    $('#CategoryEditModal').find('#CatId').val(CatId);
+                    data['contents'].forEach(element => {
+                        $('#CategoryEditModal').find('#' + element['locale'] + 'edit').text(element['element_content']);
                     });
 
-                    $("#CategoryEditModal-form").attr("action", "/Category/" + catId);
+                    $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
                     $('#CategoryEditModal').modal('show');
                 }
             });
@@ -214,35 +195,49 @@
     <script>
         function showCategory() {
             let ptypeId = document.getElementById('ptypeId').value;
-                $.ajax({
-                    type: "GET",
-                    url: '/Category/' + ptypeId,
+            $.ajax({
+                type: "GET",
+                url: '/Category/' + ptypeId,
 
-                    success: function (data) {
-                        $('#CategoryList').empty();
-                        data.forEach(function (entry) {
-                            let filename = entry[2].split('/').pop();
-                            // create category list
-                            let category_section = document.getElementById("CategoryList");
-                            // Create <a> tag
-                            let a_tag = document.createElement("a");
-                            a_tag.setAttribute("onclick", "editCategory('" + entry[1] + "','"+ filename + "')");
+                success: function (data) {
 
-                            category_section.appendChild(a_tag);
+                    // create category list
+                    function createElementLi(obj) {
+                        let ul_obj = document.getElementById(obj);
 
-                            // create img tag inside li
-                            let last_a_tag = category_section.lastElementChild;
-                            let img_obj = document.createElement("img");
-                            img_obj.setAttribute("class", "col-3");
-                            img_obj.setAttribute("src", entry[2]);
-                            img_obj.setAttribute("style", "padding-bottom: 10px;");
-                            img_obj.setAttribute("alt", "Photo");
-                            last_a_tag.appendChild(img_obj);
-                        });
+                        // Create li
+                        let li_obj = document.createElement("li");
+                        ul_obj.appendChild(li_obj);
 
+                        //create span inside li
+                        let last_li = ul_obj.lastElementChild;
+                        let span_obj = document.createElement("span");
+                        span_obj.setAttribute("class", "text");
+                        last_li.appendChild(span_obj);
                     }
-                });
+
+
+                    //show content
+                    let list = '';
+                    let Cat_id = '';
+                    $('#CategoryList').empty();
+                    data.forEach(function (entry) {
+                        entry.forEach(function (childrenEntry) {
+                            list = list + ' (' + childrenEntry.element_content + ') ';
+                            Cat_id = childrenEntry.element_id;
+                        });
+                        createElementLi("CategoryList");
+                        let lst_LI = document.getElementById("CategoryList").lastElementChild;
+                        let spn = lst_LI.getElementsByTagName("span");
+                        spn[0].innerHTML = '<a onclick="editRow(' + Cat_id + ')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow(' + Cat_id + ')"><i class="fa fa-trash-o"></i></a>' + list;
+                        list = '';
+                    });
+
+
+                }
+            });
         }
     </script>
+
     @include('PageElements.Dashboard.Setting.ModalEditCategory')
 @endsection

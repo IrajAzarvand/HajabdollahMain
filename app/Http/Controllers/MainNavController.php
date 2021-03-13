@@ -115,13 +115,15 @@ class MainNavController extends Controller
             $Certificates[] = asset('storage/Main/Statue/' . $filename);
         }
 
-
+        //**************************  FOOTER ***************************************************************** */
+        $CopyrightTitle = $this->LocaleContents('Footer', 'rights', 1, 'Copyright Section');
+        $DevelopTitle = $this->LocaleContents('Footer', 'rights', 2, 'Design Section');
 
         //************************** PRODUCTS ***************************************************************** */
 
         $PTypes=PType::all();
         $PTypeList=[];
-
+        $Cat=[];
         foreach ($PTypes as $key=>$PType){
             $PTypeList[$key]['id']=$PType->id;
             $PTypeList[$key]['name']=$this->LocaleContents('products','ptype',$PType->id,'ptype');
@@ -218,6 +220,8 @@ class MainNavController extends Controller
                 'CUInfoPhoneTitle',
                 'CUAddressContent',
                 'CUPhoneContent',
+                'CopyrightTitle',
+                'DevelopTitle',
                 'SalesOffices',
                 'Certificates',
                 'Sliders',

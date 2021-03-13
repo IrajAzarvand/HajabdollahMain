@@ -870,6 +870,8 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'PhoneTitle',
                 'element_content' => 'Telefon numaraları',
             ],
+
+            //================================================================================
             //Contact Us Phone number section seeder
             [
                 'page' => 'CU',
@@ -967,6 +969,8 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'CUDescription_tr',
                 'element_content' => 'Dahili satışlar 041-56987456 041-85412587',
             ],
+
+            //================================================================================
             //Address Table seeder
             [
                 'page' => 'CU',
@@ -1001,7 +1005,75 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => '35 km Tebriz-Azarshahr yolu, Shahid Salimi sanayi kasabası, 10. cadde 20 metre, Etminan Dondurma Şirketi',
             ],
 
+            //================================================================================
+            //Footer All Rights Reserved
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 1,
+                'locale' => 'fa',
+                'element_title' => 'Copyright Section',
+                'element_content' => 'تمامی حقوق برای شرکت پشمک حاج عبدا... محفوظ است',
+            ],
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 1,
+                'locale' => 'en',
+                'element_title' => 'Copyright Section',
+                'element_content' => 'All rights reserved for Haj Abdollah Pashmak Company',
+            ],
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 1,
+                'locale' => 'ru',
+                'element_title' => 'Copyright Section',
+                'element_content' => 'Все права защищены для компании Haj Abdollah Pashmak.',
+            ],
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 1,
+                'locale' => 'tr',
+                'element_title' => 'Copyright Section',
+                'element_content' => 'Tüm hakları Haj Abda Pashmak Company\'ye aittir.',
+            ],
 
+            //================================================================================
+            //Footer Design and develop section
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 2,
+                'locale' => 'fa',
+                'element_title' => 'Design Section',
+                'element_content' => 'طراحی و توسعه واحد آی‌تی شرکت پشمک حاج عبدا...',
+            ],
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 2,
+                'locale' => 'en',
+                'element_title' => 'Design Section',
+                'element_content' => 'Design and development by IT unit of Pashmak Haj Abdollah Company',
+            ],
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 2,
+                'locale' => 'ru',
+                'element_title' => 'Design Section',
+                'element_content' => 'Проектирование и разработка ИТ-подразделения компании Пашмак Хадж Абдулла',
+            ],
+            [
+                'page' => 'Footer',
+                'section' => 'rights',
+                'element_id' => 2,
+                'locale' => 'tr',
+                'element_title' => 'Design Section',
+                'element_content' => 'Pashmak Haj Abdullah Company\'nin IT biriminin tasarımı ve geliştirilmesi',
+            ],
 
 
 

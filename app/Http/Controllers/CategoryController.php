@@ -80,38 +80,35 @@ class CategoryController extends Controller
      */
     public function show($PType)
     {
+        $result = Category::where('ptype_id', $PType)->with('contents')->get()->pluck('contents');
+        return $result;
 
-        $SelectedCategories = Category::where('ptype_id', $PType)->get();
-        $Images = [];
-        foreach ($SelectedCategories as $Cat) {
-            $CatImgs = [];
-            $CatImgs[$Cat->id] = unserialize($Cat->cat_image);
-            foreach ($CatImgs as $key => $ImgArray) {
-                foreach ($ImgArray as $item) {
-                    $Images[] = [$PType, $key, asset('storage/Main/Products/ptype' . $PType . '/cat' . $key . '/cat_img/' . $item)];
-                }
 
-            }
-        }
-        return $Images;
+//        $SelectedCategories = Category::where('ptype_id', $PType)->with('contents')->get();
+//        $CatList = [];
+//        foreach ($SelectedCategories as $key => $category) {
+//            $CatList[$key]['id'] = $category->id;
+//            $CatList[$key]['image'] = asset('storage/Main/Products/ptype' . $PType . '/cat' . $category->id . '/cat_img/' . $category->cat_image);
+//            $CatList[$key]['fa']=$category->contents()->where('locale', 'fa')->pluck('element_content')[0];
+//            $CatList[$key]['en']=$category->contents()->where('locale', 'en')->pluck('element_content')[0];
+//            $CatList[$key]['ru']=$category->contents()->where('locale', 'ru')->pluck('element_content')[0];
+//            $CatList[$key]['tr']=$category->contents()->where('locale', 'tr')->pluck('element_content')[0];
+//
+//        }
+//        return $CatList;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Category $category
-     * @param $filename
      * @return \Illuminate\Http\Response
      */
     public function edit($category)
     {
-        $SelectedCategory = Category::find($category);
-        $C_PtypeId = $SelectedCategory->ptype_id;
-        $C_Images = unserialize($SelectedCategory->cat_image);
-        foreach ($C_Images as $key => $c_Image) {
-            $C_Images[$key] = asset('storage/Main/Products/ptype' . $C_PtypeId . '/cat' . $category . '/cat_img/' . $c_Image);
-        }
-        return $C_Images;
+        $SelectedCategory = Category::with('contents')->find($category);
+        $SelectedCategory->cat_image=asset('storage/Main/Products/ptype' . $SelectedCategory->ptype_id . '/cat' . $SelectedCategory->id . '/cat_img/' . $SelectedCategory->cat_image);
+       return $SelectedCategory;
     }
 
     /**
