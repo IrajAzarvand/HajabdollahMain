@@ -34,78 +34,33 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $Product = new Product;
+        $Product->cat_id = $request->input('category');
         $Product->save();
-        $element_id = $Product->id;
-        $Contents = [];
-        if ($request->p_name_fa) {
-            foreach (Locales() as $item) {
-                $Contents[] = new LocaleContent([
-                    'page' => 'products',
-                    'section' => 'products',
-                    'element_id' => $element_id,
-                    'locale' => $item['locale'],
-                    'element_title' => 'p_name_' . $item['locale'],
-                    'element_content' => $request->input('p_name_' . $item['locale']),
-                ]);
-            }
-        }
-
-        if ($request->p_introduction_fa) {
-            foreach (Locales() as $item) {
-                $Contents[] = new LocaleContent([
-                    'page' => 'products',
-                    'section' => 'products',
-                    'element_id' => $element_id,
-                    'locale' => $item['locale'],
-                    'element_title' => 'p_introduction_' . $item['locale'],
-                    'element_content' => $request->input('p_introduction_' . $item['locale']),
-                ]);
-            }
-        }
-
-        if ($request->nutritionalValue_fa) {
-            foreach (Locales() as $item) {
-                $Contents[] = new LocaleContent([
-                    'page' => 'products',
-                    'section' => 'products',
-                    'element_id' => $element_id,
-                    'locale' => $item['locale'],
-                    'element_title' => 'nutritionalValue_' . $item['locale'],
-                    'element_content' => $request->input('nutritionalValue_' . $item['locale']),
-                ]);
-            }
-        }
-
-        $NewProduct = Product::find($element_id);
-        $NewProduct->contents()->saveMany($Contents);
-
-        $NewProduct->cat_id = $request->input('category');
-        $images = [];
         if ($request->hasFile('product_images')) {
             $count = 0;
-            foreach ($request->file('product_images') as $image) {
-                $uploaded = $image;
-                $filename = $element_id . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-                $uploaded->storeAs('public\Main\Products\\' . $element_id . '\\', $filename);
-                $images[] = $filename;
+            $images=[];
+            foreach ($request->file('product_images') as $file) {
+                $uploaded = $file;
+                $filename = $count++ . '_' . time() . '.' . $uploaded->getClientOriginalExtension();  //count_timestamps.extension
+                $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $Product->id . '\p_images\\', $filename);
+                $images[]=$filename;
             }
+            $Product->images=serialize($images);
+            $Product->update();
         }
-        $NewProduct->images = serialize($images);
-        $NewProduct->update();
-
         return redirect('/Product');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param $CatID
      * @return \Illuminate\Http\Response
      */
     public function show($CatID)
@@ -117,7 +72,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function edit($product)
@@ -138,8 +93,8 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -223,7 +178,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy($product)
