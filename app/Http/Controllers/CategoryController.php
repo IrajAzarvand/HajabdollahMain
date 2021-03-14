@@ -82,20 +82,6 @@ class CategoryController extends Controller
     {
         $result = Category::where('ptype_id', $PType)->with('contents')->get()->pluck('contents');
         return $result;
-
-
-//        $SelectedCategories = Category::where('ptype_id', $PType)->with('contents')->get();
-//        $CatList = [];
-//        foreach ($SelectedCategories as $key => $category) {
-//            $CatList[$key]['id'] = $category->id;
-//            $CatList[$key]['image'] = asset('storage/Main/Products/ptype' . $PType . '/cat' . $category->id . '/cat_img/' . $category->cat_image);
-//            $CatList[$key]['fa']=$category->contents()->where('locale', 'fa')->pluck('element_content')[0];
-//            $CatList[$key]['en']=$category->contents()->where('locale', 'en')->pluck('element_content')[0];
-//            $CatList[$key]['ru']=$category->contents()->where('locale', 'ru')->pluck('element_content')[0];
-//            $CatList[$key]['tr']=$category->contents()->where('locale', 'tr')->pluck('element_content')[0];
-//
-//        }
-//        return $CatList;
     }
 
     /**
@@ -120,11 +106,26 @@ class CategoryController extends Controller
      */
     public function update(Request $request)
     {
+
         $Category = Category::find($request->input('CatId'));
         foreach (Locales() as $item) {
             LocaleContent::where(['page' => 'products', 'section' => 'category', 'element_title' => 'category', 'element_id' => $Category->id, 'locale' => $item['locale'],])
                 ->update(['element_content' => $request->input($item['locale'])]);
         }
+        if ($request->hasFile('Cat_New_Img')) {
+
+            //remove previous cat image
+                $PrevCatImg='storage/Main/Products/ptype' . $Category->ptype_id . '/cat' . $Category->id . '/cat_img/' . $Category->cat_image;
+                unlink($PrevCatImg);
+
+                //save newly uploaded file
+            $uploaded = $request->file('Cat_New_Img');
+            $filename = $Category->id . '.' . $uploaded->getClientOriginalExtension();
+            $uploaded->storeAs('public\Main\Products\ptype' . $Category->ptype_id . '\cat' . $Category->id . '\cat_img\\', $filename);
+            $Category->cat_image;
+            $Category->update();
+        }
+
         return redirect('/Category');
     }
 

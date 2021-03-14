@@ -10,7 +10,7 @@
                 <h4 class="modal-title">ویرایش دسته بندی محصول</h4>
             </div>
             <div class="modal-body" id="modal-body">
-                <form id="CategoryEditModal-form" action="" method="post">
+                <form id="CategoryEditModal-form" action="" method="post" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <!-- Custom Tabs -->
@@ -28,7 +28,7 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}box">
                                     <div class="mb-3">
-                                        <textarea name="{{$item['locale']}}" id="{{$item['locale']}}edit"></textarea>
+                                        <textarea name="{{$item['locale']}}" id="{{$item['locale']}}edit" style="width: 100%"></textarea>
                                     </div>
                                 </div>
                                 @endforeach
@@ -36,6 +36,22 @@
                             <!-- /.tab-content -->
                         </div><!-- /.card-body -->
                     </div>
+
+                        <!-- /image content -->
+                        <div class="card">
+                            <div class="card-header d-flex p-0">
+                                <h6>تصویر دسته بندی</h6>
+                            </div>
+                                <img id="Cat_Img" alt="" style="width: 45%">
+                        </div>
+                        <div class="card">
+                            <div class="card-header d-flex p-0">
+                                <h6>انتخاب تصویر دیگر</h6>
+                            </div>
+                            <input type="file" name="Cat_New_Img" >
+                        </div>
+                        <!-- /.image content -->
+
 
                     <button type="submit" class="btn btn-primary">ذخیره</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>

@@ -183,7 +183,7 @@
                     data['contents'].forEach(element => {
                         $('#CategoryEditModal').find('#' + element['locale'] + 'edit').text(element['element_content']);
                     });
-
+                    $("#Cat_Img").attr("src",data['cat_image']);
                     $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
                     $('#CategoryEditModal').modal('show');
                 }
