@@ -169,6 +169,7 @@
 
 
 <script>
+{{--    for adding new products section--}}
     function collectCategories(ptype)
 {
     let selectedPType=ptype.value;
@@ -199,52 +200,52 @@
 
 
 
-<script>
-    function showCategory() {
-        let ptypeId=document.getElementById('ptypeId').value;
-        $.ajax({
-            type: "GET",
-            url: '/Category/' + ptypeId,
+{{--<script>--}}
+{{--    function showCategory() {--}}
+{{--        let ptypeId=document.getElementById('ptypeId').value;--}}
+{{--        $.ajax({--}}
+{{--            type: "GET",--}}
+{{--            url: '/Category/' + ptypeId,--}}
 
-            success: function (data) {
+{{--            success: function (data) {--}}
 
-                // create category list
-                function createElementLi(obj) {
-                    let ul_obj = document.getElementById(obj);
+{{--                // create category list--}}
+{{--                function createElementLi(obj) {--}}
+{{--                    let ul_obj = document.getElementById(obj);--}}
 
-                    // Create li
-                    let li_obj = document.createElement("li");
-                    ul_obj.appendChild(li_obj);
+{{--                    // Create li--}}
+{{--                    let li_obj = document.createElement("li");--}}
+{{--                    ul_obj.appendChild(li_obj);--}}
 
-                    //create span inside li
-                    let last_li = ul_obj.lastElementChild;
-                    let span_obj = document.createElement("span");
-                    span_obj.setAttribute("class", "text");
-                    last_li.appendChild(span_obj);
-                }
-
-
-                //show content
-                let list='';
-                let Cat_id='';
-                $('#CategoryList').empty();
-                data.forEach(function(entry){
-                    entry.forEach(function(childrenEntry) {
-                        list = list + ' (' +  childrenEntry.element_content + ') ';
-                        Cat_id=childrenEntry.element_id;
-                    });
-                    createElementLi("CategoryList");
-                    let lst_LI=document.getElementById("CategoryList").lastElementChild;
-                    let spn=lst_LI.getElementsByTagName("span");
-                    spn[0].innerHTML='<a onclick="editRow('+ Cat_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Cat_id +')"><i class="fa fa-trash-o"></i></a>' + list;
-                    list='';
-                });
+{{--                    //create span inside li--}}
+{{--                    let last_li = ul_obj.lastElementChild;--}}
+{{--                    let span_obj = document.createElement("span");--}}
+{{--                    span_obj.setAttribute("class", "text");--}}
+{{--                    last_li.appendChild(span_obj);--}}
+{{--                }--}}
 
 
-            }
-        });
-    }
-</script>
+{{--                //show content--}}
+{{--                let list='';--}}
+{{--                let Cat_id='';--}}
+{{--                $('#CategoryList').empty();--}}
+{{--                data.forEach(function(entry){--}}
+{{--                    entry.forEach(function(childrenEntry) {--}}
+{{--                        list = list + ' (' +  childrenEntry.element_content + ') ';--}}
+{{--                        Cat_id=childrenEntry.element_id;--}}
+{{--                    });--}}
+{{--                    createElementLi("CategoryList");--}}
+{{--                    let lst_LI=document.getElementById("CategoryList").lastElementChild;--}}
+{{--                    let spn=lst_LI.getElementsByTagName("span");--}}
+{{--                    spn[0].innerHTML='<a onclick="editRow('+ Cat_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Cat_id +')"><i class="fa fa-trash-o"></i></a>' + list;--}}
+{{--                    list='';--}}
+{{--                });--}}
+
+
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
+{{--</script>--}}
 
 
 
@@ -252,6 +253,8 @@
 
 {{-- ====================for show all products=============== --}}
 <script>
+
+{{--    after selecting ptype, this will show categories related to that ptype--}}
     function collectAllCategories(ptype)
 {
     let selectedPType=ptype.value;
@@ -280,6 +283,7 @@
 </script>
 
 <script>
+{{--    after selecting category, this will show products related to that category--}}
     function showCategoryProducts(category) {
         let selectedCategory=category.value;
 
