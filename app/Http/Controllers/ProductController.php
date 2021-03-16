@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\LocaleContent;
 use App\Models\Product;
+use App\Models\PType;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -65,8 +66,14 @@ class ProductController extends Controller
      */
     public function show($CatID)
     {
-        $result = Product::where('cat_id', $CatID)->with('contents')->get()->pluck('contents');
-        return $result;
+        $result = Product::where('cat_id', $CatID)->get();
+        $Products=[];
+        foreach ($result as $key=>$item){
+            $Products[$key]['id']=$item['id'];
+            $Products[$key]['ptype']=Category::where('id',$CatID)->value('ptype_id');
+            $Products[$key]['image']=asset('storage/Main/Products/ptype'.$Products[$key]['ptype'].'/cat'.$CatID . '/products/product' . $Products[$key]['id'] . '/p_images/'.unserialize($item['images'])[0]);
+        }
+        return $Products;
     }
 
     /**

@@ -140,7 +140,7 @@
                                 <table class="table table-hover" id="ProductsTable">
                                     <tr>
                                         <th>#</th>
-                                        <th>نام محصول</th>
+                                        <th>محصول</th>
                                         <th>عملیات</th>
                                     </tr>
                                     <tr id="ProductsList">
@@ -293,28 +293,28 @@
 
             success: function (data) {
                 //show content
-                // console.log(data);
+                console.log(data);
                 let Product_id='';
-                let Product_name='';
+                let Product_image='';
                 let count=0;
                 let table = document.getElementById("ProductsTable");
                 $('#ProductsTable').empty();
                 let row = table.insertRow();
                 row.insertCell(0).innerHTML= "#";
-                row.insertCell(1).innerHTML= "نام محصول";
+                row.insertCell(1).innerHTML= "محصول";
                 row.insertCell(2).innerHTML= "عملیات";
 
                 data.forEach(function(entry){
                     count++;
-                    entry.forEach(function(childrenEntry) {
-                        Product_id = childrenEntry.element_id;
-                    });
-                    Product_name = entry[0]['element_content'];
+                    // entry.forEach(function(childrenEntry) {
+                        Product_id = entry.id;
+                    // });
+                    Product_image = entry.image;
                     let rowCount = table.rows.length;
                     let row = table.insertRow(rowCount);
 
                     row.insertCell(0).innerHTML= count;
-                    row.insertCell(1).innerHTML= Product_name;
+                    row.insertCell(1).innerHTML= '<img src="'+Product_image+'" style="width: 25%"/>';
 
                     row.insertCell(2).innerHTML= '<button type="button" class="btn btn-primary"><a onclick="viewEditProduct('+ Product_id +')"><i class="fa fa-eye"></i></a></button> &nbsp <button type="button" class="btn btn-danger"><a onclick="deleteProduct('+ Product_id +')"><i class="fa fa-trash-o"></i></a></button>';
                 });
