@@ -130,6 +130,7 @@ class MainNavController extends Controller
         }
         $Categories=Category::all();
         foreach ($Categories as $key=>$category){
+            $Cat[$key]['Id']=$category->id;
             $Cat[$key]['ptypeId']=$category->ptype_id;
             $Cat[$key]['name']=$this->LocaleContents('products','category',$category->id,'category');
             $Cat[$key]['image']=asset('storage/Main/Products/ptype'.$category->ptype_id.'/cat'.$category->id.'/cat_img/'.$category->cat_image);
