@@ -60,17 +60,17 @@ class MainNavController extends Controller
 
         //*************************** SLIDERS ********************************************************************* */
         $SliderImages = Slider::orderBy('id', 'desc')->take(4)->pluck('image'); //get last 4 item that recently added
-        $Sliders=[];
+        $Sliders = [];
         foreach ($SliderImages as $img) {
             $Sliders[] = asset('storage/Main/Sliders/' . $img);
         }
         //slider count must be exactly 4
         //if count is lower than 4, we set slider array randomly to create a 4 item array
-       $rnd=[];
+        $rnd = [];
         if (count($Sliders) && count($Sliders) < 4) {
-            $needed=4-count($Sliders);
-            for ($i=1;$i<=$needed;$i++){
-                $Sliders[]=$Sliders[array_rand($Sliders)];
+            $needed = 4 - count($Sliders);
+            for ($i = 1; $i <= $needed; $i++) {
+                $Sliders[] = $Sliders[array_rand($Sliders)];
             }
         }
 
@@ -121,43 +121,23 @@ class MainNavController extends Controller
 
         //************************** PRODUCTS ***************************************************************** */
 
-        $PTypes=PType::all();
-        $PTypeList=[];
-        $Cat=[];
-        foreach ($PTypes as $key=>$PType){
-            $PTypeList[$key]['id']=$PType->id;
-            $PTypeList[$key]['name']=$this->LocaleContents('products','ptype',$PType->id,'ptype');
+        $PTypes = PType::all();
+        $PTypeList = [];
+        $Cat = [];
+        foreach ($PTypes as $key => $PType) {
+            $PTypeList[$key]['id'] = $PType->id;
+            $PTypeList[$key]['name'] = $this->LocaleContents('products', 'ptype', $PType->id, 'ptype');
         }
-        $Categories=Category::all();
-        foreach ($Categories as $key=>$category){
-            $Cat[$key]['Id']=$category->id;
-            $Cat[$key]['ptypeId']=$category->ptype_id;
-            $Cat[$key]['name']=$this->LocaleContents('products','category',$category->id,'category');
-            $Cat[$key]['image']=asset('storage/Main/Products/ptype'.$category->ptype_id.'/cat'.$category->id.'/cat_img/'.$category->cat_image);
+        $Categories = Category::all();
+        foreach ($Categories as $key => $category) {
+            $Cat[$key]['Id'] = $category->id;
+            $Cat[$key]['ptypeId'] = $category->ptype_id;
+            $Cat[$key]['name'] = $this->LocaleContents('products', 'category', $category->id, 'category');
+            $Cat[$key]['image'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/cat_img/' . $category->cat_image);
+            $Cat[$key]['product_id'] = Product::where('cat_id', $Cat[$key]['Id'])->value('id');
+            $P_img = unserialize(Product::where('id', $Cat[$key]['product_id'])->value('images'))[0];
+            $Cat[$key]['RelatedImage'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/products/product' . $Cat[$key]['product_id'] . '/p_images/' . $P_img);
         }
-
-//        $Products = Product::all();
-
-        //get product name
-//        $NewPrName = [];
-//        foreach ($NewPr as $key => $pr) {
-//            foreach (Locales() as $item) {
-//                $NewPrName[$key][$item['locale']] = LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_id' => $pr->id, 'locale' => $item['locale'], 'element_title' => 'p_name_' . $item['locale']])->pluck('element_content')[0];
-//            }
-//        }
-//
-//        $NewProducts = [];
-//        $P_Images = [];
-//        //collect first image of each product and put it in array
-//        foreach ($NewPr as $key => $item) {
-//            $P_Images = unserialize($item->images);
-//            $NewProducts[$key]['id'] = $item->id;
-//            $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
-//            $NewProducts[$key]['title_fa'] = $NewPrName[$key]['fa'];
-//            $NewProducts[$key]['title_en'] = $NewPrName[$key]['en'];
-//            $NewProducts[$key]['title_ru'] = $NewPrName[$key]['ru'];
-//            $NewProducts[$key]['title_ar'] = $NewPrName[$key]['ar'];
-//        }
 
         //**************************  CATALOGUES ************************************************ */
 //        $CatalogSectionTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
@@ -183,13 +163,6 @@ class MainNavController extends Controller
 //                $Gallery[$key]['title_' . $item['locale']] = LocaleContent::where(['page' => 'gallery', 'section' => 'gallery', 'element_id' => $g->id, 'locale' => $item['locale'], 'element_title' => 'g_title_' . $item['locale']])->pluck('element_content')[0];
 //            }
 //        }
-
-        //**************************  CERTIFICATE AND HONORS ************************************************ */
-//        $CH_Images = [];
-//        foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch) {
-//            $CH_Images[] = asset('storage/Main/CH/' . $ch);
-//        }
-
 
         //**************************  LATEST NEWS *********************************************************** */
 //        $LatestNews = collect($IndexContents)->where('section', 'latestnews');

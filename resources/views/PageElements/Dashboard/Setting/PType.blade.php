@@ -44,7 +44,7 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%"></textarea>
+                                        <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%" required></textarea>
                                     </div>
                                 </div>
                                 @endforeach

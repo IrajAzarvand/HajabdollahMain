@@ -83,7 +83,7 @@
                                                 <div class="input-group">
                                                     <div class="custom-file">
                                                         <input type="file" name="CatImg" class="custom-file-input"
-                                                               id="fileUploader" multiple>
+                                                               id="fileUploader" required>
                                                         <label class="custom-file-label" for="exampleInputFile">انتخاب
                                                             فایل</label>
                                                     </div>
@@ -115,7 +115,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="ion ion-clipboard mr-1"></i>
-                    لیست دسته بندی ها بر اساس نوع محصول (فارسی - انگلیسی - روسی - عربی)
+                    لیست دسته بندی ها بر اساس نوع محصول (فارسی - انگلیسی - روسی - ترکی)
                 </h3>
 
             </div>

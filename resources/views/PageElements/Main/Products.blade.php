@@ -22,7 +22,7 @@
                     {{--if one of the categories selected, this section will become clear and show products related to that category--}}
                         {{--and if one of the ptypes selected, this section will show categories related to that ptype --}}
                         @foreach($Cat as $item)
-                            <div class="mr-masonry-item {{$item['ptypeId']}}" onclick="showCategoryProducts({{$item['Id']}})">
+                            <div class="mr-masonry-item {{$item['ptypeId']}}" >
                                 <div class="marv-portfolio">
                                     <a class="marv-portfolio-img" href="#">
                                         <img class="img-responsive"  src="{{$item['image']}}" alt="#">
@@ -33,7 +33,7 @@
                                             <hr>
                                             <ul class="marv-portfolio-icon">
                                                 <li><a href="#"><i class="fa fa-leanpub"></i></a></li>
-                                                <li><a class="image-link popup-img" href="images/portfolio/03.jpg"><i
+                                                <li><a target="_blank" class="image-link" href="{{$item['RelatedImage']}}"><i
                                                             class="fa fa-arrows-alt"></i></a></li>
                                             </ul>
                                         </div>
