@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CUController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\ProductCatalogController;
 use App\Http\Controllers\ProductController;
@@ -34,7 +35,7 @@ Route::resource('Product', ProductController::class);
 
 Route::resource('Category', CategoryController::class);
 
-Route::resource('LatestNews', LatestNewsController::class);
+Route::resource('Events', EventController::class);
 
 Route::resource('PType', PTypeController::class);
 

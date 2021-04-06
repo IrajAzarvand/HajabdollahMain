@@ -44,11 +44,11 @@ class ProductController extends Controller
         $Product->cat_id = $request->input('category');
         $Product->save();
         if ($request->hasFile('product_images')) {
-            $count = 0;
             $images=[];
             foreach ($request->file('product_images') as $file) {
+               $file->getClientOriginalName();
                 $uploaded = $file;
-                $filename = $count++ . '_' . time() . '.' . $uploaded->getClientOriginalExtension();  //count_timestamps.extension
+                $filename = $file->getClientOriginalName();
                 $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $Product->id . '\p_images\\', $filename);
                 $images[]=$filename;
             }
@@ -66,12 +66,13 @@ class ProductController extends Controller
      */
     public function show($CatID)
     {
+
         $result = Product::where('cat_id', $CatID)->get();
         $Products=[];
         foreach ($result as $key=>$item){
             $Products[$key]['id']=$item['id'];
             $Products[$key]['ptype']=Category::where('id',$CatID)->value('ptype_id');
-            $Products[$key]['image']=asset('storage/Main/Products/ptype'.$Products[$key]['ptype'].'/cat'.$CatID . '/products/product' . $Products[$key]['id'] . '/p_images/'.unserialize($item['images'])[0]);
+            $Products[$key]['image']=asset('storage/Main/Products/ptype'.$Products[$key]['ptype'].'/cat'.$CatID . '/products/product' . $Products[$key]['id'] . '/p_images/'.app()->getLocale().'.jpg');
         }
         return $Products;
     }

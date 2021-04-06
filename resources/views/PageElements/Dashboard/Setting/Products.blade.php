@@ -295,7 +295,6 @@
 
             success: function (data) {
                 //show content
-                console.log(data);
                 let Product_id='';
                 let Product_image='';
                 let count=0;

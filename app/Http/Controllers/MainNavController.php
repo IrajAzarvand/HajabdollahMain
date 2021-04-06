@@ -135,8 +135,7 @@ class MainNavController extends Controller
             $Cat[$key]['name'] = $this->LocaleContents('products', 'category', $category->id, 'category');
             $Cat[$key]['image'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/cat_img/' . $category->cat_image);
             $Cat[$key]['product_id'] = Product::where('cat_id', $Cat[$key]['Id'])->value('id');
-            $P_img = unserialize(Product::where('id', $Cat[$key]['product_id'])->value('images'))[0];
-            $Cat[$key]['RelatedImage'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/products/product' . $Cat[$key]['product_id'] . '/p_images/' . $P_img);
+            $Cat[$key]['RelatedImage'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/products/product' . $Cat[$key]['product_id'] . '/p_images/' . app()->getLocale().'.jpg');
         }
 
         //**************************  CATALOGUES ************************************************ */

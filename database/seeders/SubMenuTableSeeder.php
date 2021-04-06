@@ -63,8 +63,8 @@ class SubMenuTableSeeder extends Seeder
             ],
             'سایر' => [
                 [
-                    'SubMenu' => 'آخرین اخبار',
-                    'Url' => 'LatestNews.index',
+                    'SubMenu' => 'رویدادها',
+                    'Url' => 'Events.index',
                     'Icon' => 'fa fa-align-right',
                 ],
                 [
