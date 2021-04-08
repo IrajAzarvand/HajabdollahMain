@@ -44,15 +44,15 @@ class ProductController extends Controller
         $Product->cat_id = $request->input('category');
         $Product->save();
         if ($request->hasFile('product_images')) {
-            $images=[];
+            $images = [];
             foreach ($request->file('product_images') as $file) {
-               $file->getClientOriginalName();
+                $file->getClientOriginalName();
                 $uploaded = $file;
                 $filename = $file->getClientOriginalName();
                 $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $Product->id . '\p_images\\', $filename);
-                $images[]=$filename;
+                $images[] = $filename;
             }
-            $Product->images=serialize($images);
+            $Product->images = serialize($images);
             $Product->update();
         }
         return redirect('/Product');
@@ -68,11 +68,11 @@ class ProductController extends Controller
     {
 
         $result = Product::where('cat_id', $CatID)->get();
-        $Products=[];
-        foreach ($result as $key=>$item){
-            $Products[$key]['id']=$item['id'];
-            $Products[$key]['ptype']=Category::where('id',$CatID)->value('ptype_id');
-            $Products[$key]['image']=asset('storage/Main/Products/ptype'.$Products[$key]['ptype'].'/cat'.$CatID . '/products/product' . $Products[$key]['id'] . '/p_images/'.app()->getLocale().'.jpg');
+        $Products = [];
+        foreach ($result as $key => $item) {
+            $Products[$key]['id'] = $item['id'];
+            $Products[$key]['ptype'] = Category::where('id', $CatID)->value('ptype_id');
+            $Products[$key]['image'] = asset('storage/Main/Products/ptype' . $Products[$key]['ptype'] . '/cat' . $CatID . '/products/product' . $Products[$key]['id'] . '/p_images/' . app()->getLocale() . '.jpg');
         }
         return $Products;
     }
@@ -85,7 +85,7 @@ class ProductController extends Controller
      */
     public function edit($product)
     {
-        $Selectedproduct = Product::where('id', $product)->with('contents')->first();
+        $Selectedproduct = Product::where('id', $product)->first();
         $product_ptypes = LocaleContent::where(['section' => 'ptype', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
         $Selectedptype = Category::where('id', $Selectedproduct->cat_id)->value('ptype_id');
         $ptype_categories = Category::where('ptype_id', $Selectedptype)->with('contents', function ($query) {
@@ -93,7 +93,11 @@ class ProductController extends Controller
                 ->pluck('element_content', 'element_id');
         })->get()->toArray();
 
-        $ProductImages = unserialize($Selectedproduct->images);
+        $PImg = unserialize($Selectedproduct->images);
+        foreach ($PImg as $item) {
+            $ProductImages[] = asset('storage/Main/Products/ptype' . $Selectedptype . '/cat' . $Selectedproduct->cat_id . '/products/product' . $Selectedproduct->id . '/p_images/' . $item);
+        }
+
         return view('PageElements.Dashboard.Setting.ProductsViewEdit', compact('Selectedproduct', 'product_ptypes', 'Selectedptype', 'ptype_categories', 'ProductImages'));
 
     }

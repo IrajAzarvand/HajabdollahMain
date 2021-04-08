@@ -94,10 +94,9 @@
                                     style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
                             <br>
                             @foreach($ProductImages as $image)
-
                                 <a href="{{ route('ProductImageRemove', [$Selectedproduct->id,$image]) }}"><img
                                         class="col-3" style="padding-bottom: 10px;"
-                                        src="{{asset('storage/Main/Products/' . $Selectedproduct->id . '/'. $image)}}"
+                                        src="{{$image}}"
                                         alt="Photo"></a>
 
                             @endforeach
