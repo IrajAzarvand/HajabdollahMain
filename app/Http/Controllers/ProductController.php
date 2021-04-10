@@ -112,77 +112,26 @@ class ProductController extends Controller
     public function update(Request $request)
     {
 
-        $SelectedProduct = Product::where('id', $request->input('ProductId'))->with('contents')->first();
-        $element_id = $SelectedProduct->id;
-
+        $SelectedProduct = Product::where('id', $request->input('ProductId'))->first();
         $SelectedProduct->cat_id = $request->input('category');
-
         $ProductImages = unserialize($SelectedProduct->images);
+        $ProductImagesPath='Main/Products/ptype' . $request->input('PtypeId') . '/cat' . $request->input('category') . '/products/product' . $request->input('ProductId') . '/p_images/';
+
         if ($request->hasFile('product_images')) {
-            $count = 0;
             foreach ($request->file('product_images') as $image) {
-                $uploaded = $image;
-                $filename = $element_id . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-                $uploaded->storeAs('public\Main\Products\\' . $element_id . '\\', $filename);
-                $ProductImages[] = $filename;
+                $uploaded=$image;
+                $uploaded_filename=$image->getClientOriginalName();
+                if(in_array($uploaded_filename,$ProductImages)){
+                    unlink('storage/'.$ProductImagesPath.$uploaded_filename); //delete previous uploaded file
+                    $OldImgKey = array_search($uploaded_filename, $ProductImages);
+                    unset($ProductImages[$OldImgKey]);
+                }
+
+                $uploaded->storeAs('public/'.$ProductImagesPath, $uploaded_filename);
+                $ProductImages[] = $uploaded_filename;
             }
         }
         $SelectedProduct->images = serialize($ProductImages);
-
-
-        if ($request->p_name_fa) {
-            foreach (Locales() as $item) {
-                $SelectedProduct->contents()->updateOrInsert(
-                    [
-                        'page' => 'products',
-                        'section' => 'products',
-                        'element_id' => $element_id,
-                        'locale' => $item['locale'],
-                        'element_title' => 'p_name_' . $item['locale'],
-                    ],
-                    [
-                        'element_content' => $request->input('p_name_' . $item['locale']),
-                    ]
-                );
-            }
-        }
-
-
-        if ($request->p_introduction_fa) {
-            foreach (Locales() as $item) {
-                $SelectedProduct->contents()->updateOrInsert(
-                    [
-                        'page' => 'products',
-                        'section' => 'products',
-                        'element_id' => $element_id,
-                        'locale' => $item['locale'],
-                        'element_title' => 'p_introduction_' . $item['locale'],
-                    ],
-                    [
-                        'element_content' => $request->input('p_introduction_' . $item['locale']),
-                    ]
-                );
-            }
-        }
-
-        if ($request->nutritionalValue_fa) {
-            foreach (Locales() as $item) {
-                $SelectedProduct->contents()->updateOrInsert(
-                    [
-                        'page' => 'products',
-                        'section' => 'products',
-                        'element_id' => $element_id,
-                        'locale' => $item['locale'],
-                        'element_title' => 'nutritionalValue_' . $item['locale'],
-                    ],
-                    [
-                        'element_content' => $request->input('nutritionalValue_' . $item['locale']),
-                    ]
-                );
-            }
-        }
-
-
         $SelectedProduct->update();
         return redirect('/Product');
     }

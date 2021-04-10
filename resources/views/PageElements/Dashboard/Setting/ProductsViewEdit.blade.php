@@ -17,6 +17,7 @@
             @method('PATCH')
             <!-- /error box -->
 
+                <input type="hidden" name="PtypeId" value="{{$Selectedptype}}">
                 <input type="hidden" name="ProductId" value="{{$Selectedproduct->id}}">
                 <div class="mb3">
 
@@ -71,7 +72,8 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="form-group">
-                            <label for="exampleInputFile">ارسال تصاویر محصول</label>
+                            <label for="exampleInputFile">ارسال تصاویر محصول تصاویر مربوط به محصول <span
+                                    style="color: red">(نام فایل باید مطابق یکی از زبان های سایت باشد)</span></label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="product_images[]" class="custom-file-input"
