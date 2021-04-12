@@ -94,10 +94,11 @@ class ProductController extends Controller
         })->get()->toArray();
 
         $PImg = unserialize($Selectedproduct->images);
-        foreach ($PImg as $item) {
-            $ProductImages[] = asset('storage/Main/Products/ptype' . $Selectedptype . '/cat' . $Selectedproduct->cat_id . '/products/product' . $Selectedproduct->id . '/p_images/' . $item);
+        foreach ($PImg as $key=>$item) {
+            $ProductImages[$key]['img'] = asset('storage/Main/Products/ptype' . $Selectedptype . '/cat' . $Selectedproduct->cat_id . '/products/product' . $Selectedproduct->id . '/p_images/' . $item);
+            $ProductImages[$key]['file'] = $item;
         }
-
+//        dd($ProductImages);
         return view('PageElements.Dashboard.Setting.ProductsViewEdit', compact('Selectedproduct', 'product_ptypes', 'Selectedptype', 'ptype_categories', 'ProductImages'));
 
     }
@@ -168,11 +169,16 @@ class ProductController extends Controller
      */
     public function ProductImgRemove($ProductId, $productImage)
     {
+
         $Selectedproduct = Product::where('id', $ProductId)->first();
+        $SelectedproductCat=$Selectedproduct->cat_id;
+        $SelectedproductPtype=Category::where('id',$SelectedproductCat)->value('ptype_id');
+
         $ProductImages = unserialize($Selectedproduct->images);
-        $ProductImagesFolder = 'storage/Main/Products/';
-        $filename = ($ProductImagesFolder . $ProductId . '/' . $productImage);
-        unlink($filename); //delete file
+        $ProductImagesPath='storage/Main/Products/ptype' .$SelectedproductPtype . '/cat' . $SelectedproductCat . '/products/product' . $ProductId . '/p_images/';
+
+        $ImageFile = ($ProductImagesPath . $productImage);
+        unlink($ImageFile); //delete file
         $ProductImages = serialize(array_values(array_diff($ProductImages, array($productImage)))); //serialize(reindex array(remove selected image()))
         $Selectedproduct->update(['images' => $ProductImages]);
         return back();
