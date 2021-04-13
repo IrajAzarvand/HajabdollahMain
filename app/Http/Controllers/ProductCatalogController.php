@@ -151,14 +151,13 @@ class ProductCatalogController extends Controller
      */
     public function ProductCatalogRemove($ProductId, $catalogImage)
     {
-        $SelectedProduct = ProductCatalog::where('product_id', $ProductId)->first();
-        $ProductImages = unserialize($SelectedProduct->catalog_images);
-        $ProductImagesFolder = 'storage/Main/Products/' . $ProductId . '/catalogs/';
-        $filename = ($ProductImagesFolder . $catalogImage);
-        unlink($filename); //delete file
-        $ProductImages = serialize(array_values(array_diff($ProductImages, array($catalogImage)))); //serialize(reindex array(remove selected image()))
-
-        $SelectedProduct->update(['catalog_images' => $ProductImages]);
+        $SelectedCatalog = ProductCatalog::where('product_id', $ProductId)->first();
+        $CatalogProductCategory=Product::where('id',$ProductId)->value('cat_id');
+        $CatalogProductPtype=Category::where('id',$CatalogProductCategory)->value('ptype_id');
+        $catalogPath = 'Main\Products\ptype' . $CatalogProductPtype . '\cat' . $CatalogProductCategory . '\products\product' . $ProductId . '\p_catalog\\';
+        unlink('storage\\'. $catalogPath . $catalogImage); //delete file
+        rmdir('storage\\'. $catalogPath); //delete folder
+        $SelectedCatalog->delete(); //remove record from db
         return back();
     }
 }
