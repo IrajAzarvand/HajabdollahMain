@@ -208,11 +208,9 @@
                 url: '/Catalog/' + selectedProduct,
 
                 success: function (data) {
-                    console.log(data);
                     $('#catalogs_list').empty();
 
-                    data.forEach(function (entry) {
-                        let filename = entry[1].split('/').pop()
+                        let filename = data.catalog.split('/').pop();
 
                         // create catalogs list
                         let catalog_section = document.getElementById("catalogs_list");
@@ -227,11 +225,10 @@
                         let last_a_tag = catalog_section.lastElementChild;
                         let img_obj = document.createElement("img");
                         img_obj.setAttribute("class", "col-3");
-                        img_obj.setAttribute("src", entry[1]);
+                        img_obj.setAttribute("src", data.catalog);
                         img_obj.setAttribute("style", "padding-bottom: 10px;");
                         img_obj.setAttribute("alt", "Photo");
                         last_a_tag.appendChild(img_obj);
-                    });
 
                 }
             });

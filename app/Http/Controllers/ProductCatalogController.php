@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\LocaleContent;
 use App\Models\Product;
 use App\Models\ProductCatalog;
@@ -62,15 +63,17 @@ class ProductCatalogController extends Controller
      */
     public function show($productCatalog)
     {
-        $SelectedProductCatalogs = ProductCatalog::where('product_id', $productCatalog)->value('catalog_images');
-        $SelectedProductCatalogs = unserialize($SelectedProductCatalogs);
-        $Catalogs = [];
+        $SelectedProduct = Product::find($productCatalog);
+        $P_Cat = $SelectedProduct->cat_id;
+        $P_Ptype = Category::where('id', $P_Cat)->value('ptype_id');
+        $SelectedProductCatalogs = ProductCatalog::where('product_id', $productCatalog)->first();
+        $Catalog = [];
         if ($SelectedProductCatalogs) {
-            foreach ($SelectedProductCatalogs as $id => $image) {
-                $Catalogs[] = [$id, asset('storage/Main/Products/' . $productCatalog . '/catalogs/' . $image)];
-            }
+            $Catalog['id'] = $SelectedProductCatalogs->id;
+            $Catalog['catalog'] = asset('storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $SelectedProduct->id . '/p_catalog/'. $SelectedProductCatalogs->catalog_images);
+
         }
-        return $Catalogs;
+        return $Catalog;
     }
 
     /**
