@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <select name="product" id="products_list" class="form-control select2" onchange="showProductCatalogs(this)"
                                             style="width: 100%;">
-                                        <option value="">یکی از محصولات را انتخاب کنید</option>
+                                        <option value="">کد محصول را انتخاب کنید</option>
                                     </select>
                                 </div>
 
@@ -76,8 +76,8 @@
                             <label for="exampleInputFile">ارسال تصاویر کاتالوگ محصول</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="catalog_images[]" class="custom-file-input"
-                                           id="fileUploader" multiple required>
+                                    <input type="file" name="catalog_images" class="custom-file-input"
+                                           id="fileUploader" required>
                                     <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
                                 </div>
 
@@ -173,6 +173,7 @@
     <script>
         function collectProducts(category) {
             let selectedCategory = category.value;
+            let Product_id='';
             $.ajax({
                 type: "GET",
                 url: '/Product/' + selectedCategory,
@@ -181,16 +182,15 @@
                     let count = 0;
 
                     $('#products_list').empty();
-                    document.getElementById("products_list").options[0] = new Option("یکی از محصولات را انتخاب کنید", "disabled");
+                    document.getElementById("products_list").options[0] = new Option("کد محصول را انتخاب کنید", "disabled");
 
                     data.forEach(function (entry) {
                         count++;
-                        entry.forEach(function (childrenEntry) {
-                            Product_id = childrenEntry.element_id;
-                        });
-                        Product_name = entry[0]['element_content'];
+                        console.log();
+                        Product_id = entry.id;
+
                         let select = document.getElementById("products_list");
-                        select.options[select.options.length] = new Option(Product_name, Product_id);
+                        select.options[select.options.length] = new Option(Product_id);
                     });
                 }
             });
@@ -202,11 +202,13 @@
     <script>
         function showProductCatalogs(product) {
             let selectedProduct = product.value;
+
             $.ajax({
                 type: "GET",
                 url: '/Catalog/' + selectedProduct,
 
                 success: function (data) {
+                    console.log(data);
                     $('#catalogs_list').empty();
 
                     data.forEach(function (entry) {
