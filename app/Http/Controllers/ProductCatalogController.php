@@ -40,18 +40,24 @@ class ProductCatalogController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('catalog_images')) {
-            $Catalog = new ProductCatalog;
+        $P_Catalog = ProductCatalog::firstWhere('product_id', $request->input('product'));
+        if ($P_Catalog) {
+            //admin wants to update an existing catalog
+            $this->update($request, $P_Catalog);
 
-            $uploaded = $request->file('catalog_images');
-            $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-            $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $request->input('product') . '\p_catalog\\', $filename);
+        } else {
+            //create new catalog
+            if ($request->hasFile('catalog_images')) {
+                $Catalog = new ProductCatalog;
+
+                $uploaded = $request->file('catalog_images');
+                $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $request->input('product') . '\p_catalog\\', $filename);
+            }
+            $Catalog->product_id = $request->input('product');
+            $Catalog->catalog_images = $filename;
+            $Catalog->save();
         }
-        $Catalog->product_id = $request->input('product');
-        $Catalog->catalog_images = $filename;
-        $Catalog->save();
-
-
         return redirect('/Catalog');
     }
 
@@ -70,7 +76,7 @@ class ProductCatalogController extends Controller
         $Catalog = [];
         if ($SelectedProductCatalogs) {
             $Catalog['id'] = $SelectedProductCatalogs->id;
-            $Catalog['catalog'] = asset('storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $SelectedProduct->id . '/p_catalog/'. $SelectedProductCatalogs->catalog_images);
+            $Catalog['catalog'] = asset('storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $SelectedProduct->id . '/p_catalog/' . $SelectedProductCatalogs->catalog_images);
 
         }
         return $Catalog;
@@ -96,17 +102,18 @@ class ProductCatalogController extends Controller
      */
     public function update(Request $request, ProductCatalog $productCatalog)
     {
-        $CatalogImages = unserialize($productCatalog->catalog_images);
+        $catalogPath = 'Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $request->input('product') . '\p_catalog\\';
+        $oldCatalogName = $productCatalog->catalog_images;
+
         if ($request->hasFile('catalog_images')) {
-            $count = 0;
-            foreach ($request->file('catalog_images') as $image) {
-                $uploaded = $image;
-                $filename = $request->input('product') . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-                $uploaded->storeAs('public\Main\Products\\' . $request->input('product') . '\catalogs\\', $filename);
-                $CatalogImages[] = $filename;
-            }
+
+            $uploaded = $request->file('catalog_images');
+            $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+            unlink('storage\\' . $catalogPath . $oldCatalogName);
+            $uploaded->storeAs('public\\'. $catalogPath , $filename);
+
         }
-        $productCatalog->catalog_images = serialize($CatalogImages);
+        $productCatalog->catalog_images = $filename;
 
         $productCatalog->update();
         return redirect('/Catalog');
