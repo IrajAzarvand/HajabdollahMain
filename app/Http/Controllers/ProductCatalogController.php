@@ -110,7 +110,7 @@ class ProductCatalogController extends Controller
             $uploaded = $request->file('catalog_images');
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
             unlink('storage\\' . $catalogPath . $oldCatalogName);
-            $uploaded->storeAs('public\\'. $catalogPath , $filename);
+            $uploaded->storeAs('public\\' . $catalogPath, $filename);
 
         }
         $productCatalog->catalog_images = $filename;
@@ -123,21 +123,19 @@ class ProductCatalogController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\ProductCatalog $productCatalog
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
-    public function destroy($productCatalog)
+    public function destroy(ProductCatalog $productCatalog)
     {
-        $SelectedProduct = ProductCatalog::where('product_id', $productCatalog)->first();
-        if ($SelectedProduct) {
-            $ProductCatalogs = unserialize($SelectedProduct->catalog_images);
-            $ProductCatalogsFolder = 'storage/Main/Products/' . $productCatalog . '/catalogs/';
 
+        $CatalogProductCategory = Product::where('id', $productCatalog->product_id)->value('cat_id');
+        $CatalogProductPtype = Category::where('id', $CatalogProductCategory)->value('ptype_id');
+        $Catalog_ImgPath = 'Main\Products\ptype' . $CatalogProductPtype . '\cat' . $CatalogProductCategory . '\products\product' . $productCatalog->product_id . '\p_catalog\\';
 
-            foreach ($ProductCatalogs as $item) {
-                $this->ProductCatalogRemove($productCatalog, $item);
-            }
-            rmdir($ProductCatalogsFolder); //delete folder
-            $SelectedProduct->delete();
+        if ($productCatalog) {
+            $CatalogImage = $productCatalog->catalog_images;
+            $this->ProductCatalogRemove($productCatalog->product_id, $CatalogImage);
+            $productCatalog->delete();
         }
         return true;
     }
@@ -152,11 +150,11 @@ class ProductCatalogController extends Controller
     public function ProductCatalogRemove($ProductId, $catalogImage)
     {
         $SelectedCatalog = ProductCatalog::where('product_id', $ProductId)->first();
-        $CatalogProductCategory=Product::where('id',$ProductId)->value('cat_id');
-        $CatalogProductPtype=Category::where('id',$CatalogProductCategory)->value('ptype_id');
+        $CatalogProductCategory = Product::where('id', $ProductId)->value('cat_id');
+        $CatalogProductPtype = Category::where('id', $CatalogProductCategory)->value('ptype_id');
         $catalogPath = 'Main\Products\ptype' . $CatalogProductPtype . '\cat' . $CatalogProductCategory . '\products\product' . $ProductId . '\p_catalog\\';
-        unlink('storage\\'. $catalogPath . $catalogImage); //delete file
-        rmdir('storage\\'. $catalogPath); //delete folder
+        unlink('storage\\' . $catalogPath . $catalogImage); //delete file
+        rmdir('storage\\' . $catalogPath); //delete folder
         $SelectedCatalog->delete(); //remove record from db
         return back();
     }

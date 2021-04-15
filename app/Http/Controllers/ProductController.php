@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\LocaleContent;
 use App\Models\Product;
+use App\Models\ProductCatalog;
 use App\Models\PType;
 use Illuminate\Http\Request;
 
@@ -141,21 +142,26 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
     public function destroy($product)
     {
         $SelectedProduct = Product::find($product);
-
+        $P_Cat=$SelectedProduct->cat_id;
+        $P_Ptype=Category::where('id',$P_Cat)->value('ptype_id');
+        $ProductImagesPath='storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $product . '/p_images/';
+        $ProductFolderPath='storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $product;
         $ProductImages = unserialize($SelectedProduct->images);
-        $ProductImagesFolder = 'storage/Main/Products/';
+        //Remove related catalog
+        $P_Catalog=ProductCatalog::firstWhere('product_id',$SelectedProduct->id);
         $ProductCatalogs = new ProductCatalogController();
-        $ProductCatalogs->destroy($product);
+        $ProductCatalogs->destroy($P_Catalog);
+
         foreach ($ProductImages as $item) {
             $this->ProductImgRemove($SelectedProduct->id, $item);
         }
-        rmdir($ProductImagesFolder . $SelectedProduct->id); //delete folder
-        $SelectedProduct->contents()->delete();
+        rmdir($ProductImagesPath); //delete product image folder
+        rmdir($ProductFolderPath); //delete product folder
         $SelectedProduct->delete();
         return true;
     }

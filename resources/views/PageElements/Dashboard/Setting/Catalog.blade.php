@@ -115,7 +115,7 @@
                             <div class="form-group">
                                 <label>کاتالوگ های مربوط به محصول <span
                                         style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
-                                <button onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف تمام کاتالوگ های محصول</button>
+                                <button disabled onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف تمام کاتالوگ های محصول</button>
 
                                 <br>
                                 <div class="col-12" id="catalogs_list">
