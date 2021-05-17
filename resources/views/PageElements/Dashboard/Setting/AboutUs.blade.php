@@ -96,7 +96,7 @@
                         echo '<td>' . $counter++ . '</td>';
                         echo '<td>' . $item['title'] . '</td>';
 
-                        echo '<td>' . '<a onclick="editRow('.$item['id'].')"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow('.$item['id'].')"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
+                        echo '<td>' . '<a onclick="editRow('.$item['id'].')"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp</td>';
                         echo '</tr>';
                     }
                     ?>

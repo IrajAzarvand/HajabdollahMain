@@ -125,7 +125,7 @@ class ProductCatalogController extends Controller
      * @param \App\Models\ProductCatalog $productCatalog
      * @return bool
      */
-    public function destroy(ProductCatalog $productCatalog)
+    public function destroy($productCatalog)
     {
 
         $CatalogProductCategory = Product::where('id', $productCatalog->product_id)->value('cat_id');

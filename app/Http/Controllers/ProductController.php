@@ -95,7 +95,7 @@ class ProductController extends Controller
         })->get()->toArray();
 
         $PImg = unserialize($Selectedproduct->images);
-        foreach ($PImg as $key=>$item) {
+        foreach ($PImg as $key => $item) {
             $ProductImages[$key]['img'] = asset('storage/Main/Products/ptype' . $Selectedptype . '/cat' . $Selectedproduct->cat_id . '/products/product' . $Selectedproduct->id . '/p_images/' . $item);
             $ProductImages[$key]['file'] = $item;
         }
@@ -117,19 +117,19 @@ class ProductController extends Controller
         $SelectedProduct = Product::where('id', $request->input('ProductId'))->first();
         $SelectedProduct->cat_id = $request->input('category');
         $ProductImages = unserialize($SelectedProduct->images);
-        $ProductImagesPath='Main/Products/ptype' . $request->input('PtypeId') . '/cat' . $request->input('category') . '/products/product' . $request->input('ProductId') . '/p_images/';
+        $ProductImagesPath = 'Main/Products/ptype' . $request->input('PtypeId') . '/cat' . $request->input('category') . '/products/product' . $request->input('ProductId') . '/p_images/';
 
         if ($request->hasFile('product_images')) {
             foreach ($request->file('product_images') as $image) {
-                $uploaded=$image;
-                $uploaded_filename=$image->getClientOriginalName();
-                if(in_array($uploaded_filename,$ProductImages)){
-                    unlink('storage/'.$ProductImagesPath.$uploaded_filename); //delete previous uploaded file
+                $uploaded = $image;
+                $uploaded_filename = $image->getClientOriginalName();
+                if (in_array($uploaded_filename, $ProductImages)) {
+                    unlink('storage/' . $ProductImagesPath . $uploaded_filename); //delete previous uploaded file
                     $OldImgKey = array_search($uploaded_filename, $ProductImages);
                     unset($ProductImages[$OldImgKey]);
                 }
 
-                $uploaded->storeAs('public/'.$ProductImagesPath, $uploaded_filename);
+                $uploaded->storeAs('public/' . $ProductImagesPath, $uploaded_filename);
                 $ProductImages[] = $uploaded_filename;
             }
         }
@@ -147,15 +147,17 @@ class ProductController extends Controller
     public function destroy($product)
     {
         $SelectedProduct = Product::find($product);
-        $P_Cat=$SelectedProduct->cat_id;
-        $P_Ptype=Category::where('id',$P_Cat)->value('ptype_id');
-        $ProductImagesPath='storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $product . '/p_images/';
-        $ProductFolderPath='storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $product;
+        $P_Cat = $SelectedProduct->cat_id;
+        $P_Ptype = Category::where('id', $P_Cat)->value('ptype_id');
+        $ProductImagesPath = 'storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $product . '/p_images/';
+        $ProductFolderPath = 'storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $product;
         $ProductImages = unserialize($SelectedProduct->images);
         //Remove related catalog
-        $P_Catalog=ProductCatalog::firstWhere('product_id',$SelectedProduct->id);
-        $ProductCatalogs = new ProductCatalogController();
-        $ProductCatalogs->destroy($P_Catalog);
+        $P_Catalog = ProductCatalog::firstWhere('product_id', $SelectedProduct->id);
+        if ($P_Catalog) {
+            $ProductCatalogs = new ProductCatalogController();
+            $ProductCatalogs->destroy($P_Catalog);
+        }
 
         foreach ($ProductImages as $item) {
             $this->ProductImgRemove($SelectedProduct->id, $item);
@@ -177,11 +179,11 @@ class ProductController extends Controller
     {
 
         $Selectedproduct = Product::where('id', $ProductId)->first();
-        $SelectedproductCat=$Selectedproduct->cat_id;
-        $SelectedproductPtype=Category::where('id',$SelectedproductCat)->value('ptype_id');
+        $SelectedproductCat = $Selectedproduct->cat_id;
+        $SelectedproductPtype = Category::where('id', $SelectedproductCat)->value('ptype_id');
 
         $ProductImages = unserialize($Selectedproduct->images);
-        $ProductImagesPath='storage/Main/Products/ptype' .$SelectedproductPtype . '/cat' . $SelectedproductCat . '/products/product' . $ProductId . '/p_images/';
+        $ProductImagesPath = 'storage/Main/Products/ptype' . $SelectedproductPtype . '/cat' . $SelectedproductCat . '/products/product' . $ProductId . '/p_images/';
 
         $ImageFile = ($ProductImagesPath . $productImage);
         unlink($ImageFile); //delete file

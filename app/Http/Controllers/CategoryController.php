@@ -7,6 +7,7 @@ use App\Models\LocaleContent;
 use App\Models\Product;
 use App\Models\PType;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\True_;
 
 class CategoryController extends Controller
 {
@@ -93,8 +94,8 @@ class CategoryController extends Controller
     public function edit($category)
     {
         $SelectedCategory = Category::with('contents')->find($category);
-        $SelectedCategory->cat_image=asset('storage/Main/Products/ptype' . $SelectedCategory->ptype_id . '/cat' . $SelectedCategory->id . '/cat_img/' . $SelectedCategory->cat_image);
-       return $SelectedCategory;
+        $SelectedCategory->cat_image = asset('storage/Main/Products/ptype' . $SelectedCategory->ptype_id . '/cat' . $SelectedCategory->id . '/cat_img/' . $SelectedCategory->cat_image);
+        return $SelectedCategory;
     }
 
     /**
@@ -115,10 +116,10 @@ class CategoryController extends Controller
         if ($request->hasFile('Cat_New_Img')) {
 
             //remove previous cat image
-                $PrevCatImg='storage/Main/Products/ptype' . $Category->ptype_id . '/cat' . $Category->id . '/cat_img/' . $Category->cat_image;
-                unlink($PrevCatImg);
+            $PrevCatImg = 'storage/Main/Products/ptype' . $Category->ptype_id . '/cat' . $Category->id . '/cat_img/' . $Category->cat_image;
+            unlink($PrevCatImg);
 
-                //save newly uploaded file
+            //save newly uploaded file
             $uploaded = $request->file('Cat_New_Img');
             $filename = $Category->id . '.' . $uploaded->getClientOriginalExtension();
             $uploaded->storeAs('public\Main\Products\ptype' . $Category->ptype_id . '\cat' . $Category->id . '\cat_img\\', $filename);
@@ -133,21 +134,33 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Category $category
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
     public function destroy($category)
     {
         $id = per_digit_conv($category);
-
         $Category = Category::find($id);
-
+        $CatPtype=$Category->ptype_id;
+        $CatImg=$Category->cat_image;
         $CategoryProducts = Product::where('cat_id', $Category->id)->get();
 
-        $product = new ProductController;
-        foreach ($CategoryProducts as $Product) {
-            $product->destroy($Product->id);
+        if ($CategoryProducts) {
+            $product = new ProductController;
+            foreach ($CategoryProducts as $Product) {
+                $product->destroy($Product->id);
+            }
         }
+
+        $CategoryImagPath='storage/Main/Products/ptype' . $CatPtype . '/cat' . $Category->id . '/cat_img/' . $CatImg;
+        $CategoryfolderPath='storage/Main/Products/ptype' . $CatPtype . '/cat' . $Category->id . '/cat_img/';
+        $CategoryProductsFolder='storage/Main/Products/ptype' . $CatPtype . '/cat' . $Category->id .'products';
+        $CategoryFolder='storage/Main/Products/ptype' . $CatPtype . '/cat' . $Category->id;
+        unlink($CategoryImagPath);
+        rmdir($CategoryfolderPath);
+        rmdir($CategoryProductsFolder);
+        rmdir($CategoryFolder);
         $Category->contents()->delete();
         $Category->delete();
+        return true;
     }
 }

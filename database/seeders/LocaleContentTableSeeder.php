@@ -985,7 +985,7 @@ class LocaleContentTableSeeder extends Seeder
                 'section' => 'Address',
                 'element_id' => 1,
                 'locale' => 'en',
-                'element_title' => 'AddressDescription_fa',
+                'element_title' => 'AddressDescription_en',
                 'element_content' => '35 km of Tabriz-Azarshahr road, Shahid Salimi industrial town, 20th meter of 10th street, Etminan ice cream company',
             ],
             [
@@ -993,7 +993,7 @@ class LocaleContentTableSeeder extends Seeder
                 'section' => 'Address',
                 'element_id' => 1,
                 'locale' => 'ru',
-                'element_title' => 'AddressDescription_fa',
+                'element_title' => 'AddressDescription_ru',
                 'element_content' => '35 км дороги Тебриз-Азаршахр, промышленный город Шахид Салими, 20 метров 10-й улицы, Etminan Ice Cream Company',
             ],
             [
@@ -1001,7 +1001,7 @@ class LocaleContentTableSeeder extends Seeder
                 'section' => 'Address',
                 'element_id' => 1,
                 'locale' => 'tr',
-                'element_title' => 'AddressDescription_fa',
+                'element_title' => 'AddressDescription_tr',
                 'element_content' => '35 km Tebriz-Azarshahr yolu, Shahid Salimi sanayi kasabası, 10. cadde 20 metre, Etminan Dondurma Şirketi',
             ],
 
