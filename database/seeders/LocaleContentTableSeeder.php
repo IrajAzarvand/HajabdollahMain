@@ -1056,7 +1056,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_id' => 2,
                 'locale' => 'en',
                 'element_title' => 'Design Section',
-                'element_content' => 'Design and development by IT unit of Pashmak Haj Abdollah Company',
+                'element_content' => 'Design and development by IT department of Pashmak Haj Abdollah Company',
             ],
             [
                 'page' => 'Footer',

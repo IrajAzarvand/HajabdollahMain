@@ -17,8 +17,6 @@
 @include('PageElements.Main.Certificates')
 @include('PageElements.Main.Newsletter')
 @include('PageElements.Main.Events')
-{{--@include('PageElements.Main.Counter')--}}
-{{--@include('PageElements.Main.Pricing')--}}
 @include('PageElements.Main.ContactUs')
 @include('PageElements.Main.Footer')
 

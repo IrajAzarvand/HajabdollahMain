@@ -22,15 +22,17 @@
                     {{--if one of the categories selected, this section will become clear and show products related to that category--}}
                     {{--and if one of the ptypes selected, this section will show categories related to that ptype --}}
                     <div id="ProductsSection">
-                            @foreach($Cat as $item)
-                                <div class="mr-masonry-item {{$item['ptypeId']}}">
-                                    <div class="marv-portfolio">
-                                        <a class="marv-portfolio-img" href="#">
-                                            <img class="img-responsive" src="{{$item['image']}}" alt="#">
-                                        </a>
-                                        <div class="mr-overbg">
+                        @foreach($Cat as $item)
+                            <div class="mr-masonry-item {{$item['ptypeId']}}">
+                                <div class="marv-portfolio">
+                                    <a class="marv-portfolio-img">
+                                        <img class="img-responsive" src="{{$item['image']}}" alt="#">
+                                    </a>
+                                    <div class="mr-overbg" onclick="window.open('{{$item['RelatedImage']}}')">
                                             <div class="marv-portfolio-content">
-                                                <h5 class="title mr-font-white"><a href="#">{{$item['name']}}</a></h5>
+                                                <h5 class="title mr-font-white"><a target="_blank"
+                                                                                   href="{{$item['RelatedImage']}}">{{$item['name']}}</a>
+                                                </h5>
                                                 <hr>
                                                 <ul class="marv-portfolio-icon">
                                                     <li><a href="#"><i class="fa fa-leanpub"></i></a></li>
@@ -39,10 +41,10 @@
                                                                 class="fa fa-arrows-alt"></i></a></li>
                                                 </ul>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -51,6 +53,7 @@
 </section>
 
 <!--//End Gallery Area-->
+
 
 <script>
     {{-- get selected category id and show related products--}}

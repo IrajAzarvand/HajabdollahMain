@@ -7,7 +7,7 @@
         <div class="modal-content" id="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">ویرایش تماس با ما</h4>
+                <h4 class="modal-title">ویرایش آدرس</h4>
             </div>
             <div class="modal-body" id="modal-body">
                 <form id="AddressEditModal-form" action="" method="post">
@@ -20,7 +20,7 @@
                     <input type="hidden" name="Address_Id" id="Address_Id">
 
                     <div class="card">
-                        <label>متن تماس ما</label>
+                        <label>متن آدرس</label>
                         <div class="card-header d-flex p-0">
                             <ul class="nav nav-pills ml-auto p-2">
                                 @foreach (Locales() as $item)
