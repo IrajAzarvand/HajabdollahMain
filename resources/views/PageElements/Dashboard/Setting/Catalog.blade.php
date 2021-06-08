@@ -76,8 +76,8 @@
                             <label for="exampleInputFile">ارسال تصاویر کاتالوگ محصول</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="catalog_images" class="custom-file-input"
-                                           id="fileUploader" required>
+                                    <input type="file" name="catalog_images[]" class="custom-file-input"
+                                           id="fileUploader" multiple required>
                                     <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
                                 </div>
 

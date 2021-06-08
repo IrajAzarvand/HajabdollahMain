@@ -136,6 +136,7 @@ class MainNavController extends Controller
             $Cat[$key]['image'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/cat_img/' . $category->cat_image);
             $Cat[$key]['product_id'] = Product::where('cat_id', $Cat[$key]['Id'])->value('id');
             $Cat[$key]['RelatedImage'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/products/product' . $Cat[$key]['product_id'] . '/p_images/' . app()->getLocale().'.jpg');
+            $Cat[$key]['RelatedCatalog'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/products/product' . $Cat[$key]['product_id'] . '/p_catalog/' . app()->getLocale().'.jpg');
         }
 
         //**************************  CATALOGUES ************************************************ */

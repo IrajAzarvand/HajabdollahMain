@@ -44,18 +44,19 @@ class ProductCatalogController extends Controller
         if ($P_Catalog) {
             //admin wants to update an existing catalog
             $this->update($request, $P_Catalog);
-
         } else {
             //create new catalog
             if ($request->hasFile('catalog_images')) {
                 $Catalog = new ProductCatalog;
-
-                $uploaded = $request->file('catalog_images');
-                $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-                $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $request->input('product') . '\p_catalog\\', $filename);
+                foreach ($request->file('catalog_images') as $file) {
+                    $filename = $file->getClientOriginalName();
+                    $uploaded = $file;
+                    $uploaded->storeAs('public\Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $request->input('product') . '\p_catalog\\', $filename);
+                    $images[] = $filename;
+                }
             }
             $Catalog->product_id = $request->input('product');
-            $Catalog->catalog_images = $filename;
+            $Catalog->catalog_images = serialize($images);
             $Catalog->save();
         }
         return redirect('/Catalog');
@@ -77,7 +78,6 @@ class ProductCatalogController extends Controller
         if ($SelectedProductCatalogs) {
             $Catalog['id'] = $SelectedProductCatalogs->id;
             $Catalog['catalog'] = asset('storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $SelectedProduct->id . '/p_catalog/' . $SelectedProductCatalogs->catalog_images);
-
         }
         return $Catalog;
     }
@@ -111,7 +111,6 @@ class ProductCatalogController extends Controller
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
             unlink('storage\\' . $catalogPath . $oldCatalogName);
             $uploaded->storeAs('public\\' . $catalogPath, $filename);
-
         }
         $productCatalog->catalog_images = $filename;
 
