@@ -138,16 +138,16 @@ class ProductCatalogController extends Controller
     public function destroy($productCatalog)
     {
 
-        $CatalogProductCategory = Product::where('id', $productCatalog->product_id)->value('cat_id');
-        $CatalogProductPtype = Category::where('id', $CatalogProductCategory)->value('ptype_id');
-        $Catalog_ImgPath = 'Main\Products\ptype' . $CatalogProductPtype . '\cat' . $CatalogProductCategory . '\products\product' . $productCatalog->product_id . '\p_catalog\\';
-
-        if ($productCatalog) {
-            $CatalogImage = $productCatalog->catalog_images;
-            $this->ProductCatalogRemove($productCatalog->product_id, $CatalogImage);
-            $productCatalog->delete();
-        }
-        return true;
+//        $CatalogProductCategory = Product::where('id', $productCatalog->product_id)->value('cat_id');
+//        $CatalogProductPtype = Category::where('id', $CatalogProductCategory)->value('ptype_id');
+//        $Catalog_ImgPath = 'Main\Products\ptype' . $CatalogProductPtype . '\cat' . $CatalogProductCategory . '\products\product' . $productCatalog->product_id . '\p_catalog\\';
+//
+//        if ($productCatalog) {
+//            $CatalogImage = $productCatalog->catalog_images;
+//            $this->ProductCatalogRemove($productCatalog->product_id, $CatalogImage);
+//            $productCatalog->delete();
+//        }
+//        return true;
     }
 
     /**
