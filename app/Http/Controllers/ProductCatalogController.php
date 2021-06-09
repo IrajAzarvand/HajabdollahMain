@@ -105,20 +105,28 @@ class ProductCatalogController extends Controller
      */
     public function update(Request $request, ProductCatalog $productCatalog)
     {
-        $catalogPath = 'Main\Products\ptype' . $request->input('ptype') . '\cat' . $request->input('category') . '\products\product' . $request->input('product') . '\p_catalog\\';
-        $oldCatalogName = $productCatalog->catalog_images;
+        $SelectedCatalog = ProductCatalog::where('product_id', $request->input('product'))->first();
+        $CatalogImages = unserialize($SelectedCatalog->catalog_images);
+        $ProductCatalogPath = 'Main/Products/ptype' . $request->input('ptype') . '/cat' . $request->input('category') . '/products/product' . $request->input('product') . '/p_catalog/';
 
         if ($request->hasFile('catalog_images')) {
+            foreach ($request->file('catalog_images') as $image) {
+                $uploaded = $image;
+                $uploaded_filename = $image->getClientOriginalName();
+                if (in_array($uploaded_filename, $CatalogImages)) {
+                    unlink('storage/' . $ProductCatalogPath . $uploaded_filename); //delete previous uploaded file
+                    $OldCatKey = array_search($uploaded_filename, $CatalogImages);
+                    unset($CatalogImages[$OldCatKey]);
+                }
 
-            $uploaded = $request->file('catalog_images');
-            $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-            unlink('storage\\' . $catalogPath . $oldCatalogName);
-            $uploaded->storeAs('public\\' . $catalogPath, $filename);
+                $uploaded->storeAs('public/' . $ProductCatalogPath, $uploaded_filename);
+                $CatalogImages[] = $uploaded_filename;
+            }
         }
-        $productCatalog->catalog_images = $filename;
-
-        $productCatalog->update();
+        $SelectedCatalog->catalog_images = serialize(array_values($CatalogImages));
+        $SelectedCatalog->update();
         return redirect('/Catalog');
+
     }
 
     /**
@@ -158,7 +166,7 @@ class ProductCatalogController extends Controller
         unlink('storage\\' . $catalogPath . $catalogImage); //delete file
 
         //remove from DB
-        $CatalogImages=unserialize($SelectedCatalog->catalog_images);
+        $CatalogImages = unserialize($SelectedCatalog->catalog_images);
         $UpdatedCatalogImages = serialize(array_values(array_diff($CatalogImages, array($catalogImage)))); //serialize(reindex array(remove selected image()))
         $SelectedCatalog->update(['catalog_images' => $UpdatedCatalogImages]);
         return back();
