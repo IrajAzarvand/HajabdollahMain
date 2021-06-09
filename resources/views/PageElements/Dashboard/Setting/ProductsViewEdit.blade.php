@@ -129,7 +129,6 @@
                 url: '/Category/' + selectedPType,
 
                 success: function (data) {
-                    console.log(data);
                     $('#categories_list').empty();
                     data.forEach(function (entry) {
                         let list = '';

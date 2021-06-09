@@ -56,7 +56,8 @@
                                 </div>
                                 {{-- ======================================= --}}
                                 <div class="form-group">
-                                    <select name="product" id="products_list" class="form-control select2" onchange="showProductCatalogs(this)"
+                                    <select name="product" id="products_list" class="form-control select2"
+                                            onchange="showProductCatalogs(this)"
                                             style="width: 100%;">
                                         <option value="">کد محصول را انتخاب کنید</option>
                                     </select>
@@ -115,7 +116,9 @@
                             <div class="form-group">
                                 <label>کاتالوگ های مربوط به محصول <span
                                         style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
-                                <button disabled onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف تمام کاتالوگ های محصول</button>
+                                <button disabled onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف
+                                    تمام کاتالوگ های محصول
+                                </button>
 
                                 <br>
                                 <div class="col-12" id="catalogs_list">
@@ -173,7 +176,7 @@
     <script>
         function collectProducts(category) {
             let selectedCategory = category.value;
-            let Product_id='';
+            let Product_id = '';
             $.ajax({
                 type: "GET",
                 url: '/Product/' + selectedCategory,
@@ -209,26 +212,26 @@
 
                 success: function (data) {
                     $('#catalogs_list').empty();
-
-                        let filename = data.catalog.split('/').pop();
-
-                        // create catalogs list
-                        let catalog_section = document.getElementById("catalogs_list");
-
+                    // create catalogs list
+                    let catalog_section = document.getElementById("catalogs_list");
+                    data.forEach(function (entry) {
                         // Create <a> tag
                         let a_tag = document.createElement("a");
-                        a_tag.setAttribute("onclick", "deleteCatalog('" + selectedProduct +"','"+ filename + "')");
+                        a_tag.setAttribute("onclick", "deleteCatalog('" + selectedProduct +"','"+ entry.filename + "')");
 
                         catalog_section.appendChild(a_tag);
 
-                        //create img tag inside li
+                        //create img tag
                         let last_a_tag = catalog_section.lastElementChild;
                         let img_obj = document.createElement("img");
                         img_obj.setAttribute("class", "col-3");
-                        img_obj.setAttribute("src", data.catalog);
+                        img_obj.setAttribute("src", entry.img);
                         img_obj.setAttribute("style", "padding-bottom: 10px;");
                         img_obj.setAttribute("alt", "Photo");
                         last_a_tag.appendChild(img_obj);
+
+                    });
+
 
                 }
             });
@@ -240,7 +243,7 @@
         function deleteCatalog(product, catalog) {
             $.ajax({
                 type: 'GET',
-                url: '/Catalog/' + product +'/'+catalog+'/delete',
+                url: '/Catalog/' + product + '/' + catalog + '/delete',
 
                 success: function (data) {
                     location.reload();
@@ -255,19 +258,19 @@
 
     <script>
         function deleteAllCatalogs() {
-            let selectedProduct=document.getElementById('products_list').value;
-            if(selectedProduct) {
-                    let token = "{{ csrf_token() }}";
-                    $.ajax({
+            let selectedProduct = document.getElementById('products_list').value;
+            if (selectedProduct) {
+                let token = "{{ csrf_token() }}";
+                $.ajax({
                     type: 'DELETE',
                     url: '/Catalog/' + selectedProduct,
                     data: {
-                    _token: token,
+                        _token: token,
                         selectedProduct
-                },
-                    success: function() {
-                    location.reload();
-                }
+                    },
+                    success: function () {
+                        location.reload();
+                    }
                 });
             }
 

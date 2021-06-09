@@ -76,8 +76,11 @@ class ProductCatalogController extends Controller
         $SelectedProductCatalogs = ProductCatalog::where('product_id', $productCatalog)->first();
         $Catalog = [];
         if ($SelectedProductCatalogs) {
-            $Catalog['id'] = $SelectedProductCatalogs->id;
-            $Catalog['catalog'] = asset('storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $SelectedProduct->id . '/p_catalog/' . $SelectedProductCatalogs->catalog_images);
+            $Cat_Images = unserialize($SelectedProductCatalogs->catalog_images);
+            foreach ($Cat_Images as $key => $catalog) {
+                $Catalog[$key]['img'] = asset('storage/Main/Products/ptype' . $P_Ptype . '/cat' . $P_Cat . '/products/product' . $SelectedProduct->id . '/p_catalog/' . $catalog);
+                $Catalog[$key]['filename'] = $catalog;
+            }
         }
         return $Catalog;
     }
@@ -153,8 +156,11 @@ class ProductCatalogController extends Controller
         $CatalogProductPtype = Category::where('id', $CatalogProductCategory)->value('ptype_id');
         $catalogPath = 'Main\Products\ptype' . $CatalogProductPtype . '\cat' . $CatalogProductCategory . '\products\product' . $ProductId . '\p_catalog\\';
         unlink('storage\\' . $catalogPath . $catalogImage); //delete file
-        rmdir('storage\\' . $catalogPath); //delete folder
-        $SelectedCatalog->delete(); //remove record from db
+
+        //remove from DB
+        $CatalogImages=unserialize($SelectedCatalog->catalog_images);
+        $UpdatedCatalogImages = serialize(array_values(array_diff($CatalogImages, array($catalogImage)))); //serialize(reindex array(remove selected image()))
+        $SelectedCatalog->update(['catalog_images' => $UpdatedCatalogImages]);
         return back();
     }
 }
