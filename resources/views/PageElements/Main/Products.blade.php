@@ -28,17 +28,23 @@
                                     <a class="marv-portfolio-img">
                                         <img class="img-responsive" src="{{$item['image']}}" alt="#">
                                     </a>
-                                    <div class="mr-overbg" onclick="window.open('{{$item['RelatedImage']}}')">
+
+
+
+                                    <div class="mr-overbg" >
+
+
+
                                             <div class="marv-portfolio-content">
-                                                <h5 class="title mr-font-white"><a target="_blank"
-                                                                                   href="{{$item['RelatedImage']}}">{{$item['name']}}</a>
+                                                <h5 class="title mr-font-white"><a target="_blank">{{$item['name']}}</a>
+
+
+
                                                 </h5>
                                                 <hr>
                                                 <ul class="marv-portfolio-icon">
-                                                    <li><a href="#"><i class="fa fa-leanpub"></i></a></li>
-                                                    <li><a target="_blank" class="image-link"
-                                                           href="{{$item['RelatedImage']}}"><i
-                                                                class="fa fa-arrows-alt"></i></a></li>
+                                                    <li><a target="_blank" href="{{$item['RelatedCatalog']}}"><i class="fa fa-leanpub"></i></a></li>
+                                                    <li><a target="_blank" href="{{$item['RelatedImage']}}"><i class="fa fa-arrows-alt"></i></a></li>
                                                 </ul>
                                             </div>
                                     </div>
