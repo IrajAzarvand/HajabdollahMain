@@ -10,12 +10,15 @@
             </div>
         </div>
         <div class="row mt80">
+
+
+
+
+
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="mr-blog-entry">
                     <div class="mr-entry-image clearfix">
                         <img class="img-responsive" src="images/blog/01.jpg" alt="#">
-                        <span class="tag"><i class="ti-image"></i>صور</span>
-                        <span class="date">12<small>مايو</small></span>
                     </div>
                     <div class="mr-blog-detail">
                         <div class="mr-entry-title mr-mb-10">
@@ -34,6 +37,11 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="mr-blog-entry">
                     <div class="mr-entry-image clearfix">
