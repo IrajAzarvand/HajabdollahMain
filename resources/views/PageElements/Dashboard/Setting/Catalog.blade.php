@@ -73,6 +73,7 @@
                 <!-- file uploader -->
                 <div class="col-6">
                     <div class="card">
+                        <h6 style="color: red">نام فایل مطابق زبان مورد نظر باشد (fa, en, ru, tr)</h6>
                         <div class="form-group">
                             <label for="exampleInputFile">ارسال تصاویر کاتالوگ محصول</label>
                             <div class="input-group">

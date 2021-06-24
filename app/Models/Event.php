@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'image',
+    ];
+
+    public function contents()
+    {
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('page', 'events')->where('section', 'events');
+    }
 }

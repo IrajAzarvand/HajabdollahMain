@@ -29,11 +29,7 @@
                         <div class="mr-entry-content">
                             <p>وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال</p>
                         </div>
-                        <ul class="mr-entry-meta">
-                            <li><a href="#"><i class="ti-user" aria-hidden="true"></i> سارة</a></li>
-                            <li><a href="#"><i class="ti-heart" aria-hidden="true"></i> 6 اعجاب</a></li>
-                            <li><a href="#"><i class="ti-comment-alt" aria-hidden="true"></i> 9 تعليقات</a></li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
