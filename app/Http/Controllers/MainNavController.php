@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\CertificatesAndHonors;
 use App\Models\CI;
+use App\Models\Event;
 use App\Models\Gallery;
 use App\Models\LocaleContent;
 use App\Models\MainNav;
@@ -152,22 +153,19 @@ class MainNavController extends Controller
 //            $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
 //        }
 
-        //**************************  PHOTO GALLERY ************************************************ */
-//        $GallerySectionTitle = $this->PageSectionsTitle('', 'Gallery', 0, 'section_title');
-//
-//        $Gallery = [];
-//        foreach (Gallery::with('contents')->get() as $key => $g) {
-//            $Gallery[$key]['id'] = $g->id;
-//            $Gallery[$key]['image'] = asset('storage/Main/Gallery/' . $g->id . '/' . unserialize($g->images)[0]);
-//            foreach (Locales() as $item) {
-//                $Gallery[$key]['title_' . $item['locale']] = LocaleContent::where(['page' => 'gallery', 'section' => 'gallery', 'element_id' => $g->id, 'locale' => $item['locale'], 'element_title' => 'g_title_' . $item['locale']])->pluck('element_content')[0];
-//            }
-//        }
+
 
         //**************************  LATEST NEWS *********************************************************** */
-//        $LatestNews = collect($IndexContents)->where('section', 'latestnews');
-//        $LatestNewsTitle = $LatestNews->where('element_title', 'news_title')->pluck('element_content');
-//
+
+        $Events = Event::with('contents')->orderBy('id', 'DESC')->take(3)->get();
+        $CopyrightTitle = $this->LocaleContents('Footer', 'rights', 1, 'Copyright Section');
+
+        $EventsList = [];
+        foreach ($Events as $key=>$Event) {
+            $EventsList[$key]['title'] = $this->LocaleContents('events', 'events', $Event->id, 'E_Title_'.app()->getLocale());
+            $EventsList[$key]['desc'] = $this->LocaleContents('events', 'events', $Event->id, 'E_Desc_'.app()->getLocale());
+            $EventsList[$key]['image'] =   asset('storage/Main/Events/'.$Event->image);
+        }
 
 
         return view('welcome',
@@ -201,6 +199,7 @@ class MainNavController extends Controller
                 'Sliders',
                 'PTypeList',
                 'Cat',
+                'EventsList',
 
 
             ));
