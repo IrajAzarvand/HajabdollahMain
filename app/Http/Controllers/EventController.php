@@ -15,7 +15,16 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('PageElements.Dashboard.Setting.Events');
+        $Events = Event::with(['contents' => function ($query) {
+            $query->where('locale', '=', 'fa')->where('element_title', '=', 'E_Title_fa');
+        }])->get();
+        $E_List = [];
+        foreach ($Events as $key=>$Event) {
+            $E_List[$key]['id'] = $Event->id;
+            $E_List[$key]['title'] = $Event->contents[0]->element_content;
+//            $E_List[$key]['image'] = 'public\Main\Events\\'.$Event->image;
+        }
+        return view('PageElements.Dashboard.Setting.Events',compact('E_List'));
     }
 
     /**
@@ -31,15 +40,15 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $NewEvent=new Event();
+        $NewEvent = new Event();
         $NewEvent->save();
-        $E_Id=$NewEvent->id;
-        $Contents=[];
+        $E_Id = $NewEvent->id;
+        $Contents = [];
 
         if ($request->E_Title_fa) {
             foreach (Locales() as $item) {
@@ -85,7 +94,7 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event)
@@ -96,7 +105,7 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function edit(Event $event)
@@ -107,8 +116,8 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Event  $event
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Event $event)
@@ -119,7 +128,7 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Event  $event
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function destroy(Event $event)
