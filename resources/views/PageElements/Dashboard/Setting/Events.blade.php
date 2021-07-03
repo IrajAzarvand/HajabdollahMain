@@ -170,9 +170,10 @@
         <script>
             function deleteRow(r) {
                 let token = "{{ csrf_token() }}";
+
                 $.ajax({
                     type: 'DELETE',
-                    url: '/Category/' + r,
+                    url: '/Events/' + r,
                     data: {
                         _token: token,
                         r
@@ -189,71 +190,27 @@
             function editRow(r) {
                 $.ajax({
                     type: "GET",
-                    url: '/Category/' + r + '/edit',
+                    url: '/Events/' + r + '/edit',
 
                     success: function (data) {
                         //display data...
-                        let CatId = (data['id']);
-                        $('#CategoryEditModal').find('#CatId').val(CatId);
+                        let EId = (data['id']);
+                        $('#EventEditModal').find('#EId').val(EId);
                         data['contents'].forEach(element => {
-                            $('#CategoryEditModal').find('#' + element['locale'] + 'edit').text(element['element_content']);
+                            if(element['element_title'].includes("E_Title_")){
+                                $('#EventEditModal').find('#E_Title_' + element['locale'] + 'edit').text(element['element_content']);
+                            }
+                            if(element['element_title'].includes("E_Desc_")){
+                                $('#EventEditModal').find('#E_Desc_' + element['locale'] + 'edit').text(element['element_content']);
+                            }
                         });
-                        $("#Cat_Img").attr("src", data['cat_image']);
-                        $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
-                        $('#CategoryEditModal').modal('show');
+                        $("#E_Img").attr("src", data['image']);
+                        $("#EventEditModal-form").attr("action", "/Events/" + EId);
+                        $('#EventEditModal').modal('show');
                     }
                 });
             }
         </script>
 
-
-    {{--    <script>--}}
-    {{--        function showCategory() {--}}
-    {{--            let ptypeId = document.getElementById('ptypeId').value;--}}
-    {{--            $.ajax({--}}
-    {{--                type: "GET",--}}
-    {{--                url: '/Category/' + ptypeId,--}}
-
-    {{--                success: function (data) {--}}
-
-    {{--                    // create category list--}}
-    {{--                    function createElementLi(obj) {--}}
-    {{--                        let ul_obj = document.getElementById(obj);--}}
-
-    {{--                        // Create li--}}
-    {{--                        let li_obj = document.createElement("li");--}}
-    {{--                        ul_obj.appendChild(li_obj);--}}
-
-    {{--                        //create span inside li--}}
-    {{--                        let last_li = ul_obj.lastElementChild;--}}
-    {{--                        let span_obj = document.createElement("span");--}}
-    {{--                        span_obj.setAttribute("class", "text");--}}
-    {{--                        last_li.appendChild(span_obj);--}}
-    {{--                    }--}}
-
-
-    {{--                    //show content--}}
-    {{--                    let list = '';--}}
-    {{--                    let Cat_id = '';--}}
-    {{--                    $('#CategoryList').empty();--}}
-    {{--                    data.forEach(function (entry) {--}}
-    {{--                        entry.forEach(function (childrenEntry) {--}}
-    {{--                            list = list + ' (' + childrenEntry.element_content + ') ';--}}
-    {{--                            Cat_id = childrenEntry.element_id;--}}
-    {{--                        });--}}
-    {{--                        createElementLi("CategoryList");--}}
-    {{--                        let lst_LI = document.getElementById("CategoryList").lastElementChild;--}}
-    {{--                        let spn = lst_LI.getElementsByTagName("span");--}}
-    {{--                        spn[0].innerHTML = '<a onclick="editRow(' + Cat_id + ')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow(' + Cat_id + ')"><i class="fa fa-trash-o"></i></a>' + list;--}}
-    {{--                        list = '';--}}
-    {{--                    });--}}
-
-
-    {{--                }--}}
-    {{--            });--}}
-    {{--        }--}}
-    {{--    </script>--}}
-
-
-    @include('PageElements.Dashboard.Setting.ModalEditCategory')
+    @include('PageElements.Dashboard.Setting.ModalEditEvent')
 @endsection

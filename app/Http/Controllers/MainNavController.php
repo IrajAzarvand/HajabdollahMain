@@ -140,25 +140,10 @@ class MainNavController extends Controller
             $Cat[$key]['RelatedCatalog'] = asset('storage/Main/Products/ptype' . $category->ptype_id . '/cat' . $category->id . '/products/product' . $Cat[$key]['product_id'] . '/p_catalog/' . app()->getLocale().'.jpg');
         }
 
-        //**************************  CATALOGUES ************************************************ */
-//        $CatalogSectionTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
-//
-//        //select first image of catalog for each product
-//        $CatalogItems = [];
-//        $Catalogues = ProductCatalog::all();
-//
-//        foreach ($Catalogues as $key => $C) {
-//            $P_Id = $C->product_id;
-//            $CatalogItems[$key]['id'] = $C->id;
-//            $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
-//        }
-
-
-
         //**************************  LATEST NEWS *********************************************************** */
 
         $Events = Event::with('contents')->orderBy('id', 'DESC')->take(3)->get();
-        $CopyrightTitle = $this->LocaleContents('Footer', 'rights', 1, 'Copyright Section');
+//        $CopyrightTitle = $this->LocaleContents('Footer', 'rights', 1, 'Copyright Section');
 
         $EventsList = [];
         foreach ($Events as $key=>$Event) {

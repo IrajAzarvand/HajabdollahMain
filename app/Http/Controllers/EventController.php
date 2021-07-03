@@ -17,14 +17,13 @@ class EventController extends Controller
     {
         $Events = Event::with(['contents' => function ($query) {
             $query->where('locale', '=', 'fa')->where('element_title', '=', 'E_Title_fa');
-        }])->get();
+        }])->orderBy('id', 'DESC')->get();
         $E_List = [];
-        foreach ($Events as $key=>$Event) {
+        foreach ($Events as $key => $Event) {
             $E_List[$key]['id'] = $Event->id;
             $E_List[$key]['title'] = $Event->contents[0]->element_content;
-//            $E_List[$key]['image'] = 'public\Main\Events\\'.$Event->image;
         }
-        return view('PageElements.Dashboard.Setting.Events',compact('E_List'));
+        return view('PageElements.Dashboard.Setting.Events', compact('E_List'));
     }
 
     /**
@@ -48,8 +47,8 @@ class EventController extends Controller
         $NewEvent = new Event();
         $NewEvent->save();
         $E_Id = $NewEvent->id;
-        $Contents = [];
 
+        $Contents = [];
         if ($request->E_Title_fa) {
             foreach (Locales() as $item) {
                 $Contents[] = new LocaleContent([
@@ -108,9 +107,13 @@ class EventController extends Controller
      * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($event)
     {
-        //
+        $SelectedEvent = Event::with('contents')->find($event);
+        $SelectedEvent->image = asset('storage/Main/Events/' . $SelectedEvent->image);
+
+        return $SelectedEvent;
+
     }
 
     /**
@@ -122,7 +125,27 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $Selected_Event = Event::with('contents')->find($request->input('EId'));
+
+        foreach (Locales() as $item) {
+            LocaleContent::where(['page' => 'events', 'section' => 'events', 'element_title' => 'E_Title_' . $item['locale'], 'element_id' => $request->input('EId'), 'locale' => $item['locale'],])
+                ->update(['element_content' => $request->input('E_Title_' . $item['locale'])]);
+        }
+
+        foreach (Locales() as $item) {
+            LocaleContent::where(['page' => 'events', 'section' => 'events', 'element_title' => 'E_Desc_' . $item['locale'], 'element_id' => $request->input('EId'), 'locale' => $item['locale'],])
+                ->update(['element_content' => $request->input('E_Desc_' . $item['locale'])]);
+        }
+
+
+        if ($request->hasFile('Event_New_Img')) {
+            $uploaded = $request->file('Event_New_Img');
+            $filename = $request->input('EId') . '.' . $uploaded->getClientOriginalExtension();
+            $uploaded->storeAs('public\Main\Events\\', $filename);
+            $Selected_Event->image = $filename;
+            $Selected_Event->update();
+        }
+        return redirect('/Events');
     }
 
     /**
@@ -131,8 +154,13 @@ class EventController extends Controller
      * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy($event)
     {
-        //
+        $SelectedEvent = Event::find($event);
+        $EventImagPath='storage/Main/Events/'.$SelectedEvent->image;
+        unlink($EventImagPath);
+        $SelectedEvent->contents()->delete();
+        $SelectedEvent->delete();
+        return true;
     }
 }
