@@ -1,5 +1,5 @@
 <!-- Start Contact Section -->
-<section id="contact" class="contact dir-rtl" data-scroll-index="7">
+<section id="contact" class="contact dir-rtl" data-scroll-index="4">
     <div class="part-top">
         <div class="container">
             <div class="row">

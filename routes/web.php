@@ -14,6 +14,20 @@ use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
+
+//---------- clear app cache
+Route::get('/CC', function () {
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
+    Artisan::call('storage:link');
+//    $target = '/home3/hajabdol/hajabdollah/storage/app/public';
+//    $shortcut = $_SERVER['DOCUMENT_ROOT']. '/storage';
+//    symlink($target, $shortcut);
+    echo 'cache clear done.';
+});
+
+
 Route::get('/', [MainNavController::class,'HomePage']);
 Route::get('/locale/{lang}', [MainNavController::class,'locale']);
 

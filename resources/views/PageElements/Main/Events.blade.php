@@ -1,5 +1,5 @@
 <!-- Start Events Section -->
-<section class="section-padding dir-rtl" data-scroll-index="6">
+<section class="section-padding dir-rtl" data-scroll-index="3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

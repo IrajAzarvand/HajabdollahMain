@@ -67,21 +67,21 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'Events.index',
                     'Icon' => 'fa fa-align-right',
                 ],
-                [
-                    'SubMenu' => 'گالری تصاویر',
-                    'Url' => 'Gallery.index',
-                    'Icon' => 'fa fa-picture-o',
-                ],
+//                [
+//                    'SubMenu' => 'گالری تصاویر',
+//                    'Url' => 'Gallery.index',
+//                    'Icon' => 'fa fa-picture-o',
+//                ],
                 [
                     'SubMenu' => 'دفاتر فروش',
                     'Url' => 'SO.index',
                     'Icon' => 'fa fa-building-o',
                 ],
-                [
-                    'SubMenu' => 'پیام ها',
-                    'Url' => 'CUMessages.index',
-                    'Icon' => 'fa fa-comments-o',
-                ],
+//                [
+//                    'SubMenu' => 'پیام ها',
+//                    'Url' => 'CUMessages.index',
+//                    'Icon' => 'fa fa-comments-o',
+//                ],
             ]
         ];
 
